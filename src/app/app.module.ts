@@ -13,6 +13,7 @@ import {
   GoabColumnLayout,
   GoabMicrositeHeader
 } from '@abgov/angular-components';
+import {FilterChipExamplesComponent} from "src/app/filter-chip/filter-chip-examples.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {
     GoabMicrositeHeader,
     GoabAppHeader,
     GoabAppFooter,
+    FilterChipExamplesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
