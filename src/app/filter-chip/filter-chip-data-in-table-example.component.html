@@ -1,0 +1,63 @@
+
+<goa-form-item id="filterChipInput" [error]="inputError" mb="m">
+  <goa-block gap="xs" direction="row" alignment="start">
+    <goa-input
+      name="filterChipInput"
+      aria-labelledby="filterChipInput"
+      [value]="inputValue"
+      maxlength="100"
+      size="large"
+      leadingIcon="search"
+      (_change)="handleInputChange($event)"
+      (keydown)="handleInputKeyPress($event)"
+    ></goa-input>
+
+    <goa-button
+      type="secondary"
+      (_click)="applyFilter()"
+      leadingIcon="filter"
+    >
+      Filter
+    </goa-button>
+  </goa-block>
+</goa-form-item>
+
+<ng-container *ngIf="typedChips.length > 0">
+  <goa-text as="span" color="secondary" mb="xs" mr="xs">
+    Filter:
+  </goa-text>
+  <goa-filter-chip
+    *ngFor="let typedChip of typedChips; let index = index"
+    [content]="typedChip"
+    mb="xs"
+    mr="xs"
+    (_click)="removeTypedChip(typedChip)"
+  ></goa-filter-chip>
+  <goa-button type="tertiary" size="compact" mb="xs" (_click)="removeAllTypedChips()">
+    Clear all
+  </goa-button>
+</ng-container>
+
+<goa-table width="100%">
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Name</th>
+    <th className="goa-table-number-header">ID Number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of dataFiltered">
+    <td>
+      <goa-badge [type]="item.status.type" [content]="item.status.text"></goa-badge>
+    </td>
+    <td>{{ item.name }}</td>
+    <td className="goa-table-number-column">{{ item.id }}</td>
+  </tr>
+  </tbody>
+</goa-table>
+
+<goa-block mt="l" mb="l" *ngIf="dataFiltered.length === 0 && data.length > 0">
+  No results found
+</goa-block>
+

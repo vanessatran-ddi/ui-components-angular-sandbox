@@ -1,0 +1,22 @@
+
+<goa-form-item label="Type to create a chip" mb="m">
+  <goa-input
+    id="chipInput"
+    [value]="inputValue"
+    (_change)="handleInputChange($event)"
+    (keydown)="handleInputKeyPress($event)"
+    width="100%"
+  >
+  </goa-input>
+</goa-form-item>
+<div *ngIf="typedChips.length > 0">
+  <goa-filter-chip
+    *ngFor="let typedChip of typedChips"
+    [content]="typedChip"
+    mb="xs"
+    mr="xs"
+    (_click)="removeTypedChip(typedChip)"
+  >
+  </goa-filter-chip>
+</div>
+
