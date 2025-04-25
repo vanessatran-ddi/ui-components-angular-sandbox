@@ -18,6 +18,10 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
+    "preserveSymlinks": true,
+    "paths": {
+      "@abgov/ui-components-common": ["node_modules/@abgov/ui-components-common"]
+    },
     "lib": [
       "es2020",
       "dom"
