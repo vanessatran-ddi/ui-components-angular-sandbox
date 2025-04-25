@@ -1,4 +1,4 @@
-<goab-column-layout>
+<div>
   <section slot="header">
     <goab-microsite-header
       type="beta"
@@ -6,16 +6,28 @@
       feedbackUrl="https://github.com/GovAlta/ui-components/issues/new/choose">
     </goab-microsite-header>
     <goab-app-header url="/" heading="Design system templates" maxContentWidth="100%">
+      <a href="/get-started">Get started
+      </a>
+      <a href="/patterns">Patterns and templates</a>
+      <a href="/components">Components</a>
+      <a href="/design-tokens">Styles</a>
+      <a href="/content/capitalization">Content</a>
+      <a href="/support">Support</a>
+      <a href="https://github.com/GovAlta/ui-components/issues/new/choose" target="_blank">
+        Report a bug
+      </a>
+      <a href="#">Support</a>
+      <goa-app-header-menu heading="Tickets" leadingIcon="ticket">
+        <a href="#">Cases</a>
+        <a href="#">Payments</a>
+        <a href="#">Outstanding</a>
+      </goa-app-header-menu>
+      <a href="#" className="interactive">Sign in</a>
     </goab-app-header>
   </section>
 
   <goa-page-block width="100%">
-   <!-- Write your code here -->
-    <app-filter-chip-examples></app-filter-chip-examples>
-
-
-
-
+    <router-outlet></router-outlet>
   </goa-page-block>
 
   <section slot="footer">
@@ -33,4 +45,4 @@
       </goab-app-footer-meta-section>
     </goab-app-footer>
   </section>
-</goab-column-layout>
+</div>

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {FilterChipExamplesComponent} from "./filter-chip/filter-chip-examples.component";
 
 const routes: Routes = [
-  // { path: 'home', component: HomeComponent },
+  { path: "filter-chip", component: FilterChipExamplesComponent},
 ];
 
 @NgModule({
