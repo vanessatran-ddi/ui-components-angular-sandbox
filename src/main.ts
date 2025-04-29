@@ -6,7 +6,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, Routes } from '@angular/router';
 import '@abgov/web-components';
 import { FilterChipExamplesComponent } from './app/filter-chip/filter-chip-examples.component';
-import {ModalComponent} from "src/app/modal/modal.component";
+import {ModalComponent} from "./app/modal/modal.component";
+import {SimpleDatePickerComponent} from "./app/date-picker/simple-date-picker.component";
 
 if (environment.production) {
   enableProdMode();
@@ -14,7 +15,7 @@ if (environment.production) {
 
 const routes: Routes = [
   { path: 'filter-chip', component: FilterChipExamplesComponent },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'date-picker', component: SimpleDatePickerComponent},
   { path: 'modal', component: ModalComponent},
 ];
 

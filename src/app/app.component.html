@@ -1,11 +1,7 @@
-<div>
+<goa-two-column-layout maxcontentwidth="1400px" navcolumnwidth="30ch">
   <section slot="header">
-    <goab-microsite-header
-      type="beta"
-      version="Angular 1.0"
-      feedbackUrl="https://github.com/GovAlta/ui-components/issues/new/choose">
-    </goab-microsite-header>
-    <goab-app-header url="/" heading="Design system templates" maxContentWidth="100%">
+    <goa-microsite-header type="alpha" level="alpha" version="UAT"></goa-microsite-header>
+    <goa-app-header heading="Design Systems" maxcontentwidth="1500px" [fullmenubreakpoint]="1700">
       <a href="/get-started">Get started
       </a>
       <a href="/patterns">Patterns and templates</a>
@@ -23,26 +19,21 @@
         <a href="#">Outstanding</a>
       </goa-app-header-menu>
       <a href="#" className="interactive">Sign in</a>
-    </goab-app-header>
+    </goa-app-header>
   </section>
 
-  <goa-page-block width="100%">
+  <section slot="nav">
+    <goab-side-menu>
+<!--      <goab-side-menu-group heading="Bugs">-->
+
+<!--      </goab-side-menu-group>-->
+      <goab-side-menu-group heading="Components">
+        <a routerLink="/date-picker">Date picker</a>
+      </goab-side-menu-group>
+    </goab-side-menu>
+  </section>
+  <div class="container">
     <router-outlet></router-outlet>
-  </goa-page-block>
-
-  <section slot="footer">
-    <goab-app-footer maxContentWidth="100%">
-      <goab-app-footer-meta-section slot="meta">
-        <a href="https://goa-dio.slack.com/archives/C02PLLT9HQ9">
-          Get help
-        </a>
-        <a href="https://goa-dio.atlassian.net/wiki/spaces/DS/pages/2342813697/Design+System+Drop-in+hours">
-          Drop-in Hours
-        </a>
-        <a href="https://github.com/GovAlta/ui-components/issues/new/choose">
-          Contribute
-        </a>
-      </goab-app-footer-meta-section>
-    </goab-app-footer>
-  </section>
-</div>
+  </div>
+  <goa-app-footer slot="footer" maxcontentwidth="1400px"></goa-app-footer>
+</goa-two-column-layout>

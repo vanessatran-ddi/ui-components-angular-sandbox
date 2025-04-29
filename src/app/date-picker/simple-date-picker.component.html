@@ -1,0 +1,18 @@
+<goab-form-item
+  label="Form Label"
+  requirement="required"
+  labelSize="large"
+  helpText="Some helper text"
+  error="An error message"
+>
+  <goab-date-picker
+    min="Sat Feb 01 2025 00:00:00 GMT-0700 (Mountain Standard Time)"
+    max="Fri Feb 28 2025 00:00:00 GMT-0700 (Mountain Standard Time)"
+    [error]="true"
+    [disabled]="false"
+    name="item"
+    value="Tue Feb 04 2025 14:07:43 GMT-0700 (Mountain Standard Time)"
+    (onChange)="dateOnChange($event)"
+    width="40rem"
+  ></goab-date-picker>
+</goab-form-item>

@@ -4,7 +4,7 @@ import {
   GoabAppFooterMetaSection,
   GoabAppHeader,
   GoabColumnLayout,
-  GoabMicrositeHeader,
+  GoabMicrositeHeader, GoabSideMenu, GoabSideMenuGroup,
 } from "@abgov/angular-components";
 import {FilterChipExamplesComponent} from "src/app/filter-chip/filter-chip-examples.component";
 import {RouterOutlet} from "@angular/router";
@@ -20,7 +20,9 @@ import {RouterOutlet} from "@angular/router";
     GoabAppHeader,
     GoabAppFooter,
     GoabAppFooterMetaSection,
-    RouterOutlet
+    RouterOutlet,
+    GoabSideMenu,
+    GoabSideMenuGroup
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
