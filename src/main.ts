@@ -6,6 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, Routes } from '@angular/router';
 import '@abgov/web-components';
 import { FilterChipExamplesComponent } from './app/filter-chip/filter-chip-examples.component';
+import {ModalComponent} from "src/app/modal/modal.component";
 
 if (environment.production) {
   enableProdMode();
@@ -13,7 +14,8 @@ if (environment.production) {
 
 const routes: Routes = [
   { path: 'filter-chip', component: FilterChipExamplesComponent },
-  { path: '', redirectTo: '/filter-chip', pathMatch: 'full' }
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'modal', component: ModalComponent},
 ];
 
 bootstrapApplication(AppComponent, {
