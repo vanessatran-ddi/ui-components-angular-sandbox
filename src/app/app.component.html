@@ -10,8 +10,51 @@
   </section>
 
   <goa-page-block width="100%">
-    <!-- Write your content here -->
-    <app-filter-chip-examples></app-filter-chip-examples>
+    <goa-block gap="m" direction="column">
+      <goa-form-item label="Full Name" mb="xl">
+        <goa-input
+          name="fullName"
+          [value]="fullName"
+          type="text"
+          textAlign="left"
+          width="100%"
+          (_change)="onChange($event)"
+        ></goa-input>
+      </goa-form-item>
+
+      <goa-form-item label="Account Number" helpText="This input is right aligned." mb="xl">
+        <goa-input
+          name="accountNumber"
+          [value]="accountNumber"
+          textAlign="right"
+          width="15ch"
+          (_change)="onChange($event)"
+        ></goa-input>
+      </goa-form-item>
+
+      <goa-form-item label="Price" helpText="The input number component is right aligned by default." mb="xl">
+        <goa-input-number
+          name="price"
+          [value]="price"
+          width="7ch"
+          (_change)="onChange($event)"
+        >
+          <div slot="trailingContent">
+            <span [style.white-space]="'nowrap'">per item</span>
+          </div>
+        </goa-input-number>
+      </goa-form-item>
+
+      <goa-form-item label="Quantity" helpText="You can set a number input to be left aligned." mb="xl">
+        <goa-input-number
+          name="quantity"
+          [value]="quantity"
+          textAlign="left"
+          width="7ch"
+          (_change)="onChange($event)"
+        ></goa-input-number>
+      </goa-form-item>
+    </goa-block>
   </goa-page-block>
 
   <section slot="footer">
