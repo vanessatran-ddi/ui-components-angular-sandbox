@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,11 @@ export class AppComponent {
   accountNumber: string = "";
   price: string = "";
   quantity: string = "";
+
+  fullNameFormCtrl = new FormControl("");
+  accountNumberFormCtrl = new FormControl("");
+  priceFormCtrl = new FormControl("");
+  quantityFormCtrl = new FormControl("");
 
   onChange(event: Event) {
     const customEvent = event as CustomEvent;
