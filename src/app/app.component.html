@@ -11,7 +11,49 @@
 
   <goa-page-block width="100%">
    <!-- Write your code here -->
+    <form [formGroup]="form">
+      <goab-block gap="m" direction="column">
+        <goab-form-item label="Full Name" mb="xl">
+          <goab-input
+            name="fullName"
+            formControlName="fullName"
+            type="text"
+            textAlign="left"
+            width="100%"
+          ></goab-input>
+        </goab-form-item>
 
+        <goab-form-item label="Account Number" helpText="This input is right aligned." mb="xl">
+          <goab-input
+            name="accountNumber"
+            formControlName="accountNumber"
+            textAlign="right"
+            width="15ch"
+          ></goab-input>
+        </goab-form-item>
+
+        <goab-form-item label="Price" helpText="The input number component is right aligned by default." mb="xl">
+          <goab-input-number
+            name="price"
+            formControlName="price"
+            width="7ch"
+          >
+            <div slot="trailingContent">
+              <span [style.white-space]="'nowrap'">per item</span>
+            </div>
+          </goab-input-number>
+        </goab-form-item>
+
+        <goab-form-item label="Quantity" helpText="You can set a number input to be left aligned." mb="xl">
+          <goab-input-number
+            name="quantity"
+            formControlName="quantity"
+            textAlign="left"
+            width="7ch"
+          ></goab-input-number>
+        </goab-form-item>
+      </goab-block>
+    </form>
 
 
 

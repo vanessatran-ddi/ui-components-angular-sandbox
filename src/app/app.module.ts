@@ -9,8 +9,8 @@ import '@abgov/web-components';
 import {
   AngularComponentsModule,
   GoabAppFooter,
-  GoabAppHeader,
-  GoabColumnLayout,
+  GoabAppHeader, GoabBlock,
+  GoabColumnLayout, GoabFormItem, GoabInput, GoabInputNumber,
   GoabMicrositeHeader
 } from '@abgov/angular-components';
 
@@ -28,6 +28,10 @@ import {
     GoabMicrositeHeader,
     GoabAppHeader,
     GoabAppFooter,
+    GoabBlock,
+    GoabFormItem,
+    GoabInput,
+    GoabInputNumber,
   ],
   providers: [],
   bootstrap: [AppComponent],
