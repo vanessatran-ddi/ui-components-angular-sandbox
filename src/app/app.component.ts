@@ -7,13 +7,4 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  form!: FormGroup;
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      fullName: [''],
-      accountNumber: [''],
-      price: [''],
-      quantity: [''],
-    });
-  }
 }

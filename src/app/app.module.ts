@@ -11,7 +11,7 @@ import {
   GoabAppFooter,
   GoabAppHeader, GoabBlock,
   GoabColumnLayout, GoabFormItem, GoabInput, GoabInputNumber,
-  GoabMicrositeHeader
+  GoabMicrositeHeader, GoabButton, GoabPopover, GoabIconButton
 } from '@abgov/angular-components';
 
 @NgModule({
@@ -32,6 +32,9 @@ import {
     GoabFormItem,
     GoabInput,
     GoabInputNumber,
+    GoabPopover,
+    GoabButton,
+    GoabIconButton
   ],
   providers: [],
   bootstrap: [AppComponent],
