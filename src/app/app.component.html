@@ -10,8 +10,40 @@
   </section>
 
   <goa-page-block width="100%">
-    <!-- Write your content here -->
-    <app-filter-chip-examples></app-filter-chip-examples>
+    <goa-table (_sort)="handleSort($event)" width="100%">
+      <thead>
+      <tr>
+        <th>
+          <goa-table-sort-header name="firstName">
+            First name
+          </goa-table-sort-header>
+        </th>
+        <th>
+          <goa-table-sort-header name="lastName">
+            Last name
+          </goa-table-sort-header>
+        </th>
+        <th>
+          <goa-table-sort-header name="age" direction="asc">
+            Age
+          </goa-table-sort-header>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>
+          {{ user.firstName }}
+        </td>
+        <td>
+          {{ user.lastName }}
+        </td>
+        <td>
+          {{ user.age }}
+        </td>
+      </tr>
+      </tbody>
+    </goa-table>
   </goa-page-block>
 
   <section slot="footer">
