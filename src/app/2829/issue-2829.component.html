@@ -1,0 +1,207 @@
+<h2>Issue #2829: Modal AlertDialog Focus and Screen Reader Fix</h2>
+
+<div style="display: flex; gap: 1rem; margin: 1rem 0;">
+  <goab-button (onClick)="openAlertDialog()">Show AlertDialog Modal</goab-button>
+  <goab-button (onClick)="openDialog()">Show Regular Dialog Modal</goab-button>
+</div>
+
+<goab-modal heading="Industry Description" [open]="openAlertDialogModal" maxWidth="60%" role="alertdialog" (onClose)="closeAlertDialog()" [closable]="true">
+<strong>This industry is made up of two major sub-industries:</strong>
+<ol>
+  <li>Wholesale trade</li>
+  <li>Retail trade</li>
+</ol>
+<strong>Wholesale trade</strong>
+<p>
+  This industry comprises establishments primarily engaged in wholesaling
+  merchandise. The wholesaling process is an intermediate step in the
+  distribution of goods. Many wholesalers are organized to sell
+  merchandise in large quantities to retailers, and business and
+  institutional clients.
+</p>
+<p>
+  Subsectors include wholesalers of, farm products, petroleum, petroleum
+  products, and other hydrocarbons, food, beverage and tobacco, motor
+  vehicle and motor vehicle parts and accessories, building material and
+  supplies, machinery, equipment, and supplies.
+</p>
+<strong>Retail trade</strong>
+<p>
+  This industry comprises establishments primarily engaged in retailing
+  merchandise. The retailing process is the final step in the distribution
+  of merchandise; retailers are therefore organized to sell merchandise in
+  small quantities to the general public. Internet retail, direct selling,
+  and mail-order retail are not separately classified from traditional
+  in-store (also known as "brick and mortar") retail. Units that engage in
+  retailing by any of these methods are classified based on the type of
+  goods sold. Meanwhile, vending machine operators are grouped width
+  convenience retailers.
+</p>
+  <p>
+    Another paragraph to make this modal longer: This industry comprises establishments primarily engaged in retailing
+    merchandise. The retailing process is the final step in the distribution
+    of merchandise; retailers are therefore organized to sell merchandise in
+    small quantities to the general public. Internet retail, direct selling,
+    and mail-order retail are not separately classified from traditional
+    in-store (also known as "brick and mortar") retail. Units that engage in
+    retailing by any of these methods are classified based on the type of
+    goods sold. Meanwhile, vending machine operators are grouped width
+    convenience retailers.
+  </p>
+<p>
+  Subsectors include retailers and dealers of, motor vehicles and parts,
+  building materials and garden equipment and supplies, food and beverage,
+  furniture, home furnishings, electronics and appliances and general
+  merchandise, health and personal care, gasoline stations and fuel,
+  clothing, clothing accessories, shoes, jewelry, luggage and leather
+  goods, sporting goods, hobby, musical instrument, book, and
+  miscellaneous retailers.
+</p>
+  <p style="margin-top: 3rem; margin-bottom: 0.5rem;">
+For more information please see:
+</p>
+<p style="margin-bottom: 0">
+<a
+  href="/"
+  target="_blank"
+>
+  Wholesale trade (NAICS - 41) - Statistics Canada
+  <goab-icon type="open" size="small" />
+</a>
+<br />
+<a
+  href="/"
+  target="_blank"
+>
+  Retail Trade (NAICS - 44-45) - Statistics Canada
+  <goab-icon type="open" size="small" />
+</a>
+</p>
+
+</goab-modal>
+
+<goab-modal heading="Industry Description (Regular Dialog)" [open]="openDialogModal" maxWidth="60%" role="dialog" (onClose)="closeDialog()" [closable]="true">
+<strong>This industry is made up of two major sub-industries:</strong>
+<ol>
+  <li>Wholesale trade</li>
+  <li>Retail trade</li>
+</ol>
+<strong>Wholesale trade</strong>
+<p>
+  This industry comprises establishments primarily engaged in wholesaling
+  merchandise. The wholesaling process is an intermediate step in the
+  distribution of goods. Many wholesalers are organized to sell
+  merchandise in large quantities to retailers, and business and
+  institutional clients.
+</p>
+<p>
+  Subsectors include wholesalers of, farm products, petroleum, petroleum
+  products, and other hydrocarbons, food, beverage and tobacco, motor
+  vehicle and motor vehicle parts and accessories, building material and
+  supplies, machinery, equipment, and supplies.
+</p>
+<strong>Retail trade</strong>
+<p>
+  This industry comprises establishments primarily engaged in retailing
+  merchandise. The retailing process is the final step in the distribution
+  of merchandise; retailers are therefore organized to sell merchandise in
+  small quantities to the general public. Internet retail, direct selling,
+  and mail-order retail are not separately classified from traditional
+  in-store (also known as "brick and mortar") retail. Units that engage in
+  retailing by any of these methods are classified based on the type of
+  goods sold. Meanwhile, vending machine operators are grouped width
+  convenience retailers.
+</p>
+<p>
+  Subsectors include retailers and dealers of, motor vehicles and parts,
+  building materials and garden equipment and supplies, food and beverage,
+  furniture, home furnishings, electronics and appliances and general
+  merchandise, health and personal care, gasoline stations and fuel,
+  clothing, clothing accessories, shoes, jewelry, luggage and leather
+  goods, sporting goods, hobby, musical instrument, book, and
+  miscellaneous retailers.
+</p>
+
+  <p>
+    Another paragraph to make this modal longer: This industry comprises establishments primarily engaged in retailing
+    merchandise. The retailing process is the final step in the distribution
+    of merchandise; retailers are therefore organized to sell merchandise in
+    small quantities to the general public. Internet retail, direct selling,
+    and mail-order retail are not separately classified from traditional
+    in-store (also known as "brick and mortar") retail. Units that engage in
+    retailing by any of these methods are classified based on the type of
+    goods sold. Meanwhile, vending machine operators are grouped width
+    convenience retailers.
+  </p>
+  <p style="margin-top: 3rem; margin-bottom: 0.5rem;">
+For more information please see:
+</p>
+<p style="margin-bottom: 0">
+<a
+  href="/"
+  target="_blank"
+>
+  Wholesale trade (NAICS - 41) - Statistics Canada
+  <goab-icon type="open" size="small" />
+</a>
+<br />
+<a
+  href="/"
+  target="_blank"
+>
+  Retail Trade (NAICS - 44-45) - Statistics Canada
+  <goab-icon type="open" size="small" />
+</a>
+</p>
+
+</goab-modal>
+
+
+<goab-button type="tertiary" leadingIcon="add" (onClick)="toggleModal()">Add another item (Regular Modal)</goab-button>
+<goab-modal [open]="open" role="dialog"
+            (onClose)="toggleModal()" heading="Add a new item" [actions]="actions">
+  <p>Fill in the information to create a new item</p>
+  <goab-form-item label="Type" mt="xs">
+    <goab-dropdown (onChange)="updateType($event)" [value]="type">
+      <goab-dropdown-item value="1" label="Option 1"></goab-dropdown-item>
+      <goab-dropdown-item value="2" label="Option 2"></goab-dropdown-item>
+    </goab-dropdown>
+  </goab-form-item>
+  <goab-form-item label="Name" mt="xs">
+    <goab-input name="name" (onChange)="updateName($event)" [value]="name"></goab-input>
+  </goab-form-item>
+  <goab-form-item label="Description" mt="xs">
+    <goab-textarea name="description" width="80%" [rows]="2" (onChange)="updateDescription($event)" [value]="description"></goab-textarea>
+  </goab-form-item>
+  <ng-template #actions>
+    <goab-button-group alignment="end">
+      <goab-button type="tertiary" (onClick)="toggleModal()">Cancel</goab-button>
+      <goab-button type="primary" (onClick)="toggleModal()">Save new item</goab-button>
+    </goab-button-group>
+  </ng-template>
+</goab-modal>
+
+
+<goab-button type="tertiary" leadingIcon="add" (onClick)="openModal1()">Add another item (Alert Modal)</goab-button>
+<goab-modal [open]="open1" role="alertdialog"
+            (onClose)="closeModal1()" heading="Add a new item" [actions]="actions1">
+  <p>Fill in the information to create a new item</p>
+  <goab-form-item label="Type" mt="xs">
+    <goab-dropdown (onChange)="updateType1($event)" [value]="type1">
+      <goab-dropdown-item value="1" label="Option 1"></goab-dropdown-item>
+      <goab-dropdown-item value="2" label="Option 2"></goab-dropdown-item>
+    </goab-dropdown>
+  </goab-form-item>
+  <goab-form-item label="Name" mt="xs">
+    <goab-input name="name" (onChange)="updateName1($event)" [value]="name1"></goab-input>
+  </goab-form-item>
+  <goab-form-item label="Description" mt="xs">
+    <goab-textarea name="description" width="80%" [rows]="2" (onChange)="updateDescription1($event)" [value]="description1"></goab-textarea>
+  </goab-form-item>
+  <ng-template #actions1>
+    <goab-button-group alignment="end">
+      <goab-button type="tertiary" (onClick)="closeModal1()">Cancel</goab-button>
+      <goab-button type="primary" (onClick)="closeModal1()">Save new item</goab-button>
+    </goab-button-group>
+  </ng-template>
+</goab-modal>
