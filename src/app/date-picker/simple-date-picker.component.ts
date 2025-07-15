@@ -1,5 +1,11 @@
 import { Component } from "@angular/core";
-import {GoabDatePicker, GoabDatePickerOnChangeDetail, GoabFormItem} from "@abgov/angular-components";
+import {
+  GoabBlock,
+  GoabDatePicker,
+  GoabDatePickerOnChangeDetail,
+  GoabFormItem,
+  GoabText
+} from "@abgov/angular-components";
 
 @Component({
   selector: "app-simple-date-picker",
@@ -7,12 +13,26 @@ import {GoabDatePicker, GoabDatePickerOnChangeDetail, GoabFormItem} from "@abgov
   standalone: true,
   imports: [
     GoabFormItem,
-    GoabDatePicker
+    GoabDatePicker,
+    GoabBlock,
+    GoabText
   ]
 })
 export class SimpleDatePickerComponent {
-  value: Date|undefined = new Date();
-  dateOnChange(event: GoabDatePickerOnChangeDetail) {
-    this.value = event.value as Date;
+  // Calculate min and max dates (one month before and after today)
+  today = new Date();
+  minDate = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth() - 1,
+    this.today.getDate(),
+  );
+  maxDate = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth() + 1,
+    this.today.getDate(),
+  );
+
+  handleDateChange(detail: GoabDatePickerOnChangeDetail): void {
+    console.log("DatePicker onChange event:", detail);
   }
 }
