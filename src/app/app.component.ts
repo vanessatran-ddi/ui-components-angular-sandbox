@@ -6,8 +6,9 @@ import {
   GoabColumnLayout,
   GoabMicrositeHeader, GoabSideMenu, GoabSideMenuGroup,
 } from "@abgov/angular-components";
-import {FilterChipExamplesComponent} from "src/app/filter-chip/filter-chip-examples.component";
+import {FilterChipExamplesComponent} from "./filter-chip/filter-chip-examples.component";
 import {RouterOutlet} from "@angular/router";
+import {SimpleDatePickerComponent} from "src/app/date-picker/simple-date-picker.component";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ import {RouterOutlet} from "@angular/router";
     GoabAppFooterMetaSection,
     RouterOutlet,
     GoabSideMenu,
-    GoabSideMenuGroup
+    GoabSideMenuGroup,
+    SimpleDatePickerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
