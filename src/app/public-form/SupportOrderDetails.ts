@@ -6,7 +6,6 @@ import {
   requiredValidator,
 } from "@abgov/angular-components";
 import { CommonModule } from "@angular/common";
-import { PublicFormController } from "@abgov/ui-components-common";
 
 type Page =
   | "what-is-your-role"

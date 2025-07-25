@@ -10,9 +10,9 @@
   },
   "private": true,
   "dependencies": {
-    "@abgov/angular-components": "3.2.2",
-    "@abgov/web-components": "1.35.1",
-    "@abgov/ui-components-common": "1.5.0",
+    "@abgov/angular-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/angular-components",
+    "@abgov/ui-components-common": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/common",
+    "@abgov/web-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/web-components",
     "@angular/animations": "^17.2.3",
     "@angular/common": "^17.2.3",
     "@angular/compiler": "^17.2.3",
