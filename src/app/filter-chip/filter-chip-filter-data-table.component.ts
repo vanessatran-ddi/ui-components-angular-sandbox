@@ -12,21 +12,20 @@ import {
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: "app-filter-chip-filter-data-table",
-  templateUrl: "./filter-chip-filter-data-table.component.html",
-  imports: [
-    GoabFormItem,
-    GoabBlock,
-    GoabInput,
-    GoabButton,
-    NgIf,
-    GoabFilterChip,
-    NgForOf,
-    GoabTable,
-    GoabBadge
-  ],
-  standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    selector: "app-filter-chip-filter-data-table",
+    templateUrl: "./filter-chip-filter-data-table.component.html",
+    imports: [
+        GoabFormItem,
+        GoabBlock,
+        GoabInput,
+        GoabButton,
+        NgIf,
+        GoabFilterChip,
+        NgForOf,
+        GoabTable,
+        GoabBadge
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FilterChipFilterDataTableComponent {
   typedChips: string[] = [];

@@ -10,20 +10,19 @@ import {FilterChipExamplesComponent} from "src/app/filter-chip/filter-chip-examp
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  standalone: true,
-  imports: [
-    GoabColumnLayout,
-    GoabMicrositeHeader,
-    GoabAppHeader,
-    GoabAppFooter,
-    GoabAppFooterMetaSection,
-    RouterOutlet,
-    GoabSideMenu,
-    GoabSideMenuGroup
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [
+        GoabColumnLayout,
+        GoabMicrositeHeader,
+        GoabAppHeader,
+        GoabAppFooter,
+        GoabAppFooterMetaSection,
+        RouterOutlet,
+        GoabSideMenu,
+        GoabSideMenuGroup
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {}
