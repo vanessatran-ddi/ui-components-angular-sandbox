@@ -1,0 +1,202 @@
+/* Popover Styles - Following Alberta Design System */
+
+/* Section Styling */
+section {
+  border-bottom: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* Popover Content Styling */
+goab-popover [slot="content"] {
+  max-width: 320px;
+  padding: 1rem;
+}
+
+goab-popover [slot="content"] h3,
+goab-popover [slot="content"] h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--goa-color-text-default, #333);
+  font-weight: 600;
+}
+
+goab-popover [slot="content"] p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: var(--goa-color-text-default, #333);
+}
+
+goab-popover [slot="content"] ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+goab-popover [slot="content"] li {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Multiple Popovers Layout */
+.popover-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Form Context Styling */
+label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--goa-color-text-default, #333);
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid var(--goa-color-greyscale-400, #ced4da);
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--goa-color-interactive-default, #0070C4);
+  box-shadow: 0 0 0 2px rgba(0, 112, 196, 0.2);
+}
+
+/* Checkbox and Radio Styling */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--goa-color-interactive-default, #0070C4);
+  margin-right: 0.5rem;
+}
+
+/* Grid Layout for Settings */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Status Box Styling */
+.status-box {
+  padding: 0.75rem;
+  background-color: var(--goa-color-status-info-light, #e7f3ff);
+  border-radius: 4px;
+  border-left: 4px solid var(--goa-color-status-info, #0070C4);
+  margin: 1rem 0;
+}
+
+.warning-box {
+  padding: 0.5rem;
+  background-color: var(--goa-color-status-warning-light, #fff3cd);
+  border-radius: 4px;
+  border-left: 4px solid var(--goa-color-status-warning, #856404);
+  font-size: 0.9rem;
+}
+
+/* Icon Button Positioning */
+.close-icon-button {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  z-index: 1;
+}
+
+/* Interactive Elements */
+.form-help-trigger {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Content Sections */
+.content-section {
+  margin: 1rem 0;
+}
+
+.content-section:first-child {
+  margin-top: 0;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+/* List Styling within Popovers */
+.popover-list {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.popover-list li {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Button Groups in Popovers */
+.popover-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  goab-popover [slot="content"] {
+    max-width: 280px;
+  }
+  
+  .popover-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  section {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Accessibility Enhancements */
+.popover-trigger:focus-visible {
+  outline: 2px solid var(--goa-color-interactive-default, #0070C4);
+  outline-offset: 2px;
+}
+
+/* Animation Support */
+@media (prefers-reduced-motion: no-preference) {
+  goab-popover [slot="content"] {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  input[type="text"],
+  input[type="number"] {
+    border-width: 2px;
+  }
+  
+  .status-box,
+  .warning-box {
+    border-left-width: 6px;
+  }
+}

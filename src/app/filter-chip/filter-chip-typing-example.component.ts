@@ -1,18 +1,16 @@
 import {Component} from "@angular/core";
 import {GoabInputOnChangeDetail, GoabInputOnKeyPressDetail} from "@abgov/ui-components-common";
 import {GoabFilterChip, GoabFormItem, GoabInput} from "@abgov/angular-components";
-import {NgForOf, NgIf} from "@angular/common";
+
 
 @Component({
     selector: 'app-filter-chip-typing-example',
     templateUrl: './filter-chip-typing-example.component.html',
     imports: [
-        GoabFilterChip,
-        NgIf,
-        NgForOf,
-        GoabInput,
-        GoabFormItem
-    ]
+    GoabFilterChip,
+    GoabInput,
+    GoabFormItem
+]
 })
 export class FilterChipTypingExampleComponent {
   typedChips: string[] = [];

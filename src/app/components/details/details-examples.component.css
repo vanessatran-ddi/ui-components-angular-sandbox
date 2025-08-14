@@ -1,0 +1,145 @@
+/* Back Link Styles */
+a.back-link::before {
+  content: "";
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  vertical-align: middle;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 2 22 22" fill="none" stroke="%230070C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>') center center no-repeat;
+}
+
+a.back-link:visited::before,
+a.back-link:hover::before {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 2 22 22" fill="none" stroke="%23004f84" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>') center center no-repeat;
+}
+
+a.back-link {
+  margin-top: var(--goa-space-m);
+  color: var(--goa-color-interactive-default, #0070C4);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+a.back-link:hover {
+  color: var(--goa-color-interactive-hover, #004f84);
+  text-decoration: underline;
+}
+
+/* Form Section Spacing */
+section {
+  border-bottom: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+  padding-bottom: 2rem;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* List Styles */
+.goa-unordered-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.goa-unordered-list li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+/* Cheque Example Styles */
+.cheque-example {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.cheque-mockup {
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  font-family: 'Courier New', monospace;
+  max-width: 400px;
+  width: 100%;
+}
+
+.cheque-header {
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #666;
+  margin-bottom: 1rem;
+}
+
+.cheque-line {
+  margin: 0.75rem 0;
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.25rem;
+}
+
+.cheque-bottom {
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #666;
+}
+
+.bank-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.bank-number-highlight {
+  background-color: #ffeb3b;
+  padding: 0.125rem 0.25rem;
+  border-radius: 2px;
+}
+
+.transit-number-highlight {
+  background-color: #81c784;
+  padding: 0.125rem 0.25rem;
+  border-radius: 2px;
+}
+
+.account-number-highlight {
+  background-color: #64b5f6;
+  padding: 0.125rem 0.25rem;
+  border-radius: 2px;
+}
+
+/* Form Item Spacing */
+goab-form-item {
+  margin-bottom: 1rem;
+}
+
+/* Input Width Overrides */
+goab-input[width="88px"] {
+  max-width: 88px;
+}
+
+goab-input[width="143px"] {
+  max-width: 143px;
+}
+
+/* Details Component Styling */
+goab-details {
+  margin: 1rem 0;
+}
+
+/* Button Spacing */
+goab-button {
+  margin-top: 1rem;
+}
+
+/* Block Component Styling */
+goab-block > div {
+  margin-bottom: 1rem;
+}
+
+goab-block > div:last-child {
+  margin-bottom: 0;
+}

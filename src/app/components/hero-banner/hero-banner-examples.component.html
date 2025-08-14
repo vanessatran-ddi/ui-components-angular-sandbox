@@ -1,0 +1,128 @@
+<h1>Hero Banner Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different hero banner patterns and use cases.</p>
+
+<!-- Example 1: Business Support (From Alberta Design System) -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Supporting Businesses (Original Example)</h2>
+  <p>This is the exact example from the Alberta Design System documentation.</p>
+  
+  <goab-hero-banner 
+    [heading]="businessHero.heading"
+    [actions]="heroBannerActionTemplate">
+    {{ businessHero.content }}
+    
+    <ng-template #heroBannerActionTemplate>
+      <goab-button 
+        type="start"
+        (onClick)="onBusinessAction()">
+        {{ businessHero.buttonText }}
+      </goab-button>
+    </ng-template>
+  </goab-hero-banner>
+</section>
+
+<!-- Example 2: Education and Training -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 2: Education and Training</h2>
+  <p>Hero banner for education services with primary action button.</p>
+  
+  <goab-hero-banner 
+    [heading]="educationHero.heading"
+    [actions]="educationActionTemplate">
+    {{ educationHero.content }}
+    
+    <ng-template #educationActionTemplate>
+      <goab-button 
+        type="primary"
+        (onClick)="onEducationAction()">
+        {{ educationHero.buttonText }}
+      </goab-button>
+    </ng-template>
+  </goab-hero-banner>
+</section>
+
+<!-- Example 3: Health Services -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 3: Health Services</h2>
+  <p>Hero banner for health services with secondary action button.</p>
+  
+  <goab-hero-banner 
+    [heading]="healthHero.heading"
+    [actions]="healthActionTemplate">
+    {{ healthHero.content }}
+    
+    <ng-template #healthActionTemplate>
+      <goab-button 
+        type="secondary"
+        (onClick)="onHealthAction()">
+        {{ healthHero.buttonText }}
+      </goab-button>
+    </ng-template>
+  </goab-hero-banner>
+</section>
+
+<!-- Example 4: Emergency Information -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 4: Emergency Information</h2>
+  <p>Hero banner for emergency information with tertiary action button.</p>
+  
+  <goab-hero-banner 
+    [heading]="emergencyHero.heading"
+    [actions]="emergencyActionTemplate">
+    {{ emergencyHero.content }}
+    
+    <ng-template #emergencyActionTemplate>
+      <goab-button 
+        type="tertiary"
+        (onClick)="onEmergencyAction()">
+        {{ emergencyHero.buttonText }}
+      </goab-button>
+    </ng-template>
+  </goab-hero-banner>
+</section>
+
+<!-- Example 5: Multiple Actions -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 5: Multiple Actions</h2>
+  <p>Hero banner with multiple action buttons showing different options.</p>
+  
+  <goab-hero-banner 
+    heading="Government Services Portal"
+    [actions]="multipleActionsTemplate">
+    Access a wide range of government services and information all in one place. From applying for permits to checking service status, we're here to help.
+    
+    <ng-template #multipleActionsTemplate>
+      <goab-button 
+        type="primary"
+        (onClick)="onSimpleAction()"
+        style="margin-right: 1rem;">
+        Apply for Services
+      </goab-button>
+      <goab-button 
+        type="secondary"
+        (onClick)="onSimpleAction()">
+        Check Status
+      </goab-button>
+    </ng-template>
+  </goab-hero-banner>
+</section>
+
+<!-- Example 6: Simple Hero Banner (No Actions) -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 6: Simple Hero Banner</h2>
+  <p>Basic hero banner without action buttons, just for information display.</p>
+  
+  <goab-hero-banner heading="Welcome to Alberta Services">
+    We're committed to providing accessible, efficient, and user-friendly government services to all Albertans. Explore our services and resources designed to support you and your community.
+  </goab-hero-banner>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>Hero Banner Content:</h3>
+  <p><strong>Business Hero:</strong> {{ businessHero.heading }} - {{ businessHero.buttonText }}</p>
+  <p><strong>Education Hero:</strong> {{ educationHero.heading }} - {{ educationHero.buttonText }}</p>
+  <p><strong>Health Hero:</strong> {{ healthHero.heading }} - {{ healthHero.buttonText }}</p>
+  <p><strong>Emergency Hero:</strong> {{ emergencyHero.heading }} - {{ emergencyHero.buttonText }}</p>
+</section>

@@ -1,0 +1,132 @@
+<h1>Popover Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different popover patterns and close mechanisms.</p>
+
+<!-- Example 1: Close with a Button -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Close with a Button</h2>
+  <p>Popover that can be closed using a button element with action="close".</p>
+  
+  <goab-popover [target]="buttonTarget" minWidth="250px">
+    <p>{{ popoverContent.title }}</p>
+    <p>{{ popoverContent.description }}</p>
+    <ul>
+      <li *ngFor="let tip of popoverContent.tips">{{ tip }}</li>
+    </ul>
+    <goab-button type="secondary" size="compact" action="close" (click)="closePopoverWithButton()">
+      Close Popover
+    </goab-button>
+  </goab-popover>
+  <ng-template #buttonTarget>
+    <goab-button type="primary" size="normal">
+      Click to open (button close)
+    </goab-button>
+  </ng-template>
+</section>
+
+<!-- Example 2: Close with a Link -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 2: Close with a Link</h2>
+  <p>Popover that can be closed using a link element with action="close".</p>
+  
+  <goab-popover [target]="linkTarget" minWidth="250px">
+    <p>This popover has a close link inside</p>
+    <p>Click the link below to close this popover.</p>
+    <goab-link action="close" (click)="closePopoverWithLink()">
+      <a href="#">Close Popover</a>
+    </goab-link>
+  </goab-popover>
+  <ng-template #linkTarget>
+    <goab-button type="primary" size="normal">
+      Click to open (link close)
+    </goab-button>
+  </ng-template>
+</section>
+
+<!-- Example 3: Close with an Icon Button -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 3: Close with an Icon Button</h2>
+  <p>Popover that can be closed using an icon button with action="close".</p>
+  
+  <goab-popover [target]="iconTarget" minWidth="250px">
+    <goab-block direction="column" alignment="end">
+      <goab-icon-button 
+        icon="close" 
+        variant="color"
+        action="close" 
+        ariaLabel="Close Popover"
+        (click)="closePopoverWithIcon()">
+      </goab-icon-button>
+    </goab-block>
+    <p>This popover has a close icon button inside</p>
+    <p>Click the icon button above to close this popover.</p>
+  </goab-popover>
+  <ng-template #iconTarget>
+    <goab-button type="primary" size="normal">
+      Click to open (with close icon button)
+    </goab-button>
+  </ng-template>
+</section>
+
+<!-- Example 4: Simple Popover Variations -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 4: Additional Popover Examples</h2>
+  <p>More examples showing different content and close mechanisms.</p>
+  
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0;">
+    <!-- Help Popover with Button Close -->
+    <goab-popover [target]="helpTarget" minWidth="200px">
+      <p><strong>Need Help?</strong></p>
+      <p>Contact support for assistance.</p>
+      <goab-button action="close" type="secondary" size="compact">
+        Got it
+      </goab-button>
+    </goab-popover>
+    <ng-template #helpTarget>
+      <goab-button type="tertiary">Help</goab-button>
+    </ng-template>
+
+    <!-- Info Popover with Link Close -->
+    <goab-popover [target]="infoTarget" minWidth="200px">
+      <p><strong>Application Status</strong></p>
+      <p>Currently being processed.</p>
+      <goab-link action="close">
+        <a href="#">Close</a>
+      </goab-link>
+    </goab-popover>
+    <ng-template #infoTarget>
+      <goab-button type="tertiary">Info</goab-button>
+    </ng-template>
+
+    <!-- Settings Popover with Icon Close -->
+    <goab-popover [target]="settingsTarget" minWidth="180px">
+      <goab-block direction="column" alignment="end">
+        <goab-icon-button 
+          icon="close" 
+          variant="color"
+          action="close" 
+          ariaLabel="Close">
+        </goab-icon-button>
+      </goab-block>
+      <p><strong>Quick Settings</strong></p>
+      <p>Configure your preferences.</p>
+    </goab-popover>
+    <ng-template #settingsTarget>
+      <goab-button type="tertiary">Settings</goab-button>
+    </ng-template>
+  </div>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>Popover Interaction Log:</h3>
+  <p>Open the browser console to see popover interaction events.</p>
+  <div style="margin-top: 1rem;">
+    <strong>Available Close Mechanisms:</strong>
+    <ul style="margin: 0.5rem 0;">
+      <li>Button with action="close"</li>
+      <li>Link with action="close"</li>
+      <li>Icon button with action="close"</li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,202 @@
+/* User Information Styles */
+.user-info {
+  padding: 1rem;
+}
+
+.user-title {
+  font-size: 0.875rem;
+  color: var(--goa-color-text-secondary, #666);
+  margin-bottom: 0.25rem;
+}
+
+.user-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--goa-color-text-default, #333);
+  margin: 0 0 1rem 0;
+}
+
+.contact-details {
+  margin-bottom: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.contact-label {
+  font-weight: 600;
+  min-width: 60px;
+  margin-right: 1rem;
+  color: var(--goa-color-text-default, #333);
+}
+
+.contact-value {
+  color: var(--goa-color-text-secondary, #666);
+}
+
+/* Due Dates Styles */
+.due-dates {
+  padding: 1rem;
+}
+
+.due-dates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: var(--goa-color-greyscale-100, #f8f9fa);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.due-dates-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.add-calendar-link {
+  color: var(--goa-color-interactive-default, #0066cc);
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.add-calendar-link:hover {
+  text-decoration: underline;
+}
+
+.due-dates-list {
+  border-top: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+}
+
+.due-date-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+}
+
+.due-date-item:last-child {
+  border-bottom: none;
+}
+
+.due-date-task {
+  font-weight: 500;
+  color: var(--goa-color-text-default, #333);
+}
+
+.due-date-date {
+  color: var(--goa-color-text-secondary, #666);
+  font-size: 0.875rem;
+}
+
+/* Project Information Styles */
+.project-info {
+  padding: 1rem;
+}
+
+.project-info h3 {
+  margin: 0 0 1rem 0;
+  color: var(--goa-color-text-default, #333);
+}
+
+.project-details {
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  min-width: 120px;
+  margin-right: 1rem;
+  color: var(--goa-color-text-default, #333);
+}
+
+.detail-value {
+  color: var(--goa-color-text-secondary, #666);
+}
+
+.status-badge {
+  background-color: var(--goa-color-status-success-light, #d4edda);
+  color: var(--goa-color-status-success-dark, #155724);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Notification Styles */
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.notification-message {
+  color: var(--goa-color-text-default, #333);
+  line-height: 1.5;
+}
+
+.dismiss-btn {
+  background: none;
+  border: none;
+  color: var(--goa-color-text-secondary, #666);
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.dismiss-btn:hover {
+  color: var(--goa-color-text-default, #333);
+}
+
+/* Simple Content Styles */
+.simple-content {
+  padding: 1rem;
+}
+
+.simple-content h3 {
+  margin: 0 0 1rem 0;
+  color: var(--goa-color-text-default, #333);
+}
+
+.simple-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--goa-color-text-secondary, #666);
+}
+
+.simple-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.simple-content li {
+  margin-bottom: 0.25rem;
+  color: var(--goa-color-text-secondary, #666);
+}

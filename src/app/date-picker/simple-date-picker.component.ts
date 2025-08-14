@@ -3,6 +3,7 @@ import {GoabDatePicker, GoabDatePickerOnChangeDetail, GoabFormItem} from "@abgov
 
 @Component({
     selector: "app-simple-date-picker",
+    standalone: true,
     templateUrl: "./simple-date-picker.component.html",
     imports: [
         GoabFormItem,

@@ -1,0 +1,116 @@
+<h1>Callout Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different callout types and use cases.</p>
+
+<!-- Example 1: Success Callout - Application Confirmation -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Application Confirmation (Success)</h2>
+  <p>This pattern confirms that an application was successfully submitted.</p>
+  
+  <h2>You have completed the application</h2>
+  
+  <goab-callout 
+    type="success" 
+    heading="Your application was successful">
+    <p>You will receive a copy of the confirmation to the email {{ userEmail }}</p>
+    <p>
+      Confirmation number: <strong>{{ confirmationNumber }}</strong>
+    </p>
+  </goab-callout>
+
+  <h3>Go back to the dashboard, or direct your user somewhere else useful.</h3>
+  <p>
+    Other information about what was just completed, other tertiary information, and/or contact information.<br>
+    Phone: <a href="tel:7801234567">{{ phoneNumber }}</a><br>
+    Email: <a href="mailto:{{ supportEmail }}">{{ supportEmail }}</a>
+  </p>
+
+  <goab-button-group alignment="start">
+    <goab-button type="primary" (onClick)="goToApplication()">
+      Go to application
+    </goab-button>
+    <goab-button type="secondary" (onClick)="backToDashboard()">
+      Back to dashboard
+    </goab-button>
+  </goab-button-group>
+</section>
+
+<!-- Example 2: Information Callout -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 2: Information Callout</h2>
+  <p>Use for important information that users should be aware of.</p>
+  
+  <goab-callout 
+    type="information" 
+    heading="Important information about your application">
+    <p>Please note that processing times may vary depending on the complexity of your application. You will receive updates via email as your application progresses through our review process.</p>
+    <p>If you need to make changes to your application, please contact our support team within 24 hours of submission.</p>
+  </goab-callout>
+</section>
+
+<!-- Example 3: Warning Callout -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 3: Warning Callout</h2>
+  <p>Use to warn users about potential issues or important considerations.</p>
+  
+  <goab-callout 
+    type="important" 
+    heading="Review your information carefully">
+    <p>Once you submit this application, you will not be able to make changes online. Any modifications will require contacting our support team and may result in processing delays.</p>
+    <p>Please ensure all information is accurate before proceeding.</p>
+  </goab-callout>
+
+  <goab-button-group alignment="start">
+    <goab-button type="primary" (onClick)="onSubmitForm()">
+      Submit Application
+    </goab-button>
+    <goab-button type="secondary">
+      Review Again
+    </goab-button>
+  </goab-button-group>
+</section>
+
+<!-- Example 4: Error Callout -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 4: Error Callout</h2>
+  <p>Use when an error has occurred and user action is required.</p>
+  
+  <goab-callout 
+    type="important" 
+    heading="Unable to submit your application">
+    <p>We encountered an error while processing your submission. This could be due to a temporary system issue or missing required information.</p>
+    <p>Please check that all required fields are completed and try again. If the problem persists, contact our support team.</p>
+  </goab-callout>
+
+  <goab-button-group alignment="start">
+    <goab-button type="primary" (onClick)="onTryAgain()">
+      Try Again
+    </goab-button>
+    <goab-button type="secondary" (onClick)="onContactSupport()">
+      Contact Support
+    </goab-button>
+  </goab-button-group>
+</section>
+
+<!-- Example 5: Emergency Callout -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 5: Emergency Callout</h2>
+  <p>Use for urgent, critical information that requires immediate attention.</p>
+  
+  <goab-callout 
+    type="important" 
+    heading="System maintenance in progress">
+    <p>Our systems are currently undergoing scheduled maintenance. Some services may be temporarily unavailable.</p>
+    <p><strong>Estimated completion:</strong> January 15, 2025 at 3:00 AM MST</p>
+    <p>For urgent matters, please call our emergency hotline at <a href="tel:7801234567">{{ phoneNumber }}</a></p>
+  </goab-callout>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>Component Data:</h3>
+  <p><strong>Confirmation Number:</strong> {{ confirmationNumber }}</p>
+  <p><strong>User Email:</strong> {{ userEmail }}</p>
+  <p><strong>Support Phone:</strong> {{ phoneNumber }}</p>
+  <p><strong>Support Email:</strong> {{ supportEmail }}</p>
+</section>

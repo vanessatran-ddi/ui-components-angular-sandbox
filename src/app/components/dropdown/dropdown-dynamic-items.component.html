@@ -1,0 +1,42 @@
+<h1>Dropdown Dynamic Items</h1>
+
+<p>This example demonstrates dynamically changing items in a dropdown based on parent selection, similar to the Alberta Design System v4.0.0+ example.</p>
+
+<div [formGroup]="changeForm">
+  <goab-form-item
+    label="Size"
+    requirement="optional"
+    helpText="Choose the type to change the list below">
+    <goab-dropdown
+      formControlName="parentDropdown"
+      placeholder="Select a value"
+      name="parent">
+      <goab-dropdown-item
+        *ngFor="let parent of parents"
+        [value]="parent"
+        [label]="parent" />
+    </goab-dropdown>
+  </goab-form-item>
+
+  <goab-form-item
+    label="Items"
+    requirement="optional">
+    <goab-dropdown
+      formControlName="childDropdown"
+      placeholder="Select a value"
+      name="children">
+      <ng-container *ngIf="children.length > 0">
+        <goab-dropdown-item
+          *ngFor="let child of children; trackBy: generateUniqueKey"
+          [value]="child"
+          [label]="child" />
+      </ng-container>
+    </goab-dropdown>
+  </goab-form-item>
+</div>
+
+<div style="margin-top: 20px;">
+  <h3>Selected Values:</h3>
+  <p><strong>Size:</strong> {{ changeForm.get('parentDropdown')?.value || 'None selected' }}</p>
+  <p><strong>Item:</strong> {{ changeForm.get('childDropdown')?.value || 'None selected' }}</p>
+</div>

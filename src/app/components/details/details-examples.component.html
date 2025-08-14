@@ -1,0 +1,199 @@
+<h1>Details Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different details component patterns and use cases.</p>
+
+<!-- Example 1: Show more information to help answer a question -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Help Answer a Question</h2>
+  <p>This pattern provides additional context to help users answer form questions.</p>
+  
+  <a href="#" class="back-link" (click)="goBack(); $event.preventDefault()">Back</a>
+  
+  <form [formGroup]="childCareForm">
+    <goab-form-item 
+      mt="2xl"
+      label="Do you pay for child care?" 
+      labelSize="large"
+      helpText="Examples of child care are daycares, day homes and baby-sisters.">
+      <goab-radio-group 
+        name="child-care"
+        ariaLabel="Do you pay for child care?"
+        formControlName="childCare"
+        (onChange)="onChildCareChange($event)">
+        <goab-radio-item value="yes" label="Yes"></goab-radio-item>
+        <goab-radio-item value="no" label="No"></goab-radio-item>
+      </goab-radio-group>
+    </goab-form-item>
+  </form>
+
+  <goab-details 
+    heading="Why are we asking this question?"
+    mt="xl">
+    <p>We ask this question to determine if you are eligible for child care benefits.</p>
+    <p>Child care support helps Alberta families access affordable and quality child care options while parents work or attend school.</p>
+  </goab-details>
+
+  <goab-button 
+    type="submit" 
+    mt="2xl"
+    (onClick)="saveAndContinue()">
+    Save and continue
+  </goab-button>
+</section>
+
+<!-- Example 2: Show a list to help answer a question -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 2: Help With Lists and Categories</h2>
+  <p>This pattern shows detailed lists to help users understand what qualifies.</p>
+  
+  <form [formGroup]="educationForm">
+    <goab-form-item 
+      label="Do you have additional education expense?"
+      helpText="You can request this money now or at any time during your program."
+      mb="m">
+      <goab-radio-group 
+        name="additional"
+        formControlName="additional">
+        <goab-radio-item label="Yes" value="yes" name="additional"></goab-radio-item>
+        <goab-radio-item label="No" value="no" name="additional"></goab-radio-item>
+      </goab-radio-group>
+    </goab-form-item>
+  </form>
+
+  <goab-details heading="What is considered an additional education expense?">
+    <goab-block gap="m" mt="m">
+      <div>
+        <strong>Examples of education expenses</strong>
+        <ul class="goa-unordered-list">
+          <li *ngFor="let item of educationExpenseItems">{{ item }}</li>
+        </ul>
+      </div>
+      
+      <div>
+        <strong>Do not include</strong>
+        <ul class="goa-unordered-list">
+          <li *ngFor="let item of excludedItems">{{ item }}</li>
+        </ul>
+      </div>
+    </goab-block>
+  </goab-details>
+</section>
+
+<!-- Example 3: Direct deposit information with visual help -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 3: Direct Deposit Information</h2>
+  <p>This pattern helps users find complex information with visual aids.</p>
+  
+  <h2>Direct deposit information</h2>
+  <p>Find this information on your bank's website or on your personal cheques. Contact your bank if you can't find this information.</p>
+  
+  <form [formGroup]="bankForm">
+    <goab-form-item 
+      label="Bank or Institution number"
+      id="bankNumber"
+      helpText="3-4 digits in length"
+      mb="xl">
+      <goab-input 
+        [maxLength]="4"
+        name="bankNumber"
+        ariaLabel="bankNumber"
+        width="88px"
+        formControlName="bankNumber">
+      </goab-input>
+    </goab-form-item>
+
+    <goab-form-item 
+      label="Branch or Transit number"
+      helpText="5 digits in length"
+      id="transitNumber"
+      mb="xl">
+      <goab-input 
+        [maxLength]="5"
+        name="transitNumber"
+        ariaLabel="transitNumber"
+        width="143px"
+        formControlName="transitNumber">
+      </goab-input>
+    </goab-form-item>
+
+    <goab-form-item 
+      label="Account number"
+      helpText="3-12 digits in length"
+      id="accountNumber">
+      <goab-input 
+        [maxLength]="12"
+        name="accountNumber"
+        ariaLabel="accountNumber"
+        formControlName="accountNumber">
+      </goab-input>
+    </goab-form-item>
+  </form>
+
+  <goab-details 
+    heading="Where can I find this information on a personal cheque?"
+    mt="l">
+    <p>Below is an example of where you can find the required bank information on a personal cheque.</p>
+    <div class="cheque-example">
+      <div class="cheque-mockup">
+        <div class="cheque-header">Sample Bank</div>
+        <div class="cheque-content">
+          <div class="cheque-line">Pay to the order of: _________________</div>
+          <div class="cheque-line">Amount: $ _________</div>
+          <div class="cheque-bottom">
+            <div class="bank-info">
+              <span class="bank-number-highlight">Institution: 123</span>
+              <span class="transit-number-highlight">Transit: 12345</span>
+              <span class="account-number-highlight">Account: 1234567890</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </goab-details>
+
+  <goab-button 
+    type="primary" 
+    mt="xl"
+    (onClick)="onBankFormSubmit()">
+    Submit Bank Information
+  </goab-button>
+</section>
+
+<!-- Example 4: Simple FAQ Style -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 4: Simple FAQ Style</h2>
+  <p>Basic details components for frequently asked questions.</p>
+  
+  <goab-details heading="How long does processing take?" mb="m">
+    <p>Most applications are processed within 5-10 business days. Complex applications may take up to 30 business days.</p>
+    <p>You will receive email updates as your application progresses through each stage of review.</p>
+  </goab-details>
+
+  <goab-details heading="Can I make changes after submitting?" mb="m">
+    <p>Yes, you can make changes to your application within 24 hours of submission.</p>
+    <p>After 24 hours, please contact our support team at support@example.com to request changes.</p>
+  </goab-details>
+
+  <goab-details heading="What documents do I need?">
+    <p>Required documents include:</p>
+    <ul class="goa-unordered-list">
+      <li>Government-issued photo ID</li>
+      <li>Proof of income (pay stubs or tax return)</li>
+      <li>Proof of address (utility bill or lease agreement)</li>
+      <li>Any supporting documentation specific to your application type</li>
+    </ul>
+  </goab-details>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>Form Values:</h3>
+  <p><strong>Child Care:</strong> {{ childCareForm.get('childCare')?.value || 'Not selected' }}</p>
+  <p><strong>Education Expense:</strong> {{ educationForm.get('additional')?.value || 'Not selected' }}</p>
+  <p><strong>Bank Information:</strong></p>
+  <ul>
+    <li>Bank Number: {{ bankForm.get('bankNumber')?.value || 'Empty' }}</li>
+    <li>Transit Number: {{ bankForm.get('transitNumber')?.value || 'Empty' }}</li>
+    <li>Account Number: {{ bankForm.get('accountNumber')?.value || 'Empty' }}</li>
+  </ul>
+</section>

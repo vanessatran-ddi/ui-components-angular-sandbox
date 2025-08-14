@@ -1,0 +1,169 @@
+/* List Styles - Following Alberta Design System */
+
+/* Ordered Lists */
+.goa-ordered-list {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.goa-ordered-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.goa-ordered-list .goa-ordered-list {
+  list-style: lower-alpha;
+  margin: 0.5rem 0;
+}
+
+.goa-ordered-list .goa-ordered-list .goa-ordered-list {
+  list-style: lower-roman;
+}
+
+/* Unordered Lists */
+.goa-unordered-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.goa-unordered-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.goa-unordered-list .goa-unordered-list {
+  list-style: circle;
+  margin: 0.5rem 0;
+}
+
+.goa-unordered-list .goa-unordered-list .goa-unordered-list {
+  list-style: square;
+}
+
+/* Nested List Spacing */
+ol ul, ul ol, ul ul, ol ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Section Styling */
+section {
+  border-bottom: 1px solid var(--goa-color-greyscale-200, #e9ecef);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* Process Steps Styling */
+.goa-ordered-list strong {
+  color: var(--goa-color-text-default, #333);
+  font-weight: 600;
+}
+
+.goa-ordered-list p {
+  margin: 0.5rem 0;
+  color: var(--goa-color-text-secondary, #666);
+  font-style: italic;
+}
+
+/* Checklist Styling */
+input[type="checkbox"] {
+  accent-color: var(--goa-color-interactive-default, #0070C4);
+  transform: scale(1.1);
+}
+
+label {
+  color: var(--goa-color-text-default, #333);
+  font-size: 0.95rem;
+}
+
+label:hover {
+  background-color: var(--goa-color-greyscale-100, #f8f9fa);
+  padding: 0.25rem;
+  border-radius: 4px;
+  margin: -0.25rem;
+}
+
+/* Category Headers */
+h3 {
+  color: var(--goa-color-text-default, #333);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+/* Technical Documentation Styling */
+.goa-ordered-list .goa-unordered-list strong {
+  color: var(--goa-color-interactive-default, #0070C4);
+  font-weight: 600;
+}
+
+/* Mixed List Styling */
+.goa-ordered-list > li > strong {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .goa-ordered-list,
+  .goa-unordered-list {
+    padding-left: 1.25rem;
+  }
+  
+  section {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Interactive Elements */
+.interactive-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.interactive-list-item:hover {
+  background-color: var(--goa-color-greyscale-100, #f8f9fa);
+}
+
+.list-action-button {
+  background: none;
+  border: 1px solid var(--goa-color-interactive-default, #0070C4);
+  color: var(--goa-color-interactive-default, #0070C4);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.list-action-button:hover {
+  background-color: var(--goa-color-interactive-default, #0070C4);
+  color: white;
+}
+
+/* Status Indicators */
+.completed-item {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.priority-item {
+  font-weight: 600;
+  color: var(--goa-color-status-warning-dark, #856404);
+}
+
+.urgent-item {
+  font-weight: 600;
+  color: var(--goa-color-status-emergency-dark, #721c24);
+}

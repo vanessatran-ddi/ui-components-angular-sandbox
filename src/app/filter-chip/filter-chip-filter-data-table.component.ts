@@ -9,22 +9,20 @@ import {
   GoabInput,
   GoabTable
 } from "@abgov/angular-components";
-import {NgForOf, NgIf} from "@angular/common";
+
 
 @Component({
     selector: "app-filter-chip-filter-data-table",
     templateUrl: "./filter-chip-filter-data-table.component.html",
     imports: [
-        GoabFormItem,
-        GoabBlock,
-        GoabInput,
-        GoabButton,
-        NgIf,
-        GoabFilterChip,
-        NgForOf,
-        GoabTable,
-        GoabBadge
-    ],
+    GoabFormItem,
+    GoabBlock,
+    GoabInput,
+    GoabButton,
+    GoabFilterChip,
+    GoabTable,
+    GoabBadge
+],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FilterChipFilterDataTableComponent {

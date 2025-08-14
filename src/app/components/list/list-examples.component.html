@@ -1,0 +1,174 @@
+<h1>List Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different list patterns and use cases.</p>
+
+<!-- Example 1: Ordered List (Original from Alberta Design System) -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Ordered List</h2>
+  <p>This is the exact example from the Alberta Design System documentation with nested lists.</p>
+  
+  <ol class="goa-ordered-list">
+    <li *ngFor="let item of orderedItems">
+      {{ item.text }}
+      <ul *ngIf="item.children">
+        <li *ngFor="let child of item.children">
+          {{ child.text }}
+          <ul *ngIf="child.children">
+            <li *ngFor="let grandchild of child.children">
+              {{ grandchild.text }}
+              <ul *ngIf="grandchild.children">
+                <li *ngFor="let greatgrandchild of grandchild.children">
+                  {{ greatgrandchild.text }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- Example 2: Unordered List (Original from Alberta Design System) -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 2: Unordered List</h2>
+  <p>Simple unordered list with nested items, exactly as shown in the documentation.</p>
+  
+  <ul class="goa-unordered-list">
+    <li *ngFor="let item of unorderedItems">
+      {{ item.text }}
+      <ul class="goa-unordered-list" *ngIf="item.children">
+        <li *ngFor="let child of item.children">
+          {{ child.text }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<!-- Example 3: Application Process Steps -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 3: Application Process Steps</h2>
+  <p>Ordered list showing step-by-step process with detailed substeps.</p>
+  
+  <ol class="goa-ordered-list">
+    <li *ngFor="let step of applicationSteps; let i = index">
+      <strong>{{ step.title }}</strong>
+      <p>{{ step.description }}</p>
+      <ul class="goa-unordered-list" *ngIf="step.substeps">
+        <li *ngFor="let substep of step.substeps">
+          {{ substep }}
+        </li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- Example 4: Service Features -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 4: Service Features</h2>
+  <p>Simple unordered list highlighting key service features.</p>
+  
+  <ul class="goa-unordered-list">
+    <li *ngFor="let feature of serviceFeatures">
+      {{ feature }}
+    </li>
+  </ul>
+</section>
+
+<!-- Example 5: Emergency Preparedness Checklist -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 5: Emergency Preparedness Checklist</h2>
+  <p>Organized checklist with categories and detailed items.</p>
+  
+  <div *ngFor="let category of emergencyChecklist" style="margin-bottom: 2rem;">
+    <h3>{{ category.category }}</h3>
+    <ul class="goa-unordered-list">
+      <li *ngFor="let item of category.items">
+        <label style="display: flex; align-items: center; cursor: pointer;">
+          <input type="checkbox" style="margin-right: 0.5rem;" (change)="toggleComplete(item)">
+          {{ item }}
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Example 6: Technical Documentation -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 6: Technical Documentation</h2>
+  <p>Complex nested structure for technical content organization.</p>
+  
+  <ol class="goa-ordered-list">
+    <li *ngFor="let lang of programmingTopics">
+      <strong>{{ lang.language }}</strong>
+      <ul class="goa-unordered-list">
+        <li *ngFor="let topic of lang.topics">
+          <ng-container *ngIf="typeof topic === 'string'; else frameworkTemplate">
+            {{ topic }}
+          </ng-container>
+          <ng-template #frameworkTemplate>
+            <strong>{{ $any(topic).framework }}</strong>
+            <ul class="goa-unordered-list">
+              <li *ngFor="let concept of $any(topic).concepts">
+                {{ concept }}
+              </li>
+            </ul>
+          </ng-template>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- Example 7: Mixed List Types -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 7: Mixed List Types</h2>
+  <p>Demonstration of mixing ordered and unordered lists for complex content.</p>
+  
+  <h3>Government Service Categories</h3>
+  <ol class="goa-ordered-list">
+    <li>
+      <strong>Health Services</strong>
+      <ul class="goa-unordered-list">
+        <li>Find a Family Doctor</li>
+        <li>Health Card Services</li>
+        <li>Immunization Records</li>
+        <li>Mental Health Support
+          <ol class="goa-ordered-list">
+            <li>Assessment and referral</li>
+            <li>Counseling services</li>
+            <li>Crisis intervention</li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Education and Training</strong>
+      <ul class="goa-unordered-list">
+        <li>Student Aid</li>
+        <li>Apprenticeship Programs</li>
+        <li>Adult Learning</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Business and Economy</strong>
+      <ul class="goa-unordered-list">
+        <li>Business Registration</li>
+        <li>Permits and Licenses</li>
+        <li>Tax Information</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>List Data Summary:</h3>
+  <p><strong>Ordered Items:</strong> {{ orderedItems.length }} main items</p>
+  <p><strong>Unordered Items:</strong> {{ unorderedItems.length }} main items</p>
+  <p><strong>Application Steps:</strong> {{ applicationSteps.length }} steps</p>
+  <p><strong>Service Features:</strong> {{ serviceFeatures.length }} features</p>
+  <p><strong>Emergency Categories:</strong> {{ emergencyChecklist.length }} categories</p>
+  <p><strong>Programming Languages:</strong> {{ programmingTopics.length }} languages</p>
+</section>

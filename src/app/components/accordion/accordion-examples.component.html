@@ -1,0 +1,77 @@
+<h1>Accordion Examples</h1>
+
+<p>Examples from the Alberta Design System v4.0.0+ showing different accordion patterns and use cases.</p>
+
+<!-- Example 1: Expand or collapse part of a form -->
+<section style="margin-bottom: 3rem;">
+  <h2>Example 1: Form Review with Expandable Sections</h2>
+  <p>This pattern is useful for reviewing application data where sections can be expanded to show details.</p>
+  
+  <h3>Review your application</h3>
+  
+  <goab-accordion 
+    heading="Referral details" 
+    [headingContent]="importantBadge">
+    <ng-template #importantBadge>
+      <goab-badge type="important" content="Updated"></goab-badge>
+    </ng-template>
+    <dl class="accordion-example">
+      <dt>Date of referral</dt>
+      <dd>January 27, 2021</dd>
+      <dt>Work safety concerns</dt>
+      <dd>None</dd>
+      <dt>Type of referral</dt>
+      <dd>Word of mouth, internet search</dd>
+      <dt>Intake received from another site</dt>
+      <dd>Yes</dd>
+    </dl>
+  </goab-accordion>
+
+  <goab-accordion heading="Contact information">
+    <dl class="accordion-example">
+      <dt>Name</dt>
+      <dd>Joan Smith</dd>
+      <dt>Contact preference</dt>
+      <dd>Text message</dd>
+      <dt>Phone number</dt>
+      <dd>(780) 555-0123</dd>
+      <dt>Email address</dt>
+      <dd>joan.smith@example.com</dd>
+    </dl>
+  </goab-accordion>
+</section>
+
+<!-- Example 2: FAQ with show/hide all functionality -->
+<section>
+  <h2>Example 2: FAQ with Toggle All Functionality</h2>
+  <p>This pattern allows users to expand/collapse all sections at once, useful for FAQ pages.</p>
+  
+  <goab-button 
+    type="tertiary" 
+    mb="m" 
+    (onClick)="onClick()">
+    {{ accordionStatus }}
+  </goab-button>
+
+  <goab-accordion 
+    *ngFor="let item of faqItems; let i = index"
+    [heading]="item.question"
+    headingSize="medium"
+    [open]="expandedList[i]"
+    (onChange)="toggleAccordion(i, $event)">
+    {{ item.answer }}
+    <div *ngIf="i === faqItems.length - 1">
+      <a href="#" style="color: #0066cc; text-decoration: underline;">
+        More information on accessibility.
+      </a>
+    </div>
+  </goab-accordion>
+</section>
+
+<!-- Current State Display -->
+<section style="margin-top: 3rem; padding: 1rem; background-color: #f8f9fa; border-radius: 4px;">
+  <h3>Current State:</h3>
+  <p><strong>FAQ Expanded States:</strong> {{ expandedList | json }}</p>
+  <p><strong>All Expanded:</strong> {{ expandedAll }}</p>
+  <p><strong>Button Text:</strong> {{ accordionStatus }}</p>
+</section>

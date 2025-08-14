@@ -1,7 +1,7 @@
 <goa-two-column-layout maxcontentwidth="1400px" navcolumnwidth="30ch">
   <section slot="header">
-    <goa-microsite-header type="alpha" level="alpha" version="UAT"></goa-microsite-header>
-    <goa-app-header heading="Design Systems" maxcontentwidth="1500px" [fullmenubreakpoint]="1700">
+    <goab-microsite-header type="alpha" level="alpha" version="UAT"></goab-microsite-header>
+    <goab-app-header heading="Design Systems" maxcontentwidth="1500px" [fullmenubreakpoint]="1700">
       <a href="/get-started">Get started
       </a>
       <a href="/patterns">Patterns and templates</a>
@@ -13,13 +13,13 @@
         Report a bug
       </a>
       <a href="#">Support</a>
-      <goa-app-header-menu heading="Tickets" leadingIcon="ticket">
+      <goab-app-header-menu heading="Tickets" leadingIcon="ticket">
         <a href="#">Cases</a>
         <a href="#">Payments</a>
         <a href="#">Outstanding</a>
-      </goa-app-header-menu>
+      </goab-app-header-menu>
       <a href="#" className="interactive">Sign in</a>
-    </goa-app-header>
+    </goab-app-header>
   </section>
 
   <section slot="nav">
@@ -30,11 +30,34 @@
       <!-- <goab-side-menu-group heading="Components">
         <a routerLink="/date-picker">Date picker</a>
       </goab-side-menu-group> -->
-      <a href="/modal">Go to modal</a>
+      <a href="/date-picker">Go to date picker examples</a>
+      <a href="/modal">Go to modal examples</a>
+      <a href="/dropdown">Go to dropdown</a>
+      <a href="/file-uploader">Go to file uploader examples</a>
+      <a href="/input">Go to input examples</a>
+      <a href="/dropdown-add-item-dynamically">Go to dropdown add items dynamically</a>
+      <a href="/accordion">Go to accordion examples</a>
+      <a href="/callout">Go to callout examples</a>
+      <a href="/container">Go to container examples</a>
+      <a href="/details">Go to details examples</a>
+      <a href="/hero-banner">Go to hero banner examples</a>
+      <a href="/list">Go to list examples</a>
+      <a href="/popover">Go to popover examples</a>
+      <a href="/table">Go to table examples</a>
+      <a href="/text">Go to text examples</a>
+      <a href="/badge">Go to badge examples</a>
+      <a href="/filter-chip">Go to filter chip examples</a>
+      <a href="/notification-banner">Go to notification banner examples</a>
+      <a href="/progress-indicator">Go to progress indicator examples</a>
+      <a href="/skeleton-loader">Go to skeleton loader examples</a>
+      <a href="/temporary-notification">Go to temporary notification examples</a>
+      <a href="/tooltip">Go to tooltip examples</a>
+      <a href="/button">Go to button examples</a>
+      <a href="/checkbox">Go to checkbox examples</a>
     </goab-side-menu>
   </section>
   <div class="container">
     <router-outlet></router-outlet>
   </div>
-  <goa-app-footer slot="footer" maxcontentwidth="1400px"></goa-app-footer>
+  <goab-app-footer slot="footer" maxContentWidth="1400px"></goab-app-footer>
 </goa-two-column-layout>
