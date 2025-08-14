@@ -1,0 +1,330 @@
+<div class="examples-container">
+  <h1>Footer Examples</h1>
+  <p>Examples of footer components following the Alberta Design System.</p>
+  
+  <!-- Basic Footer -->
+  <section class="example-section">
+    <h2>Basic Footer</h2>
+    <p>A simple footer with just the Government of Alberta branding and copyright information.</p>
+    
+    <div class="footer-example">
+      <goab-app-footer maxContentWidth="100%">
+      </goab-app-footer>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-footer maxContentWidth="100%"&gt;
+&lt;/goab-app-footer&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer with Meta Links -->
+  <section class="example-section">
+    <h2>Footer with Meta Links</h2>
+    <p>Footer with quick access links like Privacy, Accessibility, and Contact information.</p>
+    
+    <div class="footer-example">
+      <goab-app-footer maxContentWidth="1200px">
+        <goab-app-footer-meta-section slot="meta">
+          <a *ngFor="let link of metaLinks.slice(0, 4)" 
+             [href]="link.href" 
+             (click)="onMetaLinkClick(link)"
+             class="meta-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-meta-section>
+      </goab-app-footer>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-footer maxContentWidth="1200px"&gt;
+  &lt;goab-app-footer-meta-section slot="meta"&gt;
+    &lt;a href="/privacy"&gt;Privacy&lt;/a&gt;
+    &lt;a href="/disclaimer"&gt;Disclaimer&lt;/a&gt;
+    &lt;a href="/accessibility"&gt;Accessibility&lt;/a&gt;
+    &lt;a href="/contact"&gt;Contact us&lt;/a&gt;
+  &lt;/goab-app-footer-meta-section&gt;
+&lt;/goab-app-footer&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer with Navigation Links -->
+  <section class="example-section">
+    <h2>Footer with Navigation Links</h2>
+    <p>Footer including navigation links to main government services and topics.</p>
+    
+    <div class="footer-example">
+      <goab-app-footer maxContentWidth="1200px">
+        <goab-app-footer-nav-section slot="nav" [maxColumnCount]="1">
+          <a *ngFor="let link of navigationLinks" 
+             [href]="link.href" 
+             (click)="onNavigationLinkClick(link)"
+             class="nav-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-nav-section>
+        <goab-app-footer-meta-section slot="meta">
+          <a *ngFor="let link of metaLinks.slice(0, 4)" 
+             [href]="link.href" 
+             (click)="onMetaLinkClick(link)"
+             class="meta-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-meta-section>
+      </goab-app-footer>
+    </div>
+  </section>
+
+  <!-- Multi-Column Footer -->
+  <section class="example-section">
+    <h2>Multi-Column Footer</h2>
+    <p>Footer with navigation links displayed in multiple columns for better organization on larger screens.</p>
+    
+    <div class="footer-example">
+      <goab-app-footer maxContentWidth="1400px">
+        <goab-app-footer-nav-section 
+          slot="nav" 
+          [maxColumnCount]="3"
+          heading="Government Services">
+          <a *ngFor="let link of serviceLinks" 
+             [href]="link.href" 
+             (click)="onNavigationLinkClick(link)"
+             class="nav-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-nav-section>
+        <goab-app-footer-meta-section slot="meta">
+          <a *ngFor="let link of metaLinks" 
+             [href]="link.href" 
+             (click)="onMetaLinkClick(link)"
+             class="meta-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-meta-section>
+      </goab-app-footer>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-footer maxContentWidth="1400px"&gt;
+  &lt;goab-app-footer-nav-section 
+    slot="nav" 
+    [maxColumnCount]="3"
+    heading="Government Services"&gt;
+    &lt;a href="/apply-benefits"&gt;Apply for benefits&lt;/a&gt;
+    &lt;a href="/register-business"&gt;Register your business&lt;/a&gt;
+    &lt;!-- more links... --&gt;
+  &lt;/goab-app-footer-nav-section&gt;
+  &lt;goab-app-footer-meta-section slot="meta"&gt;
+    &lt;a href="/privacy"&gt;Privacy&lt;/a&gt;
+    &lt;!-- more meta links... --&gt;
+  &lt;/goab-app-footer-meta-section&gt;
+&lt;/goab-app-footer&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Department Footer -->
+  <section class="example-section">
+    <h2>Department-Specific Footer</h2>
+    <p>Footer tailored for a specific government department with relevant links and resources.</p>
+    
+    <div class="footer-example">
+      <goab-app-footer maxContentWidth="1200px">
+        <goab-app-footer-nav-section 
+          slot="nav" 
+          [maxColumnCount]="2"
+          heading="Department Resources">
+          <a *ngFor="let link of departmentLinks" 
+             [href]="link.href" 
+             (click)="onNavigationLinkClick(link)"
+             class="nav-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-nav-section>
+        <goab-app-footer-meta-section slot="meta">
+          <a href="/privacy" (click)="onMetaLinkClick({label: 'Privacy', href: '/privacy'})" class="meta-link">Privacy</a>
+          <a href="/accessibility" (click)="onMetaLinkClick({label: 'Accessibility', href: '/accessibility'})" class="meta-link">Accessibility</a>
+          <a href="/contact" (click)="onMetaLinkClick({label: 'Contact', href: '/contact'})" class="meta-link">Contact us</a>
+          <a href="/feedback" (click)="onMetaLinkClick({label: 'Feedback', href: '/feedback'})" class="meta-link">Give feedback</a>
+        </goab-app-footer-meta-section>
+      </goab-app-footer>
+    </div>
+  </section>
+
+  <!-- Interactive Configuration -->
+  <section class="example-section">
+    <h2>Interactive Footer Configuration</h2>
+    <p>Configure footer properties and see the changes in real-time.</p>
+    
+    <!-- Configuration Controls -->
+    <div class="controls-section">
+      <h3>Configuration Controls</h3>
+      
+      <div class="control-group">
+        <label for="maxContentWidth">Max Content Width:</label>
+        <select id="maxContentWidth" [(ngModel)]="maxContentWidth" (change)="updateMaxContentWidth(maxContentWidth)" class="control-select">
+          <option value="100%">100% (Full Width)</option>
+          <option value="1200px">1200px (Standard)</option>
+          <option value="1400px">1400px (Wide)</option>
+          <option value="800px">800px (Narrow)</option>
+        </select>
+      </div>
+      
+      <div class="control-group" *ngIf="showNavSection">
+        <label for="maxColumnCount">Max Column Count:</label>
+        <select id="maxColumnCount" [(ngModel)]="maxColumnCount" (change)="updateMaxColumnCount(maxColumnCount)" class="control-select">
+          <option [value]="1">1 Column</option>
+          <option [value]="2">2 Columns</option>
+          <option [value]="3">3 Columns</option>
+          <option [value]="4">4 Columns</option>
+        </select>
+      </div>
+      
+      <div class="control-group" *ngIf="showNavSection">
+        <label for="navHeading">Navigation Heading:</label>
+        <input type="text" id="navHeading" [(ngModel)]="navHeading" (input)="updateNavHeading(navHeading)" placeholder="Optional heading..." class="control-input">
+      </div>
+      
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="showNavSection" (change)="toggleNavSection()">
+          Show Navigation Section
+        </label>
+      </div>
+      
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="showMetaSection" (change)="toggleMetaSection()">
+          Show Meta Section
+        </label>
+      </div>
+      
+      <div class="preset-buttons">
+        <h4>Preset Configurations:</h4>
+        <goab-button type="secondary" size="compact" (click)="setBasicConfiguration()">Basic</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setStandardConfiguration()">Standard</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setMultiColumnConfiguration()">Multi-Column</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setDepartmentConfiguration()">Department</goab-button>
+      </div>
+    </div>
+
+    <!-- Interactive Footer -->
+    <div class="footer-example">
+      <goab-app-footer [maxContentWidth]="maxContentWidth">
+        <goab-app-footer-nav-section 
+          *ngIf="showNavSection"
+          slot="nav" 
+          [maxColumnCount]="maxColumnCount"
+          [heading]="navHeading || undefined">
+          <a *ngFor="let link of navigationLinks" 
+             [href]="link.href" 
+             (click)="onNavigationLinkClick(link)"
+             class="nav-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-nav-section>
+        <goab-app-footer-meta-section *ngIf="showMetaSection" slot="meta">
+          <a *ngFor="let link of metaLinks" 
+             [href]="link.href" 
+             (click)="onMetaLinkClick(link)"
+             class="meta-link">
+            {{ link.label }}
+          </a>
+        </goab-app-footer-meta-section>
+      </goab-app-footer>
+    </div>
+    
+    <div class="current-config">
+      <h4>Current Configuration:</h4>
+      <ul>
+        <li><strong>Max Content Width:</strong> {{ maxContentWidth }}</li>
+        <li><strong>Max Column Count:</strong> {{ maxColumnCount }}</li>
+        <li><strong>Navigation Heading:</strong> {{ navHeading || 'None' }}</li>
+        <li><strong>Navigation Section:</strong> {{ showNavSection ? 'Visible' : 'Hidden' }}</li>
+        <li><strong>Meta Section:</strong> {{ showMetaSection ? 'Visible' : 'Hidden' }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Responsive Footer Examples -->
+  <section class="example-section">
+    <h2>Responsive Behavior</h2>
+    <p>Footer automatically adapts to different screen sizes. The multi-column layout collapses to single column on smaller screens.</p>
+    
+    <div class="responsive-demo">
+      <div class="viewport-demo desktop">
+        <h4>Desktop View (3 columns)</h4>
+        <div class="footer-example">
+          <goab-app-footer maxContentWidth="1200px">
+            <goab-app-footer-nav-section 
+              slot="nav" 
+              [maxColumnCount]="3"
+              heading="All Services">
+              <a *ngFor="let link of navigationLinks.slice(0, 6)" 
+                 [href]="link.href" 
+                 class="nav-link">
+                {{ link.label }}
+              </a>
+            </goab-app-footer-nav-section>
+            <goab-app-footer-meta-section slot="meta">
+              <a *ngFor="let link of metaLinks.slice(0, 4)" 
+                 [href]="link.href" 
+                 class="meta-link">
+                {{ link.label }}
+              </a>
+            </goab-app-footer-meta-section>
+          </goab-app-footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Tracking -->
+  <section class="example-section">
+    <h2>Event Tracking</h2>
+    <p>Track user interactions with footer links and configuration changes.</p>
+    
+    <div class="event-log">
+      <h3>Footer Events</h3>
+      <div class="events" *ngIf="eventLog.length > 0">
+        <div *ngFor="let event of eventLog" class="event-item">
+          <strong>{{ event.timestamp }}:</strong> {{ event.message }}
+        </div>
+      </div>
+      <p *ngIf="eventLog.length === 0">No events yet. Interact with the footers above to see events.</p>
+      <goab-button 
+        type="secondary" 
+        size="compact"
+        (click)="clearEventLog()">
+        Clear Log
+      </goab-button>
+    </div>
+  </section>
+
+  <!-- Usage Guidelines -->
+  <section class="example-section">
+    <h2>Usage Guidelines</h2>
+    <div class="guidelines">
+      <h3>When to use different footer configurations:</h3>
+      <ul>
+        <li><strong>Basic Footer:</strong> Simple applications or pages with minimal navigation needs</li>
+        <li><strong>Meta Links Footer:</strong> Applications requiring quick access to legal/policy information</li>
+        <li><strong>Navigation Footer:</strong> Main government websites with extensive content and services</li>
+        <li><strong>Multi-Column Footer:</strong> Large websites with many services, better organization on desktop</li>
+        <li><strong>Department Footer:</strong> Specific department sites with focused navigation</li>
+      </ul>
+      
+      <h3>Best Practices:</h3>
+      <ul>
+        <li>Always include the Government of Alberta branding and copyright</li>
+        <li>Keep meta links focused on essential items (Privacy, Accessibility, Contact)</li>
+        <li>Use appropriate max content width for your application layout</li>
+        <li>Consider responsive behavior when choosing column counts</li>
+        <li>Group related navigation links logically</li>
+        <li>Test footer usability on different screen sizes</li>
+      </ul>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,402 @@
+<div class="examples-container">
+  <h1>Text Area Examples</h1>
+  <p>Examples of text area components following the Alberta Design System.</p>
+  
+  <!-- Basic Text Area -->
+  <section class="example-section">
+    <h2>Basic Text Area</h2>
+    <goab-form-item label="Comments">
+      <goab-textarea 
+        name="basic" 
+        [value]="basicValue"
+        (onChange)="onBasicChange($event)"
+        width="60ch">
+      </goab-textarea>
+    </goab-form-item>
+    <p><strong>Current Value:</strong> {{ basicValue || 'None' }}</p>
+  </section>
+
+  <!-- Text Area with Placeholder -->
+  <section class="example-section">
+    <h2>Text Area with Placeholder</h2>
+    <goab-form-item label="Description">
+      <goab-textarea 
+        name="placeholder" 
+        [value]="placeholderValue"
+        (onChange)="onPlaceholderChange($event)"
+        placeholder="Enter your description here..."
+        width="60ch"
+        rows="4">
+      </goab-textarea>
+    </goab-form-item>
+    <p><strong>Current Value:</strong> {{ placeholderValue || 'None' }}</p>
+  </section>
+
+  <!-- Text Area with Character Count -->
+  <section class="example-section">
+    <h2>Text Area with Character Count</h2>
+    <goab-form-item label="Message" helperText="Maximum 200 characters">
+      <goab-textarea 
+        name="charCount" 
+        [value]="charCountValue"
+        (onChange)="onCharCountChange($event)"
+        placeholder="Type your message..."
+        width="60ch"
+        rows="3"
+        countBy="character"
+        [maxCount]="200">
+      </goab-textarea>
+    </goab-form-item>
+    <p><strong>Character Count:</strong> {{ charCountValue?.length || 0 }}/200</p>
+  </section>
+
+  <!-- Text Area with Word Count -->
+  <section class="example-section">
+    <h2>Text Area with Word Count</h2>
+    <goab-form-item label="Essay" helperText="Maximum 50 words">
+      <goab-textarea 
+        name="wordCount" 
+        [value]="wordCountValue"
+        (onChange)="onWordCountChange($event)"
+        placeholder="Write your essay..."
+        width="60ch"
+        rows="4"
+        countBy="word"
+        [maxCount]="50">
+      </goab-textarea>
+    </goab-form-item>
+    <p><strong>Word Count:</strong> {{ getWordCount(wordCountValue) }}/50</p>
+  </section>
+
+  <!-- Required Text Area with Validation -->
+  <section class="example-section">
+    <h2>Required Text Area with Validation</h2>
+    <goab-form-item 
+      label="Feedback" 
+      requirement="required"
+      [error]="feedbackError ? 'Feedback is required' : ''">
+      <goab-textarea 
+        name="feedback" 
+        [value]="feedbackValue"
+        [error]="feedbackError"
+        (onChange)="onFeedbackChange($event)"
+        placeholder="Please provide your feedback..."
+        width="60ch"
+        rows="3">
+      </goab-textarea>
+    </goab-form-item>
+    <button 
+      type="button" 
+      (click)="validateFeedback()"
+      class="validate-btn">
+      Validate Feedback
+    </button>
+    <div *ngIf="feedbackValidationMessage" class="validation-message" [ngClass]="{'error': feedbackError, 'success': !feedbackError && feedbackValidationMessage}">
+      {{ feedbackValidationMessage }}
+    </div>
+  </section>
+
+  <!-- Disabled Text Area -->
+  <section class="example-section">
+    <h2>Disabled Text Area</h2>
+    <goab-form-item label="System Information (Read-only)">
+      <goab-textarea 
+        name="disabled" 
+        [value]="'This is a system-generated message that cannot be edited.\nSystem ID: 12345\nGenerated: ' + getCurrentDate()"
+        [disabled]="true"
+        width="60ch"
+        rows="3">
+      </goab-textarea>
+    </goab-form-item>
+  </section>
+
+  <!-- Read-only Text Area -->
+  <section class="example-section">
+    <h2>Read-only Text Area</h2>
+    <goab-form-item label="Terms and Conditions">
+      <goab-textarea 
+        name="readonly" 
+        [value]="termsAndConditions"
+        [readOnly]="true"
+        width="60ch"
+        rows="5">
+      </goab-textarea>
+    </goab-form-item>
+  </section>
+
+  <!-- Template-driven Form -->
+  <section class="example-section">
+    <h2>Template-driven Form Example</h2>
+    <form #templateForm="ngForm">
+      <goab-form-item 
+        label="Contact Message" 
+        requirement="required"
+        helperText="Please describe your inquiry">
+        <goab-textarea 
+          name="contactMessage" 
+          [(ngModel)]="contactMessage"
+          (onChange)="onContactMessageChange($event)"
+          #contactTextArea="ngModel"
+          required
+          placeholder="Describe your inquiry..."
+          width="60ch"
+          rows="4">
+        </goab-textarea>
+      </goab-form-item>
+      
+      <goab-form-item 
+        label="Additional Comments" 
+        requirement="optional">
+        <goab-textarea 
+          name="additionalComments" 
+          [(ngModel)]="additionalComments"
+          (onChange)="onAdditionalCommentsChange($event)"
+          placeholder="Any additional comments..."
+          width="60ch"
+          rows="3">
+        </goab-textarea>
+      </goab-form-item>
+      
+      <div class="form-status">
+        <p><strong>Form Valid:</strong> {{ templateForm.valid }}</p>
+        <p><strong>Contact Message Valid:</strong> {{ contactTextArea.valid }}</p>
+        <p><strong>Contact Message:</strong> {{ contactMessage || 'None' }}</p>
+        <p><strong>Additional Comments:</strong> {{ additionalComments || 'None' }}</p>
+      </div>
+      
+      <button 
+        type="submit" 
+        [disabled]="!templateForm.valid"
+        (click)="onTemplateSubmit(templateForm)"
+        class="submit-btn">
+        Submit Template Form
+      </button>
+    </form>
+  </section>
+
+  <!-- Reactive Form -->
+  <section class="example-section">
+    <h2>Reactive Form Example</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">
+      <goab-form-item 
+        label="Project Description" 
+        requirement="required"
+        helperText="Describe your project in detail"
+        [error]="isFieldInvalid('projectDescription') ? 'Project description is required (minimum 20 characters)' : ''">
+        <goab-textarea 
+          name="projectDescription" 
+          formControlName="projectDescription"
+          [error]="isFieldInvalid('projectDescription')"
+          placeholder="Provide a detailed description of your project..."
+          width="60ch"
+          rows="4">
+        </goab-textarea>
+      </goab-form-item>
+
+      <goab-form-item 
+        label="Budget Justification" 
+        requirement="required"
+        [error]="isFieldInvalid('budgetJustification') ? 'Budget justification is required' : ''">
+        <goab-textarea 
+          name="budgetJustification" 
+          formControlName="budgetJustification"
+          [error]="isFieldInvalid('budgetJustification')"
+          placeholder="Justify your budget requirements..."
+          width="60ch"
+          rows="5"
+          countBy="word"
+          [maxCount]="100">
+        </goab-textarea>
+      </goab-form-item>
+
+      <goab-form-item 
+        label="Risk Assessment" 
+        requirement="optional">
+        <goab-textarea 
+          name="riskAssessment" 
+          formControlName="riskAssessment"
+          placeholder="Identify potential risks and mitigation strategies..."
+          width="60ch"
+          rows="4">
+        </goab-textarea>
+      </goab-form-item>
+
+      <div class="form-status">
+        <p><strong>Form Valid:</strong> {{ reactiveForm.valid }}</p>
+        <p><strong>Project Description Valid:</strong> {{ !isFieldInvalid('projectDescription') }}</p>
+        <p><strong>Budget Justification Valid:</strong> {{ !isFieldInvalid('budgetJustification') }}</p>
+        <p><strong>Form Value:</strong></p>
+        <pre>{{ getFormValue() }}</pre>
+      </div>
+      
+      <div class="button-group">
+        <button 
+          type="submit" 
+          [disabled]="!reactiveForm.valid"
+          class="submit-btn">
+          Submit Reactive Form
+        </button>
+        <button 
+          type="button" 
+          (click)="resetReactiveForm()"
+          class="reset-btn">
+          Reset Form
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Dynamic Text Area -->
+  <section class="example-section">
+    <h2>Dynamic Text Area Configuration</h2>
+    <goab-form-item label="Dynamic Text Area">
+      <goab-textarea 
+        name="dynamic" 
+        [value]="dynamicValue"
+        (onChange)="onDynamicChange($event)"
+        [placeholder]="dynamicPlaceholder"
+        [width]="dynamicWidth"
+        [rows]="dynamicRows"
+        [disabled]="dynamicDisabled"
+        [readOnly]="dynamicReadOnly">
+      </goab-textarea>
+    </goab-form-item>
+    
+    <div class="controls">
+      <div class="control-group">
+        <label>Rows:</label>
+        <input type="number" [(ngModel)]="dynamicRows" min="1" max="10" class="control-input">
+      </div>
+      <div class="control-group">
+        <label>Width:</label>
+        <select [(ngModel)]="dynamicWidth" class="control-input">
+          <option value="30ch">30ch (Small)</option>
+          <option value="60ch">60ch (Medium)</option>
+          <option value="80ch">80ch (Large)</option>
+          <option value="100%">100% (Full Width)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Placeholder:</label>
+        <input type="text" [(ngModel)]="dynamicPlaceholder" class="control-input">
+      </div>
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="dynamicDisabled">
+          Disabled
+        </label>
+      </div>
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="dynamicReadOnly">
+          Read Only
+        </label>
+      </div>
+    </div>
+    <p><strong>Current Value:</strong> {{ dynamicValue || 'None' }}</p>
+  </section>
+
+  <!-- Government Application Example -->
+  <section class="example-section">
+    <h2>Government Application Example</h2>
+    <form [formGroup]="applicationForm" (ngSubmit)="onApplicationSubmit()">
+      <goab-form-item 
+        label="Business Plan Summary" 
+        requirement="required"
+        helperText="Provide a comprehensive summary of your business plan (minimum 100 words)"
+        [error]="isApplicationFieldInvalid('businessPlan') ? 'Business plan summary is required (minimum 100 words)' : ''">
+        <goab-textarea 
+          name="businessPlan" 
+          formControlName="businessPlan"
+          [error]="isApplicationFieldInvalid('businessPlan')"
+          placeholder="Describe your business concept, target market, competitive advantage, and financial projections..."
+          width="60ch"
+          rows="6"
+          countBy="word"
+          [maxCount]="500">
+        </goab-textarea>
+      </goab-form-item>
+
+      <goab-form-item 
+        label="Environmental Impact Statement" 
+        requirement="required"
+        helperText="Describe the environmental impact of your project"
+        [error]="isApplicationFieldInvalid('environmentalImpact') ? 'Environmental impact statement is required' : ''">
+        <goab-textarea 
+          name="environmentalImpact" 
+          formControlName="environmentalImpact"
+          [error]="isApplicationFieldInvalid('environmentalImpact')"
+          placeholder="Detail the potential environmental impacts and your mitigation measures..."
+          width="60ch"
+          rows="5">
+        </goab-textarea>
+      </goab-form-item>
+
+      <goab-form-item 
+        label="Community Benefits" 
+        requirement="optional"
+        helperText="How will this project benefit the local community?">
+        <goab-textarea 
+          name="communityBenefits" 
+          formControlName="communityBenefits"
+          placeholder="Describe job creation, local partnerships, community services, etc..."
+          width="60ch"
+          rows="4">
+        </goab-textarea>
+      </goab-form-item>
+
+      <div class="application-summary" *ngIf="applicationForm.get('businessPlan')?.value || applicationForm.get('environmentalImpact')?.value">
+        <h3>Application Summary</h3>
+        <div class="summary-item" *ngIf="applicationForm.get('businessPlan')?.value">
+          <p><strong>Business Plan:</strong> {{ getWordCount(applicationForm.get('businessPlan')?.value) }} words</p>
+        </div>
+        <div class="summary-item" *ngIf="applicationForm.get('environmentalImpact')?.value">
+          <p><strong>Environmental Impact:</strong> {{ getWordCount(applicationForm.get('environmentalImpact')?.value) }} words</p>
+        </div>
+        <div class="summary-item" *ngIf="applicationForm.get('communityBenefits')?.value">
+          <p><strong>Community Benefits:</strong> {{ getWordCount(applicationForm.get('communityBenefits')?.value) }} words</p>
+        </div>
+        <p><strong>Total Application Length:</strong> {{ getTotalWordCount() }} words</p>
+      </div>
+      
+      <button 
+        type="submit" 
+        [disabled]="!applicationForm.valid"
+        class="submit-btn">
+        Submit Application
+      </button>
+    </form>
+  </section>
+
+  <!-- Event Tracking -->
+  <section class="example-section">
+    <h2>Event Tracking Example</h2>
+    <goab-form-item label="Notes">
+      <goab-textarea 
+        name="eventTracking" 
+        [value]="eventTrackingValue"
+        (onChange)="onEventTrackingChange($event)"
+        (onKeyPress)="onKeyPress($event)"
+        placeholder="Type to see events..."
+        width="60ch"
+        rows="3">
+      </goab-textarea>
+    </goab-form-item>
+    
+    <div class="event-log">
+      <h3>Event Log</h3>
+      <div class="events" *ngIf="eventLog.length > 0">
+        <div *ngFor="let event of eventLog" class="event-item">
+          <strong>{{ event.timestamp }}:</strong> {{ event.message }}
+        </div>
+      </div>
+      <p *ngIf="eventLog.length === 0">No events yet. Type in the text area to see events.</p>
+      <button 
+        type="button" 
+        (click)="clearEventLog()"
+        class="clear-btn">
+        Clear Log
+      </button>
+    </div>
+  </section>
+</div>

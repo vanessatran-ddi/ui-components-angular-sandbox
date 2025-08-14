@@ -1,0 +1,395 @@
+<div class="examples-container">
+  <h1>Header Examples</h1>
+  <p>Examples of header components following the Alberta Design System.</p>
+  
+  <!-- Basic Header -->
+  <section class="example-section">
+    <h2>Basic Header</h2>
+    <p>A simple application header with just the Government of Alberta branding.</p>
+    
+    <div class="header-example">
+      <goab-app-header [url]="url"></goab-app-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-header url="https://www.alberta.ca"&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Service Name -->
+  <section class="example-section">
+    <h2>Header with Service Name</h2>
+    <p>Application header displaying the service or application name.</p>
+    
+    <div class="header-example">
+      <goab-app-header [url]="url" [heading]="heading"></goab-app-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-header 
+  url="https://www.alberta.ca" 
+  heading="Service Name"&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Navigation Menu -->
+  <section class="example-section">
+    <h2>Header with Navigation Menu</h2>
+    <p>Header including main navigation links for the application or service.</p>
+    
+    <div class="header-example">
+      <goab-app-header 
+        [url]="url" 
+        [heading]="heading"
+        [maxContentWidth]="maxContentWidth"
+        [fullMenuBreakpoint]="fullMenuBreakpoint"
+        (onMenuClick)="onMenuClick()">
+        <a *ngFor="let item of mainMenuItems" 
+           [href]="item.href" 
+           (click)="onNavigationLinkClick(item)"
+           class="nav-link">
+          {{ item.label }}
+        </a>
+        <a href="#" 
+           (click)="onSignInClick()" 
+           class="sign-in-link">Sign in</a>
+      </goab-app-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-header 
+  url="https://www.alberta.ca" 
+  heading="Service Name"
+  maxContentWidth="1200px"
+  [fullMenuBreakpoint]="1024"&gt;
+  &lt;a href="/home"&gt;Home&lt;/a&gt;
+  &lt;a href="/services"&gt;Services&lt;/a&gt;
+  &lt;a href="/about"&gt;About&lt;/a&gt;
+  &lt;a href="/contact"&gt;Contact&lt;/a&gt;
+  &lt;a href="#" class="sign-in-link"&gt;Sign in&lt;/a&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Dropdown Menus -->
+  <section class="example-section">
+    <h2>Header with Dropdown Menus</h2>
+    <p>Header with dropdown navigation menus for complex applications.</p>
+    
+    <div class="header-example">
+      <goab-app-header 
+        [url]="url" 
+        heading="Government Portal"
+        [maxContentWidth]="maxContentWidth"
+        [fullMenuBreakpoint]="fullMenuBreakpoint"
+        (onMenuClick)="onMenuClick()">
+        <a href="/home">Home</a>
+        <goab-app-header-menu heading="Services">
+          <a *ngFor="let item of searchMenuItems" 
+             [href]="item.href" 
+             (click)="onNavigationLinkClick(item)">
+            {{ item.label }}
+          </a>
+        </goab-app-header-menu>
+        <goab-app-header-menu heading="My Account">
+          <a *ngFor="let item of accountMenuItems" 
+             [href]="item.href" 
+             (click)="onNavigationLinkClick(item)">
+            {{ item.label }}
+          </a>
+        </goab-app-header-menu>
+        <goab-app-header-menu heading="Support">
+          <a *ngFor="let item of supportMenuItems" 
+             [href]="item.href" 
+             (click)="onNavigationLinkClick(item)">
+            {{ item.label }}
+          </a>
+        </goab-app-header-menu>
+      </goab-app-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-header 
+  url="https://www.alberta.ca" 
+  heading="Government Portal"&gt;
+  &lt;a href="/home"&gt;Home&lt;/a&gt;
+  &lt;goab-app-header-menu heading="Services"&gt;
+    &lt;a href="/search/services"&gt;Find services&lt;/a&gt;
+    &lt;a href="/search/forms"&gt;Find forms&lt;/a&gt;
+    &lt;a href="/search/locations"&gt;Find locations&lt;/a&gt;
+  &lt;/goab-app-header-menu&gt;
+  &lt;goab-app-header-menu heading="My Account"&gt;
+    &lt;a href="/profile"&gt;My Profile&lt;/a&gt;
+    &lt;a href="/applications"&gt;My Applications&lt;/a&gt;
+    &lt;a href="/settings"&gt;Settings&lt;/a&gt;
+    &lt;a href="/signout"&gt;Sign Out&lt;/a&gt;
+  &lt;/goab-app-header-menu&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Microsite Header -->
+  <section class="example-section">
+    <h2>Header with Microsite Header</h2>
+    <p>Application header with microsite header showing environment status (Alpha, Beta, etc.).</p>
+    
+    <div class="header-example">
+      <goab-microsite-header 
+        *ngIf="showMicrositeHeader"
+        type="alpha"
+        level="alpha"
+        version="v2.1.0">
+      </goab-microsite-header>
+      <goab-app-header 
+        [url]="url" 
+        heading="Business Registration System"
+        [maxContentWidth]="maxContentWidth"
+        [fullMenuBreakpoint]="fullMenuBreakpoint">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/applications">Applications</a>
+        <a href="/documents">Documents</a>
+        <a href="/help">Help</a>
+        <a href="#" (click)="onSignInClick()">Sign in</a>
+      </goab-app-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="alpha" 
+  level="alpha" 
+  version="v2.1.0"&gt;
+&lt;/goab-microsite-header&gt;
+&lt;goab-app-header 
+  url="https://www.alberta.ca" 
+  heading="Business Registration System"&gt;
+  &lt;a href="/dashboard"&gt;Dashboard&lt;/a&gt;
+  &lt;a href="/applications"&gt;Applications&lt;/a&gt;
+  &lt;a href="/documents"&gt;Documents&lt;/a&gt;
+  &lt;a href="/help"&gt;Help&lt;/a&gt;
+  &lt;a href="#"&gt;Sign in&lt;/a&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Interactive Configuration -->
+  <section class="example-section">
+    <h2>Interactive Header Configuration</h2>
+    <p>Configure header properties and see the changes in real-time.</p>
+    
+    <!-- Configuration Controls -->
+    <div class="controls-section">
+      <h3>Configuration Controls</h3>
+      
+      <div class="control-group">
+        <label for="interactiveUrl">URL:</label>
+        <input type="text" id="interactiveUrl" [(ngModel)]="interactiveUrl" (input)="updateUrl(interactiveUrl)" class="control-input">
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveHeading">Heading:</label>
+        <input type="text" id="interactiveHeading" [(ngModel)]="interactiveHeading" (input)="updateHeading(interactiveHeading)" placeholder="Optional service name..." class="control-input">
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveMaxContentWidth">Max Content Width:</label>
+        <select id="interactiveMaxContentWidth" [(ngModel)]="interactiveMaxContentWidth" (change)="updateMaxContentWidth(interactiveMaxContentWidth)" class="control-select">
+          <option value="100%">100% (Full Width)</option>
+          <option value="1200px">1200px (Standard)</option>
+          <option value="1400px">1400px (Wide)</option>
+          <option value="800px">800px (Narrow)</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveFullMenuBreakpoint">Full Menu Breakpoint:</label>
+        <select id="interactiveFullMenuBreakpoint" [(ngModel)]="interactiveFullMenuBreakpoint" (change)="updateFullMenuBreakpoint(interactiveFullMenuBreakpoint)" class="control-select">
+          <option [value]="480">480px (Mobile Only)</option>
+          <option [value]="768">768px (Mobile & Tablet)</option>
+          <option [value]="1024">1024px (Standard)</option>
+          <option [value]="1200">1200px (Wide)</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="interactiveShowMicrositeHeader" (change)="toggleMicrositeHeader()">
+          Show Microsite Header
+        </label>
+      </div>
+      
+      <div class="control-group" *ngIf="interactiveShowMicrositeHeader">
+        <label for="interactiveMicrositeHeaderType">Microsite Header Type:</label>
+        <select id="interactiveMicrositeHeaderType" [(ngModel)]="interactiveMicrositeHeaderType" (change)="updateMicrositeHeaderType(interactiveMicrositeHeaderType)" class="control-select">
+          <option value="live">Live</option>
+          <option value="alpha">Alpha</option>
+          <option value="beta">Beta</option>
+          <option value="development">Development</option>
+        </select>
+      </div>
+      
+      <div class="preset-buttons">
+        <h4>Preset Configurations:</h4>
+        <goab-button type="secondary" size="compact" (click)="setBasicConfiguration()">Basic</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setServiceConfiguration()">Service</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setApplicationConfiguration()">Application</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setDepartmentConfiguration()">Department</goab-button>
+      </div>
+    </div>
+
+    <!-- Interactive Header -->
+    <div class="header-example">
+      <goab-microsite-header 
+        *ngIf="interactiveShowMicrositeHeader"
+        type="alpha"
+        level="alpha"
+        version="UAT">
+      </goab-microsite-header>
+      <goab-app-header 
+        [url]="interactiveUrl" 
+        [heading]="interactiveHeading || undefined"
+        [maxContentWidth]="interactiveMaxContentWidth"
+        [fullMenuBreakpoint]="interactiveFullMenuBreakpoint"
+        (onMenuClick)="onMenuClick()">
+        <a *ngFor="let item of mainMenuItems" 
+           [href]="item.href" 
+           (click)="onNavigationLinkClick(item)"
+           class="nav-link">
+          {{ item.label }}
+        </a>
+        <goab-app-header-menu heading="Services">
+          <a *ngFor="let item of searchMenuItems" 
+             [href]="item.href" 
+             (click)="onNavigationLinkClick(item)">
+            {{ item.label }}
+          </a>
+        </goab-app-header-menu>
+        <a href="#" 
+           (click)="onSignInClick()" 
+           class="sign-in-link">Sign in</a>
+      </goab-app-header>
+    </div>
+    
+    <div class="current-config">
+      <h4>Current Configuration:</h4>
+      <ul>
+        <li><strong>URL:</strong> {{ interactiveUrl }}</li>
+        <li><strong>Heading:</strong> {{ interactiveHeading || 'None' }}</li>
+        <li><strong>Max Content Width:</strong> {{ interactiveMaxContentWidth }}</li>
+        <li><strong>Full Menu Breakpoint:</strong> {{ interactiveFullMenuBreakpoint }}px ({{ getBreakpointDescription(interactiveFullMenuBreakpoint) }})</li>
+        <li><strong>Microsite Header:</strong> {{ interactiveShowMicrositeHeader ? 'Visible (' + interactiveMicrositeHeaderType + ')' : 'Hidden' }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Mobile/Desktop Simulation -->
+  <section class="example-section">
+    <h2>Responsive Behavior Simulation</h2>
+    <p>Test how the header behaves at different screen sizes. The navigation collapses to a mobile menu below the breakpoint.</p>
+    
+    <div class="controls-section">
+      <h3>Device Simulation</h3>
+      
+      <div class="control-group">
+        <label for="deviceWidth">Simulate Device Width:</label>
+        <select id="deviceWidth" [(ngModel)]="deviceWidth" (change)="changeDeviceWidth(deviceWidth)" class="control-select">
+          <option value="320">320px (Small Mobile)</option>
+          <option value="375">375px (Mobile)</option>
+          <option value="768">768px (Tablet)</option>
+          <option value="1024">1024px (Desktop)</option>
+          <option value="1200">1200px (Large Desktop)</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <label for="simulationBreakpoint">Menu Breakpoint:</label>
+        <input type="number" id="simulationBreakpoint" [(ngModel)]="simulationBreakpoint" (input)="updateSimulationBreakpoint(simulationBreakpoint)" min="320" max="1200" class="control-input">
+      </div>
+      
+      <p><strong>Current Status:</strong> {{ isDeviceWidthMobile() ? 'Mobile Menu Mode' : 'Full Menu Mode' }}</p>
+    </div>
+
+    <div class="responsive-demo" [style.max-width.px]="deviceWidth">
+      <div class="viewport-info">
+        <h4>Simulated Viewport: {{ deviceWidth }}px</h4>
+      </div>
+      <div class="header-example">
+        <goab-app-header 
+          url="https://www.alberta.ca" 
+          heading="Responsive Demo"
+          maxContentWidth="100%"
+          [fullMenuBreakpoint]="simulationBreakpoint"
+          (onMenuClick)="onMenuClick()">
+          <a *ngFor="let item of mainMenuItems" 
+             [href]="item.href" 
+             (click)="onNavigationLinkClick(item)">
+            {{ item.label }}
+          </a>
+          <a href="#" (click)="onSignInClick()">Sign in</a>
+        </goab-app-header>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Tracking -->
+  <section class="example-section">
+    <h2>Event Tracking</h2>
+    <p>Track user interactions with header elements and configuration changes.</p>
+    
+    <div class="event-log">
+      <h3>Header Events</h3>
+      <div class="events" *ngIf="eventLog.length > 0">
+        <div *ngFor="let event of eventLog" class="event-item">
+          <strong>{{ event.timestamp }}:</strong> {{ event.message }}
+        </div>
+      </div>
+      <p *ngIf="eventLog.length === 0">No events yet. Interact with the headers above to see events.</p>
+      <goab-button 
+        type="secondary" 
+        size="compact"
+        (click)="clearEventLog()">
+        Clear Log
+      </goab-button>
+    </div>
+  </section>
+
+  <!-- Usage Guidelines -->
+  <section class="example-section">
+    <h2>Usage Guidelines</h2>
+    <div class="guidelines">
+      <h3>When to use different header configurations:</h3>
+      <ul>
+        <li><strong>Basic Header:</strong> Simple applications or landing pages with minimal navigation</li>
+        <li><strong>Header with Service Name:</strong> Applications and services that need clear identification</li>
+        <li><strong>Header with Navigation:</strong> Applications with multiple sections or pages</li>
+        <li><strong>Header with Dropdown Menus:</strong> Complex applications with many features and user account management</li>
+        <li><strong>Header with Microsite Header:</strong> Development, testing, or specialty applications that need environment indicators</li>
+      </ul>
+      
+      <h3>Best Practices:</h3>
+      <ul>
+        <li>Always link the Government of Alberta logo to the main government website</li>
+        <li>Keep navigation items focused and well-organized</li>
+        <li>Use appropriate breakpoints for your content layout</li>
+        <li>Test mobile navigation thoroughly</li>
+        <li>Include a sign-in link for authenticated applications</li>
+        <li>Use microsite headers to clearly indicate environment (Alpha, Beta, etc.)</li>
+        <li>Ensure header content is accessible and keyboard navigable</li>
+      </ul>
+      
+      <h3>Accessibility Considerations:</h3>
+      <ul>
+        <li>All navigation links should be keyboard accessible</li>
+        <li>Dropdown menus should work with screen readers</li>
+        <li>Color contrast should meet WCAG guidelines</li>
+        <li>Mobile menu button should have appropriate aria labels</li>
+      </ul>
+    </div>
+  </section>
+</div>

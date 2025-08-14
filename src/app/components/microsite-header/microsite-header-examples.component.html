@@ -1,0 +1,437 @@
+<div class="examples-container">
+  <h1>Microsite Header Examples</h1>
+  <p>Examples of microsite header components following the Alberta Design System. Communicate what stage the service is at, connect to Alberta.ca, and gather feedback on your service.</p>
+  
+  <!-- Basic Alpha Header -->
+  <section class="example-section">
+    <h2>Basic Alpha Header</h2>
+    <p>The most common microsite header for new services in early development. Includes feedback link and clear indication this is a new Alberta Government service.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="alpha"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="alpha"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Beta Header -->
+  <section class="example-section">
+    <h2>Beta Header</h2>
+    <p>For services that are feature complete but still in testing phase. Shows beta status to set user expectations.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="beta"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="beta"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Live Header -->
+  <section class="example-section">
+    <h2>Live Header</h2>
+    <p>For production-ready services. Minimal design without feedback prompts as the service is stable.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="live">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="live"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Version -->
+  <section class="example-section">
+    <h2>Header with Version Display</h2>
+    <p>Shows version information on the right side. Useful for tracking releases and helping users report issues.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="alpha"
+        [version]="version"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="alpha"
+  version="v1.2.3"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Custom Feedback URL -->
+  <section class="example-section">
+    <h2>Header with Custom Feedback URL</h2>
+    <p>Directs feedback to a specific URL instead of using the click event handler. Useful for external feedback forms.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="beta"
+        [feedbackUrl]="feedbackUrl"
+        [version]="version">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="beta"
+  feedbackUrl="https://forms.microsoft.com/feedback"
+  version="v1.2.3"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Custom Width -->
+  <section class="example-section">
+    <h2>Header with Custom Max Content Width</h2>
+    <p>Constrain the header content to match your application's layout. Useful for maintaining consistent spacing with your main content.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="alpha"
+        maxContentWidth="800px"
+        [version]="version"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="alpha"
+  maxContentWidth="800px"
+  version="v1.2.3"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Slotted Version Content -->
+  <section class="example-section">
+    <h2>Header with Slotted Version Content</h2>
+    <p>Use slotted content for more complex version display. This allows you to include custom HTML, styling, or additional information in the version area.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="alpha"
+        [version]="versionLinkSlot"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+      <ng-template #versionLinkSlot>
+        <a href="#" class="version-link" (click)="onVersionClick()">
+          Version v{{ getCurrentVersion() }}
+        </a>
+      </ng-template>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="alpha"
+  [version]="versionSlot"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;
+&lt;ng-template #versionSlot&gt;
+  &lt;a href="#"&gt;Version&lt;/a&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Header with Complex Slotted Version -->
+  <section class="example-section">
+    <h2>Header with Complex Slotted Version</h2>
+    <p>More advanced slotted content example with detailed version information and custom styling.</p>
+    
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="beta"
+        [version]="complexVersionSlot"
+        (onFeedbackClick)="onFeedbackClick()">
+      </goab-microsite-header>
+      <ng-template #complexVersionSlot>
+        <span class="custom-version">
+          <strong>v{{ getCurrentVersion() }}</strong>
+          <small class="build-info">(Build: {{ getBuildNumber() }})</small>
+        </span>
+      </ng-template>
+    </div>
+    
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-microsite-header 
+  type="beta"
+  [version]="versionSlot"
+  (onFeedbackClick)="onFeedbackClick()"&gt;
+&lt;/goab-microsite-header&gt;
+&lt;ng-template #versionSlot&gt;
+  &lt;span class="custom-version"&gt;
+    &lt;strong&gt;v1.23&lt;/strong&gt;
+    &lt;small class="build-info"&gt;(Build: 2024.01.15)&lt;/small&gt;
+  &lt;/span&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Interactive Configuration -->
+  <section class="example-section">
+    <h2>Interactive Microsite Header Configuration</h2>
+    <p>Configure microsite header properties and see the changes in real-time.</p>
+    
+    <!-- Configuration Controls -->
+    <div class="controls-section">
+      <h3>Configuration Controls</h3>
+      
+      <div class="control-group">
+        <label for="interactiveType">Type:</label>
+        <select id="interactiveType" [(ngModel)]="interactiveType" (change)="updateType(interactiveType)" class="control-select">
+          <option *ngFor="let option of typeOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <span class="type-description">{{ getTypeDescription(interactiveType) }}</span>
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveVersion">Version:</label>
+        <input type="text" id="interactiveVersion" [(ngModel)]="interactiveVersion" (input)="updateVersion(interactiveVersion)" placeholder="e.g., v1.2.3" class="control-input">
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveFeedbackUrl">Feedback URL:</label>
+        <input type="text" id="interactiveFeedbackUrl" [(ngModel)]="interactiveFeedbackUrl" (input)="updateFeedbackUrl(interactiveFeedbackUrl)" placeholder="https://forms.microsoft.com/feedback" class="control-input">
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveMaxContentWidth">Max Content Width:</label>
+        <select id="interactiveMaxContentWidth" [(ngModel)]="interactiveMaxContentWidth" (change)="updateMaxContentWidth(interactiveMaxContentWidth)" class="control-select">
+          <option value="100%">100% (Full Width)</option>
+          <option value="1200px">1200px (Standard)</option>
+          <option value="1400px">1400px (Wide)</option>
+          <option value="800px">800px (Narrow)</option>
+          <option value="600px">600px (Very Narrow)</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveFeedbackUrlTarget">Feedback URL Target:</label>
+        <select id="interactiveFeedbackUrlTarget" [(ngModel)]="interactiveFeedbackUrlTarget" (change)="updateFeedbackUrlTarget(interactiveFeedbackUrlTarget)" class="control-select">
+          <option *ngFor="let option of targetOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <span class="target-description">{{ getTargetDescription(interactiveFeedbackUrlTarget) }}</span>
+      </div>
+      
+      <div class="control-group">
+        <label for="interactiveHeaderUrlTarget">Header URL Target:</label>
+        <select id="interactiveHeaderUrlTarget" [(ngModel)]="interactiveHeaderUrlTarget" (change)="updateHeaderUrlTarget(interactiveHeaderUrlTarget)" class="control-select">
+          <option *ngFor="let option of targetOptions" [value]="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+        <span class="target-description">{{ getTargetDescription(interactiveHeaderUrlTarget) }}</span>
+      </div>
+      
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="showFeedbackLink" (change)="toggleFeedbackLink()">
+          Show Feedback Link
+        </label>
+      </div>
+      
+      <div class="control-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="showVersion" (change)="toggleVersion()">
+          Show Version
+        </label>
+      </div>
+      
+      <div class="preset-buttons">
+        <h4>Preset Configurations:</h4>
+        <goab-button type="secondary" size="compact" (click)="setAlphaConfiguration()">Alpha Service</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setBetaConfiguration()">Beta Service</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setLiveConfiguration()">Live Service</goab-button>
+        <goab-button type="secondary" size="compact" (click)="setDevelopmentConfiguration()">Development</goab-button>
+      </div>
+    </div>
+
+    <!-- Interactive Header -->
+    <div class="microsite-header-example">
+      <goab-microsite-header 
+        type="alpha"
+        [version]="showVersion ? interactiveVersion : ''"
+        [feedbackUrl]="showFeedbackLink ? interactiveFeedbackUrl : ''"
+        [maxContentWidth]="interactiveMaxContentWidth"
+        feedbackUrlTarget="blank"
+        headerUrlTarget="blank"
+        (onFeedbackClick)="onFeedbackClick()"
+        *ngIf="interactiveType === 'alpha'">
+      </goab-microsite-header>
+      <goab-microsite-header 
+        type="beta"
+        [version]="showVersion ? interactiveVersion : ''"
+        [feedbackUrl]="showFeedbackLink ? interactiveFeedbackUrl : ''"
+        [maxContentWidth]="interactiveMaxContentWidth"
+        feedbackUrlTarget="blank"
+        headerUrlTarget="blank"
+        (onFeedbackClick)="onFeedbackClick()"
+        *ngIf="interactiveType === 'beta'">
+      </goab-microsite-header>
+      <goab-microsite-header 
+        type="live"
+        [version]="showVersion ? interactiveVersion : ''"
+        [feedbackUrl]="showFeedbackLink ? interactiveFeedbackUrl : ''"
+        [maxContentWidth]="interactiveMaxContentWidth"
+        feedbackUrlTarget="blank"
+        headerUrlTarget="blank"
+        (onFeedbackClick)="onFeedbackClick()"
+        *ngIf="interactiveType === 'live'">
+      </goab-microsite-header>
+    </div>
+    
+    <div class="current-config">
+      <h4>Current Configuration:</h4>
+      <ul>
+        <li><strong>Type:</strong> {{ interactiveType }} ({{ getTypeDescription(interactiveType) }})</li>
+        <li><strong>Version:</strong> {{ showVersion ? (interactiveVersion || 'None') : 'Hidden' }}</li>
+        <li><strong>Feedback URL:</strong> {{ showFeedbackLink ? (interactiveFeedbackUrl || 'Event handler') : 'Disabled' }}</li>
+        <li><strong>Max Content Width:</strong> {{ interactiveMaxContentWidth }}</li>
+        <li><strong>Feedback URL Target:</strong> {{ interactiveFeedbackUrlTarget }} ({{ getTargetDescription(interactiveFeedbackUrlTarget) }})</li>
+        <li><strong>Header URL Target:</strong> {{ interactiveHeaderUrlTarget }} ({{ getTargetDescription(interactiveHeaderUrlTarget) }})</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Content Width Comparison -->
+  <section class="example-section">
+    <h2>Max Content Width Comparison</h2>
+    <p>Compare how different max content widths affect the header layout. Useful for understanding how to align with your main content.</p>
+    
+    <div class="width-comparison">
+      <div class="width-demo">
+        <h4>100% Width (Full)</h4>
+        <div class="microsite-header-example">
+          <goab-microsite-header 
+            type="alpha"
+            maxContentWidth="100%"
+            version="Full"
+            (onFeedbackClick)="onFeedbackClick()">
+          </goab-microsite-header>
+        </div>
+      </div>
+      
+      <div class="width-demo">
+        <h4>1200px Width (Standard)</h4>
+        <div class="microsite-header-example">
+          <goab-microsite-header 
+            type="beta"
+            maxContentWidth="1200px"
+            version="Standard"
+            (onFeedbackClick)="onFeedbackClick()">
+          </goab-microsite-header>
+        </div>
+      </div>
+      
+      <div class="width-demo">
+        <h4>800px Width (Narrow)</h4>
+        <div class="microsite-header-example">
+          <goab-microsite-header 
+            type="alpha"
+            maxContentWidth="800px"
+            version="Narrow"
+            (onFeedbackClick)="onFeedbackClick()">
+          </goab-microsite-header>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Tracking -->
+  <section class="example-section">
+    <h2>Event Tracking</h2>
+    <p>Track user interactions with microsite header elements and configuration changes.</p>
+    
+    <div class="event-log">
+      <h3>Microsite Header Events</h3>
+      <div class="events" *ngIf="eventLog.length > 0">
+        <div *ngFor="let event of eventLog" class="event-item">
+          <strong>{{ event.timestamp }}:</strong> {{ event.message }}
+        </div>
+      </div>
+      <p *ngIf="eventLog.length === 0">No events yet. Interact with the microsite headers above to see events.</p>
+      <goab-button 
+        type="secondary" 
+        size="compact"
+        (click)="clearEventLog()">
+        Clear Log
+      </goab-button>
+    </div>
+  </section>
+
+  <!-- Usage Guidelines -->
+  <section class="example-section">
+    <h2>Usage Guidelines</h2>
+    <div class="guidelines">
+      <h3>When to use different microsite header types:</h3>
+      <ul>
+        <li><strong>Alpha:</strong> New services in early development stage - expect significant changes and gather lots of feedback</li>
+        <li><strong>Beta:</strong> Services that are feature complete but still in testing - may have bugs, gathering feedback for improvements</li>
+        <li><strong>Live:</strong> Production-ready services that are stable and fully tested</li>
+      </ul>
+      
+      <h3>Best Practices:</h3>
+      <ul>
+        <li>Always include version information for alpha and beta services to help with issue reporting</li>
+        <li>Use feedback URLs to direct users to specific feedback forms or surveys</li>
+        <li>Match the max content width to your main application layout for consistency</li>
+        <li>Use appropriate link targets - external feedback forms should open in new tabs</li>
+        <li>Keep version numbers meaningful and follow semantic versioning when possible</li>
+        <li>Remove feedback prompts once your service moves to live status</li>
+      </ul>
+      
+      <h3>Content Guidelines:</h3>
+      <ul>
+        <li>The header automatically includes "This is a new Alberta Government service" for alpha/beta</li>
+        <li>Feedback link text is automatically generated based on the type</li>
+        <li>Version information should be concise (e.g., "v1.2.3", "Beta", "UAT")</li>
+        <li>Keep feedback URLs focused on service improvement, not general government feedback</li>
+      </ul>
+      
+      <h3>Technical Considerations:</h3>
+      <ul>
+        <li>The component handles responsive behavior automatically</li>
+        <li>Use event handlers for custom feedback tracking and analytics</li>
+        <li>Consider accessibility when choosing link targets and URLs</li>
+        <li>Test with different content widths to ensure proper alignment</li>
+      </ul>
+    </div>
+  </section>
+</div>

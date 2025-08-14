@@ -1,0 +1,372 @@
+.examples-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.example-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.example-section h2 {
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 2px solid #0070f3;
+  padding-bottom: 0.5rem;
+}
+
+.example-section p {
+  margin-bottom: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Header Examples */
+.header-example {
+  margin: 2rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f8f9fa;
+  min-height: 80px;
+}
+
+.header-example goab-app-header,
+.header-example goab-microsite-header {
+  display: block;
+}
+
+/* Code Examples */
+.code-example {
+  margin-top: 1.5rem;
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.code-example h4 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.code-example pre {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.code-example code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #333;
+}
+
+/* Configuration Controls */
+.controls-section {
+  background: #f8f9fa;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.controls-section h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.control-group {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.control-group label {
+  font-weight: 500;
+  color: #333;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-select, .control-input {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 200px;
+}
+
+.control-select:focus, .control-input:focus {
+  outline: none;
+  border-color: #0070f3;
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+}
+
+.preset-buttons {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e1e5e9;
+}
+
+.preset-buttons h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.preset-buttons goab-button {
+  margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Current Configuration */
+.current-config {
+  margin-top: 1.5rem;
+  background: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.current-config h4 {
+  margin: 0 0 0.75rem 0;
+  color: #1976d2;
+  font-size: 0.95rem;
+}
+
+.current-config ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.current-config li {
+  margin: 0.25rem 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Responsive Demo */
+.responsive-demo {
+  margin: 1.5rem 0;
+  border: 2px dashed #2196f3;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f3f8ff;
+  transition: max-width 0.3s ease;
+  overflow-x: auto;
+}
+
+.viewport-info {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.viewport-info h4 {
+  margin: 0;
+  color: #1976d2;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  background: #e3f2fd;
+  border-radius: 4px;
+  border: 1px solid #bbdefb;
+}
+
+/* Event Log */
+.event-log {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e1e5e9;
+}
+
+.event-log h3 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.events {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.75rem;
+}
+
+.event-item {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border-left: 3px solid #0070f3;
+}
+
+.event-item:first-child {
+  background: #e3f2fd;
+}
+
+/* Guidelines */
+.guidelines {
+  background: #fff3e0;
+  border: 1px solid #ffcc02;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.guidelines h3 {
+  margin: 0 0 1rem 0;
+  color: #e65100;
+  font-size: 1rem;
+}
+
+.guidelines ul {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.guidelines li {
+  margin: 0.5rem 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+.guidelines li strong {
+  color: #e65100;
+}
+
+/* Link Styling */
+.nav-link, .sign-in-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.nav-link:hover, .sign-in-link:hover {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.sign-in-link {
+  font-weight: 500;
+}
+
+/* Header Container Styling */
+.header-example goab-microsite-header + goab-app-header {
+  border-top: none;
+}
+
+/* Demo Specific Styling */
+.responsive-demo .header-example {
+  margin: 0;
+  border: 1px solid #2196f3;
+  background: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .examples-container {
+    padding: 1rem;
+  }
+  
+  .example-section {
+    padding: 1rem;
+  }
+  
+  .controls-section {
+    padding: 1rem;
+  }
+  
+  .control-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .control-group label {
+    min-width: auto;
+  }
+  
+  .control-select, .control-input {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .preset-buttons goab-button {
+    margin-right: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .code-example pre {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
+  
+  .responsive-demo {
+    padding: 0.5rem;
+  }
+  
+  .viewport-info h4 {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-example {
+    margin: 1rem 0;
+  }
+  
+  .preset-buttons goab-button {
+    display: block;
+    width: 100%;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .responsive-demo {
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+
+/* Animation for configuration changes */
+.header-example goab-app-header {
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu Simulation Styles */
+.responsive-demo[style*="320px"] .header-example,
+.responsive-demo[style*="375px"] .header-example {
+  border-color: #ff9800;
+  background: #fff8e1;
+}
+
+.responsive-demo[style*="768px"] .header-example {
+  border-color: #2196f3;
+  background: #e3f2fd;
+}
+
+.responsive-demo[style*="1024px"] .header-example,
+.responsive-demo[style*="1200px"] .header-example {
+  border-color: #4caf50;
+  background: #e8f5e8;
+}

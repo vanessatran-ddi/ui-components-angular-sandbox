@@ -1,0 +1,686 @@
+<div class="examples-container">
+  <h1>Drawer Examples</h1>
+  <p>Examples of drawer components following the Alberta Design System.</p>
+  
+  <!-- Basic Drawer Positions -->
+  <section class="example-section">
+    <h2>Basic Drawer Positions</h2>
+    <p>Drawers can be positioned on the left, right, or bottom of the screen.</p>
+    
+    <div class="button-group">
+      <goab-button 
+        type="primary" 
+        (click)="openLeftDrawer()">
+        Open Left Drawer
+      </goab-button>
+      
+      <goab-button 
+        type="secondary" 
+        (click)="openRightDrawer()">
+        Open Right Drawer
+      </goab-button>
+      
+      <goab-button 
+        type="tertiary" 
+        (click)="openBottomDrawer()">
+        Open Bottom Drawer
+      </goab-button>
+    </div>
+
+    <!-- Left Drawer -->
+    <goab-drawer 
+      [open]="leftDrawerOpen"
+      position="left"
+      heading="Navigation Menu"
+      (onClose)="closeLeftDrawer()">
+      <div class="drawer-content">
+        <h3>Main Navigation</h3>
+        <nav class="nav-menu">
+          <a href="#" class="nav-item">Dashboard</a>
+          <a href="#" class="nav-item">Applications</a>
+          <a href="#" class="nav-item">Reports</a>
+          <a href="#" class="nav-item">Users</a>
+          <a href="#" class="nav-item">Settings</a>
+          <a href="#" class="nav-item">Help</a>
+        </nav>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeLeftDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Right Drawer -->
+    <goab-drawer 
+      [open]="rightDrawerOpen"
+      position="right"
+      heading="Notifications"
+      (onClose)="closeRightDrawer()">
+      <div class="drawer-content">
+        <div class="notification-header">
+          <h3>Recent Notifications</h3>
+          <span class="notification-count" *ngIf="getUnreadNotificationCount() > 0">
+            {{ getUnreadNotificationCount() }} unread
+          </span>
+        </div>
+        
+        <div class="notifications-list">
+          <div 
+            *ngFor="let notification of notifications" 
+            class="notification-item"
+            [class.unread]="!notification.read">
+            <div class="notification-content">
+              <h4>{{ notification.title }}</h4>
+              <p>{{ notification.message }}</p>
+              <span class="notification-time">{{ notification.time }}</span>
+            </div>
+            <div class="notification-actions">
+              <button 
+                *ngIf="!notification.read"
+                (click)="markNotificationAsRead(notification.id)"
+                class="mark-read-btn">
+                Mark as Read
+              </button>
+              <button 
+                (click)="deleteNotification(notification.id)"
+                class="delete-btn">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeRightDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Bottom Drawer -->
+    <goab-drawer 
+      [open]="bottomDrawerOpen"
+      position="bottom"
+      heading="Quick Actions"
+      (onClose)="closeBottomDrawer()">
+      <div class="drawer-content">
+        <h3>Quick Actions Panel</h3>
+        <div class="quick-actions">
+          <div class="action-card">
+            <h4>Create New Application</h4>
+            <p>Start a new government service application</p>
+            <goab-button type="primary" size="compact">Create</goab-button>
+          </div>
+          <div class="action-card">
+            <h4>Generate Report</h4>
+            <p>Generate monthly activity report</p>
+            <goab-button type="secondary" size="compact">Generate</goab-button>
+          </div>
+          <div class="action-card">
+            <h4>Export Data</h4>
+            <p>Export current data to CSV</p>
+            <goab-button type="tertiary" size="compact">Export</goab-button>
+          </div>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeBottomDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+  </section>
+
+  <!-- Drawer Sizes -->
+  <section class="example-section">
+    <h2>Drawer Sizes</h2>
+    <p>Drawers can be configured with different sizes to accommodate various content needs.</p>
+    
+    <div class="button-group">
+      <goab-button 
+        type="primary" 
+        (click)="openSmallDrawer()">
+        Small Drawer (320px)
+      </goab-button>
+      
+      <goab-button 
+        type="secondary" 
+        (click)="openMediumDrawer()">
+        Medium Drawer (480px)
+      </goab-button>
+      
+      <goab-button 
+        type="tertiary" 
+        (click)="openLargeDrawer()">
+        Large Drawer (640px)
+      </goab-button>
+    </div>
+
+    <!-- Small Drawer -->
+    <goab-drawer 
+      [open]="smallDrawerOpen"
+      position="right"
+      heading="Small Drawer"
+      size="320"
+      (onClose)="closeSmallDrawer()">
+      <div class="drawer-content">
+        <h3>Compact Information</h3>
+        <div class="info-section">
+          <h4>User Details</h4>
+          <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+          <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+          <p><strong>Department:</strong> {{ selectedUser.department }}</p>
+          <p><strong>Role:</strong> {{ selectedUser.role }}</p>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeSmallDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Medium Drawer -->
+    <goab-drawer 
+      [open]="mediumDrawerOpen"
+      position="right"
+      heading="Medium Drawer"
+      size="480"
+      (onClose)="closeMediumDrawer()">
+      <div class="drawer-content">
+        <h3>User Profile</h3>
+        <div class="user-profile">
+          <div class="profile-header">
+            <h4>{{ selectedUser.name }}</h4>
+            <span class="user-role">{{ selectedUser.role }}</span>
+          </div>
+          
+          <div class="profile-details">
+            <div class="detail-group">
+              <label>Email:</label>
+              <span>{{ selectedUser.email }}</span>
+            </div>
+            <div class="detail-group">
+              <label>Department:</label>
+              <span>{{ selectedUser.department }}</span>
+            </div>
+            <div class="detail-group">
+              <label>Phone:</label>
+              <span>{{ selectedUser.phone }}</span>
+            </div>
+            <div class="detail-group">
+              <label>Office:</label>
+              <span>{{ selectedUser.office }}</span>
+            </div>
+            <div class="detail-group">
+              <label>Start Date:</label>
+              <span>{{ selectedUser.startDate }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="primary" 
+            size="compact"
+            (click)="openFormDrawer(); closeMediumDrawer()">
+            Edit Profile
+          </goab-button>
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeMediumDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Large Drawer -->
+    <goab-drawer 
+      [open]="largeDrawerOpen"
+      position="right"
+      heading="Large Drawer"
+      size="640"
+      (onClose)="closeLargeDrawer()">
+      <div class="drawer-content">
+        <h3>System Settings</h3>
+        <form [formGroup]="settingsForm">
+          <div class="settings-section">
+            <h4>Notification Preferences</h4>
+            <div class="setting-item">
+              <label>
+                <input 
+                  type="checkbox" 
+                  formControlName="emailNotifications">
+                Email Notifications
+              </label>
+              <p class="setting-description">Receive notifications via email</p>
+            </div>
+            <div class="setting-item">
+              <label>
+                <input 
+                  type="checkbox" 
+                  formControlName="smsNotifications">
+                SMS Notifications
+              </label>
+              <p class="setting-description">Receive notifications via SMS</p>
+            </div>
+          </div>
+          
+          <div class="settings-section">
+            <h4>Appearance</h4>
+            <div class="setting-item">
+              <label>
+                <input 
+                  type="checkbox" 
+                  formControlName="darkMode">
+                Dark Mode
+              </label>
+              <p class="setting-description">Use dark theme for the interface</p>
+            </div>
+          </div>
+          
+          <div class="settings-section">
+            <h4>Localization</h4>
+            <div class="setting-item">
+              <label for="language">Language:</label>
+              <select id="language" formControlName="language" class="setting-select">
+                <option value="english">English</option>
+                <option value="french">French</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="timezone">Timezone:</label>
+              <select id="timezone" formControlName="timezone" class="setting-select">
+                <option value="america/edmonton">America/Edmonton (MST)</option>
+                <option value="america/toronto">America/Toronto (EST)</option>
+                <option value="america/vancouver">America/Vancouver (PST)</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="primary" 
+            size="compact"
+            (click)="saveSettings()">
+            Save Settings
+          </goab-button>
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeLargeDrawer()">
+            Cancel
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+  </section>
+
+  <!-- Drawer with Actions -->
+  <section class="example-section">
+    <h2>Drawer with Actions</h2>
+    <p>Drawers can include action buttons in the header or footer for common operations.</p>
+    
+    <div class="button-group">
+      <goab-button 
+        type="primary" 
+        (click)="openActionsDrawer()">
+        Open Actions Drawer
+      </goab-button>
+      
+      <goab-button 
+        type="secondary" 
+        (click)="openFormDrawer()">
+        Open Form Drawer
+      </goab-button>
+      
+      <goab-button 
+        type="tertiary" 
+        (click)="openConfirmationDrawer()">
+        Open Confirmation Drawer
+      </goab-button>
+    </div>
+
+    <!-- Actions Drawer -->
+    <goab-drawer 
+      [open]="actionsDrawerOpen"
+      position="right"
+      heading="Document Actions"
+      (onClose)="closeActionsDrawer()">
+      <div class="drawer-content">
+        <h3>Available Actions</h3>
+        <div class="actions-list">
+          <div class="action-item">
+            <div class="action-info">
+              <h4>Download PDF</h4>
+              <p>Download the document as a PDF file</p>
+            </div>
+            <goab-button type="primary" size="compact">Download</goab-button>
+          </div>
+          
+          <div class="action-item">
+            <div class="action-info">
+              <h4>Share Document</h4>
+              <p>Share this document with other users</p>
+            </div>
+            <goab-button type="secondary" size="compact">Share</goab-button>
+          </div>
+          
+          <div class="action-item">
+            <div class="action-info">
+              <h4>Print Document</h4>
+              <p>Send document to printer</p>
+            </div>
+            <goab-button type="tertiary" size="compact">Print</goab-button>
+          </div>
+          
+          <div class="action-item">
+            <div class="action-info">
+              <h4>Archive Document</h4>
+              <p>Move document to archive</p>
+            </div>
+            <goab-button type="tertiary" size="compact">Archive</goab-button>
+          </div>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeActionsDrawer()">
+            Close
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Form Drawer -->
+    <goab-drawer 
+      [open]="formDrawerOpen"
+      position="right"
+      heading="Edit User Profile"
+      size="480"
+      (onClose)="closeFormDrawer()">
+      <div class="drawer-content">
+        <form [formGroup]="userProfileForm">
+          <goab-form-item 
+            label="Full Name" 
+            requirement="required"
+            [error]="isFieldInvalid(userProfileForm, 'name') ? 'Name is required' : ''">
+            <input 
+              type="text" 
+              formControlName="name"
+              [class.error]="isFieldInvalid(userProfileForm, 'name')"
+              class="form-input">
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Email Address" 
+            requirement="required"
+            [error]="isFieldInvalid(userProfileForm, 'email') ? 'Valid email is required' : ''">
+            <input 
+              type="email" 
+              formControlName="email"
+              [class.error]="isFieldInvalid(userProfileForm, 'email')"
+              class="form-input">
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Department" 
+            requirement="required"
+            [error]="isFieldInvalid(userProfileForm, 'department') ? 'Department is required' : ''">
+            <select 
+              formControlName="department"
+              [class.error]="isFieldInvalid(userProfileForm, 'department')"
+              class="form-select">
+              <option value="">Select Department</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Finance">Finance</option>
+              <option value="Operations">Operations</option>
+            </select>
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Role" 
+            requirement="required"
+            [error]="isFieldInvalid(userProfileForm, 'role') ? 'Role is required' : ''">
+            <input 
+              type="text" 
+              formControlName="role"
+              [class.error]="isFieldInvalid(userProfileForm, 'role')"
+              class="form-input">
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Phone Number" 
+            requirement="optional">
+            <input 
+              type="tel" 
+              formControlName="phone"
+              class="form-input">
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Office Location" 
+            requirement="optional">
+            <select 
+              formControlName="office"
+              class="form-select">
+              <option value="">Select Office</option>
+              <option value="Edmonton Main">Edmonton Main</option>
+              <option value="Calgary Center">Calgary Center</option>
+              <option value="Red Deer Branch">Red Deer Branch</option>
+              <option value="Lethbridge Office">Lethbridge Office</option>
+            </select>
+          </goab-form-item>
+        </form>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="primary" 
+            size="compact"
+            [disabled]="!userProfileForm.valid"
+            (click)="saveUserProfile()">
+            Save Changes
+          </goab-button>
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeFormDrawer()">
+            Cancel
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+
+    <!-- Confirmation Drawer -->
+    <goab-drawer 
+      [open]="confirmationDrawerOpen"
+      position="right"
+      heading="Confirm Action"
+      size="400"
+      (onClose)="closeConfirmationDrawer()">
+      <div class="drawer-content">
+        <div class="confirmation-content">
+          <div class="confirmation-icon">⚠️</div>
+          <h3>Delete User Account</h3>
+          <p>Are you sure you want to delete this user account? This action cannot be undone.</p>
+          
+          <div class="confirmation-details">
+            <p><strong>User:</strong> {{ selectedUser.name }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+            <p><strong>Department:</strong> {{ selectedUser.department }}</p>
+          </div>
+          
+          <div class="confirmation-warning">
+            <p>This will permanently remove:</p>
+            <ul>
+              <li>User profile and settings</li>
+              <li>Associated documents and files</li>
+              <li>Access permissions and roles</li>
+              <li>Activity history and logs</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="tertiary" 
+            size="compact"
+            (click)="confirmAction()">
+            Delete Account
+          </goab-button>
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="cancelAction()">
+            Cancel
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+  </section>
+
+  <!-- Custom Drawer Content -->
+  <section class="example-section">
+    <h2>Custom Drawer Content</h2>
+    <p>Drawers can contain any type of content, including complex forms and interactive elements.</p>
+    
+    <goab-button 
+      type="primary" 
+      (click)="openCustomDrawer()">
+      Open Feedback Form
+    </goab-button>
+
+    <!-- Custom Content Drawer -->
+    <goab-drawer 
+      [open]="customDrawerOpen"
+      position="right"
+      heading="Submit Feedback"
+      size="540"
+      (onClose)="closeCustomDrawer()">
+      <div class="drawer-content">
+        <p>Help us improve our services by providing your feedback.</p>
+        
+        <form [formGroup]="feedbackForm">
+          <goab-form-item 
+            label="Category" 
+            requirement="required"
+            [error]="isFieldInvalid(feedbackForm, 'category') ? 'Please select a category' : ''">
+            <select 
+              formControlName="category"
+              [class.error]="isFieldInvalid(feedbackForm, 'category')"
+              class="form-select">
+              <option value="">Select Category</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="usability">Usability Issue</option>
+              <option value="performance">Performance Issue</option>
+              <option value="other">Other</option>
+            </select>
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Subject" 
+            requirement="required"
+            [error]="isFieldInvalid(feedbackForm, 'subject') ? 'Subject is required' : ''">
+            <input 
+              type="text" 
+              formControlName="subject"
+              [class.error]="isFieldInvalid(feedbackForm, 'subject')"
+              placeholder="Brief description of your feedback"
+              class="form-input">
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Priority" 
+            requirement="optional">
+            <select 
+              formControlName="priority"
+              class="form-select">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
+          </goab-form-item>
+
+          <goab-form-item 
+            label="Detailed Message" 
+            requirement="required"
+            helperText="Please provide as much detail as possible (minimum 10 characters)"
+            [error]="isFieldInvalid(feedbackForm, 'message') ? 'Message is required (minimum 10 characters)' : ''">
+            <textarea 
+              formControlName="message"
+              [class.error]="isFieldInvalid(feedbackForm, 'message')"
+              placeholder="Describe your feedback in detail..."
+              rows="6"
+              class="form-textarea"></textarea>
+          </goab-form-item>
+        </form>
+        
+        <div class="form-status" *ngIf="feedbackForm.dirty">
+          <p><strong>Form Valid:</strong> {{ feedbackForm.valid }}</p>
+          <p><strong>Characters:</strong> {{ feedbackForm.get('message')?.value?.length || 0 }}</p>
+        </div>
+        
+        <div class="drawer-footer">
+          <goab-button 
+            type="primary" 
+            size="compact"
+            [disabled]="!feedbackForm.valid"
+            (click)="submitFeedback()">
+            Submit Feedback
+          </goab-button>
+          <goab-button 
+            type="secondary" 
+            size="compact"
+            (click)="closeCustomDrawer()">
+            Cancel
+          </goab-button>
+        </div>
+      </div>
+    </goab-drawer>
+  </section>
+
+  <!-- Event Tracking -->
+  <section class="example-section">
+    <h2>Event Tracking</h2>
+    <div class="event-log">
+      <h3>Drawer Events</h3>
+      <div class="events" *ngIf="eventLog.length > 0">
+        <div *ngFor="let event of eventLog" class="event-item">
+          <strong>{{ event.timestamp }}:</strong> {{ event.message }}
+        </div>
+      </div>
+      <p *ngIf="eventLog.length === 0">No events yet. Open and close drawers to see events.</p>
+      <goab-button 
+        type="secondary" 
+        size="compact"
+        (click)="clearEventLog()">
+        Clear Log
+      </goab-button>
+    </div>
+  </section>
+</div>

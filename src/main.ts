@@ -31,6 +31,13 @@ import {TemporaryNotificationExamplesComponent} from "./app/components/temporary
 import {TooltipExamplesComponent} from "./app/components/tooltip/tooltip-examples.component";
 import {ButtonExamplesComponent} from "./app/components/button/button-examples.component";
 import {CheckboxExamplesComponent} from "./app/components/checkbox/checkbox-examples.component";
+import {RadioExamplesComponent} from "./app/components/radio/radio-examples.component";
+import {TextAreaExamplesComponent} from "./app/components/text-area/text-area-examples.component";
+import {DrawerExamplesComponent} from "./app/components/drawer/drawer-examples.component";
+import {FooterExamplesComponent} from "./app/components/footer/footer-examples.component";
+import {HeaderExamplesComponent} from "./app/components/header/header-examples.component";
+import {MicrositeHeaderExamplesComponent} from "./app/components/microsite-header/microsite-header-examples.component";
+import {PaginationExamplesComponent} from "./app/components/pagination/pagination-examples.component";
 
 if (environment.production) {
   enableProdMode();
@@ -63,6 +70,13 @@ const routes: Routes = [
   { path: 'tooltip', component: TooltipExamplesComponent},
   { path: 'button', component: ButtonExamplesComponent},
   { path: 'checkbox', component: CheckboxExamplesComponent},
+  { path: 'radio', component: RadioExamplesComponent},
+  { path: 'text-area', component: TextAreaExamplesComponent},
+  { path: 'drawer', component: DrawerExamplesComponent},
+  { path: 'footer', component: FooterExamplesComponent},
+  { path: 'header', component: HeaderExamplesComponent},
+  { path: 'microsite-header', component: MicrositeHeaderExamplesComponent},
+  { path: 'pagination', component: PaginationExamplesComponent},
 ];
 
 bootstrapApplication(AppComponent, {
