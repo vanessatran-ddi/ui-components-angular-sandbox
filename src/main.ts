@@ -38,6 +38,16 @@ import {FooterExamplesComponent} from "./app/components/footer/footer-examples.c
 import {HeaderExamplesComponent} from "./app/components/header/header-examples.component";
 import {MicrositeHeaderExamplesComponent} from "./app/components/microsite-header/microsite-header-examples.component";
 import {PaginationExamplesComponent} from "./app/components/pagination/pagination-examples.component";
+import {SideMenuExamplesComponent} from "./app/components/side-menu/side-menu-examples.component";
+import {TabsExamplesComponent} from "./app/components/tabs/tabs-examples.component";
+import {BlockExamplesComponent} from "./app/components/blocks/block-examples.component";
+import {PublicFormFullPageComponent} from "./app/components/public-form/public-form-full-page.component";
+import {PublicFormCheckboxComponent} from "./app/components/public-form/public-form-checkbox.component";
+import {PublicFormDatepickerComponent} from "./app/components/public-form/public-form-datepicker.component";
+import {PublicFormDropdownComponent} from "./app/components/public-form/public-form-dropdown.component";
+import {PublicFormRadioComponent} from "./app/components/public-form/public-form-radio.component";
+import {PublicFormTextAreaComponent} from "./app/components/public-form/public-form-textarea.component";
+import {PublicFormSubformComponent} from "./app/components/public-form/public-form-subform.component";
 
 if (environment.production) {
   enableProdMode();
@@ -77,6 +87,16 @@ const routes: Routes = [
   { path: 'header', component: HeaderExamplesComponent},
   { path: 'microsite-header', component: MicrositeHeaderExamplesComponent},
   { path: 'pagination', component: PaginationExamplesComponent},
+  { path: "side-menu", component: SideMenuExamplesComponent},
+  { path: "tabs", component: TabsExamplesComponent},
+  { path: "blocks", component: BlockExamplesComponent},
+  { path: "full-public-form-page", component: PublicFormFullPageComponent},
+  { path: "public-form-checkbox", component: PublicFormCheckboxComponent},
+  { path: "public-form-datepicker", component: PublicFormDatepickerComponent},
+  { path: "public-form-dropdown", component: PublicFormDropdownComponent},
+  { path: "public-form-radio", component: PublicFormRadioComponent},
+  { path: "public-form-textarea", component: PublicFormTextAreaComponent},
+  { path: "public-form-sub-form", component: PublicFormSubformComponent}
 ];
 
 bootstrapApplication(AppComponent, {

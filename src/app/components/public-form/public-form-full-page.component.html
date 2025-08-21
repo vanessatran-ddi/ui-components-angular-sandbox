@@ -1,0 +1,227 @@
+<goab-public-form
+  name="public-form-1"
+  (onComplete)="showConfirmation($event)"
+  (onInit)="init($event)"
+>
+  <goab-public-form-page
+    id="name"
+    heading="What is your full name?"
+    summaryHeading="Introduction"
+    (onContinue)="onPageChange($event, 'name')"
+  >
+    <goab-fieldset>
+      <goab-form-item name="firstName" label="First name">
+        <goab-input name="firstName"></goab-input>
+      </goab-form-item>
+      <goab-form-item name="lastName" label="Last name">
+        <goab-input name="lastName"></goab-input>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page id="sin" (onContinue)="onPageChange($event, 'sin')">
+    <goab-fieldset>
+      <goab-form-item id="sin-item" label="What is your SIN?" labelSize="large">
+        <goab-input id="sin" name="sin" />
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="postalcode"
+    (onContinue)="onPageChange($event, 'postalcode')"
+    heading="Postal Code"
+  >
+    <goab-fieldset>
+      <goab-form-item name="Your city" label="Foo City" helpText="Where you live" [publicFormSummaryOrder]="3">
+        <goab-input name="city"></goab-input>
+      </goab-form-item>
+      <goab-form-item label="Address" [publicFormSummaryOrder]="4">
+        <goab-textarea name="address"></goab-textarea>
+      </goab-form-item>
+      <goab-form-item name="Postal Code" label="Postal Code" [publicFormSummaryOrder]="1">
+        <goab-input name="postal-code"></goab-input>
+      </goab-form-item>
+      <goab-form-item label="Contact">
+        <goab-checkbox name="contact" [reveal]="contactMethod">
+          <ng-template #contactMethod>
+            <goab-input name="contact-email"></goab-input>
+          </ng-template>
+        </goab-checkbox>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page id="residence" (onContinue)="onPageChange($event, 'residence')">
+    <goab-fieldset>
+      <goab-form-item
+        id="alberta-item"
+        label="Do you currently live in Alberta?"
+        labelSize="large"
+        helpText="This service is for residents of Alberta"
+      >
+        <goab-radio-group id="alberta" name="alberta">
+          <goab-radio-item value="Yes" label="Yes" />
+          <goab-radio-item value="No" label="No" />
+        </goab-radio-group>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="residence-duration"
+    (onContinue)="onPageChange($event, 'residence-duration')"
+  >
+    <goab-fieldset>
+      <goab-form-item
+        id="duration-item"
+        label="How long have you been living in Alberta?"
+        labelSize="large"
+      >
+        <goab-radio-group id="duration" name="duration">
+          <goab-radio-item value="Less than a year" label="Less than a year" />
+          <goab-radio-item value="More than a year" label="More than a year" />
+        </goab-radio-group>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page id="birthdate" (onContinue)="onPageChange($event, 'birthdate')">
+    <goab-fieldset>
+      <goab-form-item
+        id="birthdate-item"
+        label="What is your date of birth?"
+        helpText="Your date of birth is required to ensure you meet the minimum age criteria"
+        labelSize="large"
+      >
+        <goab-form-item id="birth-date-item" label="Birth Date">
+          <goab-input id="birth-date" name="birth-date" type="date" />
+        </goab-form-item>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="currently-employed"
+    (onContinue)="onPageChange($event, 'currently-employed')"
+  >
+    <goab-fieldset>
+      <goab-form-item
+        id="currently-employed"
+        label="Are you currently employed?"
+        labelSize="large"
+      >
+        <goab-radio-group id="currency-employed" name="employed">
+          <goab-radio-item value="Yes" label="Yes" />
+          <goab-radio-item value="No" label="No" />
+        </goab-radio-group>
+
+      </goab-form-item>
+    </goab-fieldset>
+    <goab-details heading="What do I do if I am self-employed?">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu erat tincidunt,
+      consectetur enim ut, rutrum nulla. Praesent sit amet viverra ex. Morbi fermentum
+      diam in ullamcorper auctor. Pellentesque aliquet metus sit amet lacinia elementum.
+      Nam in ex varius, porta orci ac, sagittis ligula. Cras varius luctus tempus.
+      Phasellus finibus turpis at diam viverra facilisis. In non lacus viverra, gravida
+      magna facilisis, porttitor risus. Mauris consequat libero magna, non cursus velit
+      euismod ut. Donec eget turpis eros.
+    </goab-details>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="highest-education"
+    (onContinue)="onPageChange($event, 'highest-education')"
+  >
+    <goab-fieldset>
+      <goab-form-item
+        id="education-item"
+        label="What is the highest level of education you have completed?"
+        labelSize="large"
+      >
+        <goab-radio-group id="education" name="education">
+          <goab-radio-item value="High school" label="High school" />
+          <goab-radio-item value="Post secondary" label="Post secondary" />
+          <goab-radio-item value="Graduate studies" label="Graduate studies" />
+          <goab-radio-item value="None" label="None" />
+          <goab-radio-item value="Other" label="Other" [reveal]="otherEducation">
+            <ng-template #otherEducation>
+              <goab-input name="other-education"></goab-input>
+            </ng-template>
+          </goab-radio-item>
+        </goab-radio-group>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="other-education"
+    (onContinue)="onPageChange($event, 'other-education')"
+  >
+    <goab-fieldset>
+      <goab-form-item
+        id="other-education-description-item"
+        label="Describe your education"
+        labelSize="large"
+      >
+        <goab-textarea id="other-education-description" name="other-education-description" />
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="previously-applied"
+    (onContinue)="onPageChange($event, 'previously-applied')"
+  >
+    <goab-fieldset>
+      <goab-form-item
+        id="previously-applied-item"
+        label="Have you previously applied for this service?"
+        labelSize="large"
+      >
+        <goab-radio-group id="previously-applied" name="previously-applied">
+          <goab-radio-item value="Yes" label="Yes" />
+          <goab-radio-item value="No" label="No" />
+        </goab-radio-group>
+      </goab-form-item>
+    </goab-fieldset>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="summary"
+    heading="Summary"
+    type="summary"
+    (onContinue)="onPageChange($event, 'summary')"
+  >
+    <goab-public-form-summary/>
+  </goab-public-form-page>
+
+  <goab-public-form-page
+    id="ineligible"
+    heading="You are not eligable"
+    buttonText="Back to Alberta.ca"
+  >
+    <goab-callout heading="This service is only for Alberta residents" type="important">
+      If you do not live in Alberta you are not able to access this service.
+    </goab-callout>
+
+    <goab-text mb="2xl">You can now close this window.</goab-text>
+
+    <goab-text tag="h2" mb="l">If you have questions about this application</goab-text>
+
+    <goab-text mb="m">Contact the [ministry area]</goab-text>
+    <goab-text mb="m"
+    >Email
+      <a href="mailto:information@gov.ab.ca">information&#64;gov.ab.ca</a></goab-text
+    >
+    <goab-text mb="2xl">Phone: <a href="tel:+1-780-123-4567">780-123-4567</a></goab-text>
+  </goab-public-form-page>
+</goab-public-form>
+
+<goab-modal [open]="_showConfirmationModal" heading="Submit application">
+  Once submitted you will not be able to apply again until your file has been looked at.
+  <goab-button-group alignment="end">
+    <goab-button type="tertiary" (onClick)="hideConfirmationModal()"> Cancel</goab-button>
+    <goab-button type="primary" (onClick)="submitForm()"> Submit</goab-button>
+  </goab-button-group>
+</goab-modal>

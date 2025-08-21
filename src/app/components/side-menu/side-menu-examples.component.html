@@ -1,0 +1,22 @@
+<div style="max-width: 250px">
+  <goab-side-menu>
+    <goab-side-menu-heading>
+      Nav section 1
+    </goab-side-menu-heading>
+    <a href="#">Home</a>
+    <a href="#">Profile</a>
+    <goab-side-menu-heading icon="home" [meta]="meta">
+      Nav section 2
+      <ng-template #meta><goab-badge type="midtone" content="Details"></goab-badge></ng-template>
+    </goab-side-menu-heading>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <goab-side-menu-heading>
+      Nav with sub nav
+    </goab-side-menu-heading>
+    <goab-side-menu-group heading="Group heading" icon="person">
+      <a href="#">Foo</a>
+      <a href="#">Bar</a>
+    </goab-side-menu-group>
+  </goab-side-menu>
+</div>
