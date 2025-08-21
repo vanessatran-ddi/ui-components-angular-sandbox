@@ -413,7 +413,7 @@ export class ModalExamplesComponent {
 
   // Interactive modal methods
   openFormModal() {
-    this.formData = { firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' };
+    this.formData = { firstName: 'John', lastName: 'Doe', email: 'john.doe&#64;example.com' };
     this.formModalOpen = true;
   }
 

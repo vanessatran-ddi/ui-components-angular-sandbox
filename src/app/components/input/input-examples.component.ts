@@ -288,7 +288,7 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
               name="email"
               formControlName="email"
               type="email"
-              placeholder="email@example.com"
+              placeholder="email&#64;example.com"
               leadingIcon="mail"
               [error]="isFieldInvalid('email')"
               width="20rem">
@@ -386,7 +386,7 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
               name="businessEmail"
               [(ngModel)]="templateData.businessEmail"
               type="email"
-              placeholder="business@company.com"
+              placeholder="business&#64;company.com"
               leadingIcon="mail"
               width="20rem"
               (onChange)="onTemplateChange('businessEmail', $event)">
@@ -454,7 +454,7 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
               name="email"
               [(ngModel)]="templateValidationData.email"
               type="email"
-              placeholder="user@example.com"
+              placeholder="user&#64;example.com"
               leadingIcon="mail"
               width="20rem"
               required
