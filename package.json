@@ -10,9 +10,9 @@
   },
   "private": true,
   "dependencies": {
-    "@abgov/angular-components": "4.6.1",
-    "@abgov/ui-components-common": "1.6.0",
-    "@abgov/web-components": "1.36.1",
+    "@abgov/angular-components": "4.7.0",
+    "@abgov/ui-components-common": "1.7.0",
+    "@abgov/web-components": "1.37.0",
     "@angular/animations": "^19.0.6",
     "@angular/common": "^19.0.6",
     "@angular/compiler": "^19.0.6",
