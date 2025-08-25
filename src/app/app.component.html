@@ -34,6 +34,32 @@
     </goab-side-menu>
   </section>
   <div class="container">
+    <div class="lto-container">
+      <goa-spacer vspacing="3xl"></goa-spacer>
+
+      <goa-details class="left-section" heading="Your search" [open]="true">
+        <div class="search-type-container">
+          <goa-form-item label="Select search type" data-testid="search-type-form-item">
+            <goa-dropdown
+              relative="true"
+              name="searchType"
+              goaValue
+              [formControl]="searchTypeFormControl"
+              (_change)="onSearchTypeChange($event)"
+              testid="search-type-dropdown"
+              width="100%"
+            >
+              @for (searchType of searchTypes; track searchType) {
+                <goa-dropdown-item [value]="searchType.id" [label]="searchType.name"
+                                   [attr.testid]="'search-type-dropdown-item-' + searchType.id"></goa-dropdown-item>
+              }
+            </goa-dropdown>
+          </goa-form-item>
+        </div>
+      </goa-details>
+
+    </div>
+
     <router-outlet></router-outlet>
   </div>
   <goa-app-footer slot="footer" maxcontentwidth="1400px"></goa-app-footer>
