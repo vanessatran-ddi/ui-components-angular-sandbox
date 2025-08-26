@@ -12,7 +12,6 @@ import {
   GoabBlock,
   GoabSpacer, GoabPaginationOnChangeDetail
 } from '@abgov/angular-components';
-import { faker } from "@faker-js/faker";
 import {GoabDropdownOnChangeDetail} from "@abgov/ui-components-common";
 
 interface User {
@@ -67,12 +66,15 @@ export class PaginationExamplesComponent {
   }
 
   prepareUsers() {
+    const firstNames = ['John', 'Jane', 'Bob', 'Alice', 'Mike', 'Sarah', 'David', 'Emily', 'Chris', 'Lisa', 'Tom', 'Anna', 'Mark', 'Emma', 'Paul'];
+    const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson'];
+    
     for (let i = 0; i < this.total; i++) {
       this.users.push({
-        id: faker.string.uuid(),
-        firstName: faker.person.firstName(),
-        lastName: faker.person.lastName(),
-        age: faker.number.int({ min: 18, max: 60 }),
+        id: `user-${i + 1}`,
+        firstName: firstNames[i % firstNames.length],
+        lastName: lastNames[Math.floor(i / firstNames.length) % lastNames.length],
+        age: 18 + (i % 43),
       });
     }
 

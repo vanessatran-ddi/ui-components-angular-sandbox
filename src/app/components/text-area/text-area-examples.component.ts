@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { 
-  GoabFormItem, 
-  GoabTextArea 
+import {
+  GoabFormItem,
+  GoabTextArea
 } from '@abgov/angular-components';
-import { GoabTextAreaOnChangeDetail, GoabTextAreaOnKeyPressDetail } from '@abgov/ui-components-common';
-
 @Component({
   selector: 'app-text-area-examples',
   standalone: true,
@@ -93,55 +91,55 @@ The service is provided "as is" without warranties of any kind.`;
   }
 
   // Basic event handlers
-  onBasicChange(event: GoabTextAreaOnChangeDetail): void {
+  onBasicChange(event: any): void {
     this.basicValue = event.value;
     this.logEvent('Basic text area changed, length: ' + event.value.length);
   }
 
-  onPlaceholderChange(event: GoabTextAreaOnChangeDetail): void {
+  onPlaceholderChange(event: any): void {
     this.placeholderValue = event.value;
     this.logEvent('Placeholder text area changed, length: ' + event.value.length);
   }
 
-  onCharCountChange(event: GoabTextAreaOnChangeDetail): void {
+  onCharCountChange(event: any): void {
     this.charCountValue = event.value;
     this.logEvent('Character count text area changed, chars: ' + event.value.length + '/200');
   }
 
-  onWordCountChange(event: GoabTextAreaOnChangeDetail): void {
+  onWordCountChange(event: any): void {
     this.wordCountValue = event.value;
     const wordCount = this.getWordCount(event.value);
     this.logEvent('Word count text area changed, words: ' + wordCount + '/50');
   }
 
-  onFeedbackChange(event: GoabTextAreaOnChangeDetail): void {
+  onFeedbackChange(event: any): void {
     this.feedbackValue = event.value;
     this.feedbackError = false;
     this.feedbackValidationMessage = '';
     this.logEvent('Feedback changed, length: ' + event.value.length);
   }
 
-  onContactMessageChange(event: GoabTextAreaOnChangeDetail): void {
+  onContactMessageChange(event: any): void {
     this.contactMessage = event.value;
     this.logEvent('Contact message changed (template-driven), length: ' + event.value.length);
   }
 
-  onAdditionalCommentsChange(event: GoabTextAreaOnChangeDetail): void {
+  onAdditionalCommentsChange(event: any): void {
     this.additionalComments = event.value;
     this.logEvent('Additional comments changed, length: ' + event.value.length);
   }
 
-  onDynamicChange(event: GoabTextAreaOnChangeDetail): void {
+  onDynamicChange(event: any): void {
     this.dynamicValue = event.value;
     this.logEvent('Dynamic text area changed, length: ' + event.value.length);
   }
 
-  onEventTrackingChange(event: GoabTextAreaOnChangeDetail): void {
+  onEventTrackingChange(event: any): void {
     this.eventTrackingValue = event.value;
     this.logEvent('Event tracking change: length = ' + event.value.length + ', last char = "' + event.value.slice(-1) + '"');
   }
 
-  onKeyPress(event: GoabTextAreaOnKeyPressDetail): void {
+  onKeyPress(event: any): void {
     this.logEvent('Key pressed: ' + event.key + ' (value length: ' + event.value.length + ')');
   }
 
@@ -172,9 +170,9 @@ The service is provided "as is" without warranties of any kind.`;
     const businessPlan = this.applicationForm.get('businessPlan')?.value || '';
     const environmentalImpact = this.applicationForm.get('environmentalImpact')?.value || '';
     const communityBenefits = this.applicationForm.get('communityBenefits')?.value || '';
-    
-    return this.getWordCount(businessPlan) + 
-           this.getWordCount(environmentalImpact) + 
+
+    return this.getWordCount(businessPlan) +
+           this.getWordCount(environmentalImpact) +
            this.getWordCount(communityBenefits);
   }
 
@@ -246,7 +244,7 @@ The service is provided "as is" without warranties of any kind.`;
   private logEvent(message: string): void {
     const timestamp = new Date().toLocaleTimeString();
     this.eventLog.unshift({ timestamp, message });
-    
+
     // Keep only last 15 events
     if (this.eventLog.length > 15) {
       this.eventLog = this.eventLog.slice(0, 15);

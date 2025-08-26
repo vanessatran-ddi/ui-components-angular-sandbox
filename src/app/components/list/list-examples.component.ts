@@ -200,4 +200,8 @@ export class ListExamplesComponent {
     console.log(`Toggling completion status for: ${step}`);
     // Add completion tracking logic here
   }
+
+  isString(value: any): boolean {
+    return typeof value === 'string';
+  }
 }

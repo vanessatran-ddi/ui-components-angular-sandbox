@@ -6,16 +6,16 @@
 <section style="margin-bottom: 3rem;">
   <h2>Example 1: Help Answer a Question</h2>
   <p>This pattern provides additional context to help users answer form questions.</p>
-  
+
   <a href="#" class="back-link" (click)="goBack(); $event.preventDefault()">Back</a>
-  
+
   <form [formGroup]="childCareForm">
-    <goab-form-item 
+    <goab-form-item
       mt="2xl"
-      label="Do you pay for child care?" 
+      label="Do you pay for child care?"
       labelSize="large"
       helpText="Examples of child care are daycares, day homes and baby-sisters.">
-      <goab-radio-group 
+      <goab-radio-group
         name="child-care"
         ariaLabel="Do you pay for child care?"
         formControlName="childCare"
@@ -26,15 +26,15 @@
     </goab-form-item>
   </form>
 
-  <goab-details 
+  <goab-details
     heading="Why are we asking this question?"
     mt="xl">
     <p>We ask this question to determine if you are eligible for child care benefits.</p>
     <p>Child care support helps Alberta families access affordable and quality child care options while parents work or attend school.</p>
   </goab-details>
 
-  <goab-button 
-    type="submit" 
+  <goab-button
+    type="submit"
     mt="2xl"
     (onClick)="saveAndContinue()">
     Save and continue
@@ -45,13 +45,13 @@
 <section style="margin-bottom: 3rem;">
   <h2>Example 2: Help With Lists and Categories</h2>
   <p>This pattern shows detailed lists to help users understand what qualifies.</p>
-  
+
   <form [formGroup]="educationForm">
-    <goab-form-item 
+    <goab-form-item
       label="Do you have additional education expense?"
       helpText="You can request this money now or at any time during your program."
       mb="m">
-      <goab-radio-group 
+      <goab-radio-group
         name="additional"
         formControlName="additional">
         <goab-radio-item label="Yes" value="yes" name="additional"></goab-radio-item>
@@ -68,7 +68,7 @@
           <li *ngFor="let item of educationExpenseItems">{{ item }}</li>
         </ul>
       </div>
-      
+
       <div>
         <strong>Do not include</strong>
         <ul class="goa-unordered-list">
@@ -83,17 +83,17 @@
 <section style="margin-bottom: 3rem;">
   <h2>Example 3: Direct Deposit Information</h2>
   <p>This pattern helps users find complex information with visual aids.</p>
-  
+
   <h2>Direct deposit information</h2>
   <p>Find this information on your bank's website or on your personal cheques. Contact your bank if you can't find this information.</p>
-  
+
   <form [formGroup]="bankForm">
-    <goab-form-item 
+    <goab-form-item
       label="Bank or Institution number"
       id="bankNumber"
       helpText="3-4 digits in length"
       mb="xl">
-      <goab-input 
+      <goab-input
         [maxLength]="4"
         name="bankNumber"
         ariaLabel="bankNumber"
@@ -102,12 +102,12 @@
       </goab-input>
     </goab-form-item>
 
-    <goab-form-item 
+    <goab-form-item
       label="Branch or Transit number"
       helpText="5 digits in length"
       id="transitNumber"
       mb="xl">
-      <goab-input 
+      <goab-input
         [maxLength]="5"
         name="transitNumber"
         ariaLabel="transitNumber"
@@ -116,11 +116,11 @@
       </goab-input>
     </goab-form-item>
 
-    <goab-form-item 
+    <goab-form-item
       label="Account number"
       helpText="3-12 digits in length"
       id="accountNumber">
-      <goab-input 
+      <goab-input
         [maxLength]="12"
         name="accountNumber"
         ariaLabel="accountNumber"
@@ -129,7 +129,7 @@
     </goab-form-item>
   </form>
 
-  <goab-details 
+  <goab-details
     heading="Where can I find this information on a personal cheque?"
     mt="l">
     <p>Below is an example of where you can find the required bank information on a personal cheque.</p>
@@ -151,8 +151,8 @@
     </div>
   </goab-details>
 
-  <goab-button 
-    type="primary" 
+  <goab-button
+    type="primary"
     mt="xl"
     (onClick)="onBankFormSubmit()">
     Submit Bank Information
@@ -163,7 +163,7 @@
 <section style="margin-bottom: 3rem;">
   <h2>Example 4: Simple FAQ Style</h2>
   <p>Basic details components for frequently asked questions.</p>
-  
+
   <goab-details heading="How long does processing take?" mb="m">
     <p>Most applications are processed within 5-10 business days. Complex applications may take up to 30 business days.</p>
     <p>You will receive email updates as your application progresses through each stage of review.</p>
@@ -171,7 +171,7 @@
 
   <goab-details heading="Can I make changes after submitting?" mb="m">
     <p>Yes, you can make changes to your application within 24 hours of submission.</p>
-    <p>After 24 hours, please contact our support team at support@example.com to request changes.</p>
+    <p>After 24 hours, please contact our support team at support  xample.com to request changes.</p>
   </goab-details>
 
   <goab-details heading="What documents do I need?">

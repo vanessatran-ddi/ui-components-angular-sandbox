@@ -6,11 +6,11 @@
 <section style="margin-bottom: 3rem;">
   <h2>Example 1: Form Review with Expandable Sections</h2>
   <p>This pattern is useful for reviewing application data where sections can be expanded to show details.</p>
-  
+
   <h3>Review your application</h3>
-  
-  <goab-accordion 
-    heading="Referral details" 
+
+  <goab-accordion
+    heading="Referral details"
     [headingContent]="importantBadge">
     <ng-template #importantBadge>
       <goab-badge type="important" content="Updated"></goab-badge>
@@ -36,7 +36,7 @@
       <dt>Phone number</dt>
       <dd>(780) 555-0123</dd>
       <dt>Email address</dt>
-      <dd>joan.smith@example.com</dd>
+      <dd>joan.smith&#64;example.com</dd>
     </dl>
   </goab-accordion>
 </section>
@@ -45,15 +45,15 @@
 <section>
   <h2>Example 2: FAQ with Toggle All Functionality</h2>
   <p>This pattern allows users to expand/collapse all sections at once, useful for FAQ pages.</p>
-  
-  <goab-button 
-    type="tertiary" 
-    mb="m" 
+
+  <goab-button
+    type="tertiary"
+    mb="m"
     (onClick)="onClick()">
     {{ accordionStatus }}
   </goab-button>
 
-  <goab-accordion 
+  <goab-accordion
     *ngFor="let item of faqItems; let i = index"
     [heading]="item.question"
     headingSize="medium"

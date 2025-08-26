@@ -8,21 +8,19 @@ import {
 import {RouterOutlet} from "@angular/router";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   imports: [
     GoabMicrositeHeader,
     GoabAppHeader,
     GoabAppFooter,
     RouterOutlet,
     GoabSideMenu,
-    GoabMicrositeHeader,
-    GoabAppHeader,
     GoabAppHeaderMenu,
-    GoabSideMenu,
-    GoabAppFooter,
+    GoabColumnLayout
   ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {}

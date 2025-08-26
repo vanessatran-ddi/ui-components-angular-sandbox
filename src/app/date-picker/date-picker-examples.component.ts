@@ -13,7 +13,6 @@ import {
   GoabCard,
   GoabFormItem
 } from '@abgov/angular-components';
-import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
 
 @Component({
   selector: 'app-date-picker-examples',
@@ -96,8 +95,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
 
       <h3>Date Range Examples</h3>
       <goab-block direction="column" gap="l" mb="l">
-        <goab-form-item 
-          label="Past Dates Only" 
+        <goab-form-item
+          label="Past Dates Only"
           helpText="Select any date before today">
           <goab-date-picker
             name="past-only"
@@ -107,8 +106,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
           </goab-date-picker>
         </goab-form-item>
 
-        <goab-form-item 
-          label="Future Dates Only" 
+        <goab-form-item
+          label="Future Dates Only"
           helpText="Select any date from today onwards">
           <goab-date-picker
             name="future-only"
@@ -118,8 +117,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
           </goab-date-picker>
         </goab-form-item>
 
-        <goab-form-item 
-          label="Current Month Only" 
+        <goab-form-item
+          label="Current Month Only"
           helpText="Select any date within this month">
           <goab-date-picker
             name="current-month"
@@ -130,8 +129,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
           </goab-date-picker>
         </goab-form-item>
 
-        <goab-form-item 
-          label="Working Days Only" 
+        <goab-form-item
+          label="Working Days Only"
           helpText="Next 30 working days only">
           <goab-date-picker
             name="working-days"
@@ -211,8 +210,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
       <h3>Date Picker with Validation</h3>
       <form [formGroup]="validationForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Event Date" 
+          <goab-form-item
+            label="Event Date"
             [error]="getFieldError('eventDate')"
             helpText="Select a date for your event (must be in the future)">
             <goab-date-picker
@@ -224,8 +223,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
             </goab-date-picker>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Registration Deadline" 
+          <goab-form-item
+            label="Registration Deadline"
             [error]="getFieldError('deadline')"
             helpText="Must be at least 7 days before event date">
             <goab-date-picker
@@ -242,8 +241,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onValidationFormSubmit()"
             [disabled]="validationForm.invalid">
             Create Event
@@ -329,8 +328,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
       <h3>Template Form with Validation</h3>
       <form #validationTemplateForm="ngForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Project Start Date" 
+          <goab-form-item
+            label="Project Start Date"
             [error]="startDateField.invalid && startDateField.touched ? 'Start date is required' : undefined">
             <goab-date-picker
               name="projectStartDate"
@@ -344,8 +343,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
             </goab-date-picker>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Project End Date" 
+          <goab-form-item
+            label="Project End Date"
             [error]="endDateField.invalid && endDateField.touched ? 'End date is required' : undefined">
             <goab-date-picker
               name="projectEndDate"
@@ -363,8 +362,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onTemplateValidationSubmit()"
             [disabled]="!validationTemplateForm.valid">
             Create Project
@@ -509,8 +508,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
       <h3>Booking System</h3>
       <form [formGroup]="bookingForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Check-in Date" 
+          <goab-form-item
+            label="Check-in Date"
             [error]="getFieldError('checkIn')"
             helpText="Select your arrival date">
             <goab-date-picker
@@ -522,8 +521,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
             </goab-date-picker>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Check-out Date" 
+          <goab-form-item
+            label="Check-out Date"
             [error]="getFieldError('checkOut')"
             helpText="Select your departure date">
             <goab-date-picker
@@ -539,8 +538,8 @@ import { GoabDatePickerOnChangeDetail } from '@abgov/ui-components-common';
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onBookingSubmit()"
             [disabled]="bookingForm.invalid">
             Book Now
@@ -651,12 +650,12 @@ export class DatePickerExamplesComponent {
   }
 
   // Basic examples methods
-  onBasicChange(type: string, event: GoabDatePickerOnChangeDetail) {
+  onBasicChange(type: string, event: any) {
     console.log(`Basic ${type} changed:`, event);
     (this.basicState as any)[type] = event.value;
   }
 
-  onRangeChange(type: string, event: GoabDatePickerOnChangeDetail) {
+  onRangeChange(type: string, event: any) {
     console.log(`Range ${type} changed:`, event);
     (this.rangeState as any)[type] = event.value;
   }
@@ -708,7 +707,7 @@ export class DatePickerExamplesComponent {
   }
 
   // Template-driven form methods
-  onTemplateChange(field: string, event: GoabDatePickerOnChangeDetail) {
+  onTemplateChange(field: string, event: any) {
     console.log(`Template ${field} changed:`, event);
     (this.templateData as any)[field] = event.value;
   }
@@ -726,12 +725,12 @@ export class DatePickerExamplesComponent {
   }
 
   getMinFollowUpDate(): Date | undefined {
-    return this.templateData.appointmentDate ? 
-      new Date(this.templateData.appointmentDate.getTime() + 24 * 60 * 60 * 1000) : 
+    return this.templateData.appointmentDate ?
+      new Date(this.templateData.appointmentDate.getTime() + 24 * 60 * 60 * 1000) :
       this.today;
   }
 
-  onTemplateValidationChange(field: string, event: GoabDatePickerOnChangeDetail) {
+  onTemplateValidationChange(field: string, event: any) {
     console.log(`Template validation ${field} changed:`, event);
     (this.templateValidationData as any)[field] = event.value;
   }
@@ -748,8 +747,8 @@ export class DatePickerExamplesComponent {
   }
 
   getMinProjectEndDate(): Date | undefined {
-    return this.templateValidationData.projectStartDate ? 
-      new Date(this.templateValidationData.projectStartDate.getTime() + 24 * 60 * 60 * 1000) : 
+    return this.templateValidationData.projectStartDate ?
+      new Date(this.templateValidationData.projectStartDate.getTime() + 24 * 60 * 60 * 1000) :
       this.today;
   }
 
@@ -785,17 +784,17 @@ export class DatePickerExamplesComponent {
   }
 
   // Range picker methods
-  onRangeStartChange(event: GoabDatePickerOnChangeDetail) {
+  onRangeStartChange(event: any) {
     console.log('Range start changed:', event);
     this.rangeData.startDate = event.value as Date;
     // Clear end date if it's before the new start date
-    if (this.rangeData.endDate && this.rangeData.startDate && 
+    if (this.rangeData.endDate && this.rangeData.startDate &&
         this.rangeData.endDate < this.rangeData.startDate) {
       this.rangeData.endDate = null;
     }
   }
 
-  onRangeEndChange(event: GoabDatePickerOnChangeDetail) {
+  onRangeEndChange(event: any) {
     console.log('Range end changed:', event);
     this.rangeData.endDate = event.value as Date;
   }
@@ -807,7 +806,7 @@ export class DatePickerExamplesComponent {
   }
 
   isValidDateRange(): boolean {
-    return !!(this.rangeData.startDate && this.rangeData.endDate && 
+    return !!(this.rangeData.startDate && this.rangeData.endDate &&
               this.rangeData.startDate <= this.rangeData.endDate);
   }
 
@@ -838,7 +837,7 @@ export class DatePickerExamplesComponent {
   }
 
   // Interactive examples methods
-  onInteractiveChange(field: string, event: GoabDatePickerOnChangeDetail) {
+  onInteractiveChange(field: string, event: any) {
     console.log(`Interactive ${field} changed:`, event);
     (this.interactiveData as any)[field] = event.value;
   }
@@ -922,7 +921,7 @@ export class DatePickerExamplesComponent {
   private addWorkingDays(startDate: Date, days: number): Date {
     const result = new Date(startDate);
     let workingDaysAdded = 0;
-    
+
     while (workingDaysAdded < days) {
       result.setDate(result.getDate() + 1);
       // Skip weekends (Saturday = 6, Sunday = 0)
@@ -930,7 +929,7 @@ export class DatePickerExamplesComponent {
         workingDaysAdded++;
       }
     }
-    
+
     return result;
   }
 }

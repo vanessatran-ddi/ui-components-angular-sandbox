@@ -7,9 +7,10 @@ import {
   GoabButton,
   GoabButtonGroup,
   GoabText,
-  GoabBlock
+  GoabBlock,
 } from '@abgov/angular-components';
-import { TemporaryNotification } from '@abgov/ui-components-common';
+
+import { TemporaryNotification } from "@abgov/ui-components-common";
 
 @Component({
   selector: 'app-temporary-notification-examples',

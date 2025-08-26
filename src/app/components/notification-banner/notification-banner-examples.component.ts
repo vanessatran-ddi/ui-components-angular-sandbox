@@ -54,7 +54,7 @@ import {
       <h3>Important Banner</h3>
       <p>Use for important notices that need user attention:</p>
       <goab-notification type="important" *ngIf="importantOpen">
-        Our system will be under maintenance from Thursday, September 15, 2025 at 10 pm to Friday, September 16, 2025 at 10 am. If you have questions or concerns, contact us at <a href="mailto:support@example.com">support@example.com</a>.
+        Our system will be under maintenance from Thursday, September 15, 2025 at 10 pm to Friday, September 16, 2025 at 10 am. If you have questions or concerns, contact us at <a href="mailto:support&#64;example.com">support&#64;example.com</a>.
       </goab-notification>
       <goab-button-group alignment="start" mt="s">
         <goab-button type="tertiary" (onClick)="showImportant()" *ngIf="!importantOpen">
@@ -169,7 +169,7 @@ import {
         <strong>Data Migration Notice:</strong> We will be migrating user data to improve performance.
         <a href="#backup-guide">Learn how to backup your data</a> or
         <a href="#migration-schedule">view the migration schedule</a>.
-        For assistance, <a href="mailto:help@example.com">contact our support team</a>.
+        For assistance, <a href="mailto:help&#64;example.com">contact our support team</a>.
       </goab-notification>
       <goab-button-group alignment="start" mt="s">
         <goab-button type="tertiary" (onClick)="showActionBanner()" *ngIf="!actionBannerOpen">

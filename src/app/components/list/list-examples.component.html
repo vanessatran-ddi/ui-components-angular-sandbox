@@ -104,7 +104,7 @@
       <strong>{{ lang.language }}</strong>
       <ul class="goa-unordered-list">
         <li *ngFor="let topic of lang.topics">
-          <ng-container *ngIf="typeof topic === 'string'; else frameworkTemplate">
+          <ng-container *ngIf="isString(topic); else frameworkTemplate">
             {{ topic }}
           </ng-container>
           <ng-template #frameworkTemplate>
