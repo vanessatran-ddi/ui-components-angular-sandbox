@@ -46,10 +46,14 @@ export class DropdownDynamicItemsComponent implements OnInit {
       } else {
         this.children = this.childrenSmall;
       }
-      
+
       // Reset child dropdown when parent changes
       this.changeForm.get('childDropdown')?.setValue('');
     });
+
+    this.changeForm.get("childDropdown")?.valueChanges.subscribe((value) => {
+      console.log("Child is changed with ", value);
+    })
   }
 
   generateUniqueKey(index: number, item: string): string {

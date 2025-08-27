@@ -11,10 +11,11 @@
       formControlName="parentDropdown"
       placeholder="Select a value"
       name="parent">
-      <goab-dropdown-item
-        *ngFor="let parent of parents"
-        [value]="parent"
-        [label]="parent" />
+      @for (parent of parents; track parent) {
+        <goab-dropdown-item
+          [value]="parent"
+          [label]="parent" />
+      }
     </goab-dropdown>
   </goab-form-item>
 
@@ -29,8 +30,15 @@
         <goab-dropdown-item
           *ngFor="let child of children; trackBy: generateUniqueKey"
           [value]="child"
-          [label]="child" />
+          [label]="child"></goab-dropdown-item>
       </ng-container>
+<!--      @if (children.length > 0) {-->
+<!--        @for (child of children; track generateUniqueKey($index, child)) {-->
+<!--          <goab-dropdown-item-->
+<!--            [value]="child"-->
+<!--            [label]="child"></goab-dropdown-item>-->
+<!--        }-->
+<!--      }-->
     </goab-dropdown>
   </goab-form-item>
 </div>

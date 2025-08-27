@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DecimalPipe } from '@angular/common';
-import { 
-  GoabFormItem, 
-  GoabRadioGroup, 
-  GoabRadioItem 
+import {
+  GoabButton,
+  GoabFormItem,
+  GoabRadioGroup,
+  GoabRadioItem
 } from '@abgov/angular-components';
 import { GoabRadioGroupOnChangeDetail } from '@abgov/ui-components-common';
 
@@ -19,7 +20,8 @@ import { GoabRadioGroupOnChangeDetail } from '@abgov/ui-components-common';
     DecimalPipe,
     GoabFormItem,
     GoabRadioGroup,
-    GoabRadioItem
+    GoabRadioItem,
+    GoabButton
   ],
   templateUrl: './radio-examples.component.html',
   styleUrls: ['./radio-examples.component.css']
@@ -45,7 +47,7 @@ export class RadioExamplesComponent {
     { id: 'service2', name: 'License Renewal', description: 'Renew various licenses' },
     { id: 'service3', name: 'Certificate Request', description: 'Request official certificates' }
   ];
-  
+
   private serviceCounter = 4;
 
   // Forms
@@ -163,23 +165,23 @@ export class RadioExamplesComponent {
   getEstimatedFee(): number {
     const applicationType = this.applicationForm.get('applicationType')?.value;
     const priority = this.applicationForm.get('priority')?.value;
-    
+
     const baseFees: {[key: string]: number} = {
       passport: 120,
       license: 75,
       health: 0,
       business: 350
     };
-    
+
     const priorityFees: {[key: string]: number} = {
       standard: 0,
       expedited: 50,
       urgent: 150
     };
-    
+
     const baseFee = baseFees[applicationType] || 0;
     const priorityFee = priorityFees[priority] || 0;
-    
+
     return baseFee + priorityFee;
   }
 
@@ -218,6 +220,7 @@ export class RadioExamplesComponent {
   }
 
   onReactiveSubmit(): void {
+    console.log("Reactive submitted");
     if (this.reactiveForm.valid) {
       const formData = this.reactiveForm.value;
       this.logEvent('Reactive form submitted: ' + JSON.stringify(formData));
@@ -278,7 +281,7 @@ export class RadioExamplesComponent {
   private logEvent(message: string): void {
     const timestamp = new Date().toLocaleTimeString();
     this.eventLog.unshift({ timestamp, message });
-    
+
     // Keep only last 10 events
     if (this.eventLog.length > 10) {
       this.eventLog = this.eventLog.slice(0, 10);

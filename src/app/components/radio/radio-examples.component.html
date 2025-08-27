@@ -1,13 +1,13 @@
 <div class="examples-container">
   <h1>Radio Examples</h1>
   <p>Examples of radio components following the Alberta Design System.</p>
-  
+
   <!-- Basic Radio -->
   <section class="example-section">
     <h2>Basic Radio</h2>
     <goab-form-item label="Choose an option">
-      <goab-radio-group 
-        name="basic" 
+      <goab-radio-group
+        name="basic"
         [value]="basicValue"
         (onChange)="onBasicChange($event)">
         <goab-radio-item value="option1" label="Option 1"></goab-radio-item>
@@ -22,22 +22,22 @@
   <section class="example-section">
     <h2>Radio with Descriptions</h2>
     <goab-form-item label="Select delivery method">
-      <goab-radio-group 
-        name="delivery" 
+      <goab-radio-group
+        name="delivery"
         [value]="deliveryValue"
         (onChange)="onDeliveryChange($event)">
-        <goab-radio-item 
-          value="standard" 
+        <goab-radio-item
+          value="standard"
           label="Standard Delivery"
           description="5-7 business days, no additional cost">
         </goab-radio-item>
-        <goab-radio-item 
-          value="express" 
+        <goab-radio-item
+          value="express"
           label="Express Delivery"
           description="2-3 business days, additional $15">
         </goab-radio-item>
-        <goab-radio-item 
-          value="overnight" 
+        <goab-radio-item
+          value="overnight"
           label="Overnight Delivery"
           description="Next business day, additional $25">
         </goab-radio-item>
@@ -50,8 +50,8 @@
   <section class="example-section">
     <h2>Horizontal Radio</h2>
     <goab-form-item label="Rating">
-      <goab-radio-group 
-        name="rating" 
+      <goab-radio-group
+        name="rating"
         orientation="horizontal"
         [value]="ratingValue"
         (onChange)="onRatingChange($event)">
@@ -67,27 +67,27 @@
   <!-- Required Radio with Error -->
   <section class="example-section">
     <h2>Required Radio with Validation</h2>
-    <goab-form-item 
-      label="Terms and Conditions" 
+    <goab-form-item
+      label="Terms and Conditions"
       requirement="required"
       [error]="termsError ? 'Please make a selection' : ''">
-      <goab-radio-group 
-        name="terms" 
+      <goab-radio-group
+        name="terms"
         [value]="termsValue"
         [error]="termsError"
         (onChange)="onTermsChange($event)">
-        <goab-radio-item 
-          value="accept" 
+        <goab-radio-item
+          value="accept"
           label="I accept the terms and conditions">
         </goab-radio-item>
-        <goab-radio-item 
-          value="decline" 
+        <goab-radio-item
+          value="decline"
           label="I decline the terms and conditions">
         </goab-radio-item>
       </goab-radio-group>
     </goab-form-item>
-    <button 
-      type="button" 
+    <button
+      type="button"
       (click)="validateTerms()"
       class="validate-btn">
       Validate Selection
@@ -101,8 +101,8 @@
   <section class="example-section">
     <h2>Disabled Radio</h2>
     <goab-form-item label="Subscription type (currently disabled)">
-      <goab-radio-group 
-        name="subscription" 
+      <goab-radio-group
+        name="subscription"
         [value]="'premium'"
         [disabled]="true"
         (onChange)="onSubscriptionChange($event)">
@@ -117,41 +117,41 @@
   <section class="example-section">
     <h2>Template-driven Form Example</h2>
     <form #templateForm="ngForm">
-      <goab-form-item 
-        label="Preferred Contact Method" 
+      <goab-form-item
+        label="Preferred Contact Method"
         requirement="required">
-        <goab-radio-group 
-          name="contactMethod" 
+        <goab-radio-group
+          name="contactMethod"
           [(ngModel)]="contactMethod"
           (onChange)="onContactMethodChange($event)"
           #contactRadio="ngModel"
           required>
-          <goab-radio-item 
-            value="email" 
+          <goab-radio-item
+            value="email"
             label="Email"
             description="We'll send updates to your email address">
           </goab-radio-item>
-          <goab-radio-item 
-            value="phone" 
+          <goab-radio-item
+            value="phone"
             label="Phone"
             description="We'll call you during business hours">
           </goab-radio-item>
-          <goab-radio-item 
-            value="mail" 
+          <goab-radio-item
+            value="mail"
             label="Mail"
             description="We'll send physical letters">
           </goab-radio-item>
         </goab-radio-group>
       </goab-form-item>
-      
+
       <div class="form-status">
         <p><strong>Form Valid:</strong> {{ templateForm.valid }}</p>
         <p><strong>Contact Method Valid:</strong> {{ contactRadio.valid }}</p>
         <p><strong>Selected Method:</strong> {{ contactMethod || 'None' }}</p>
       </div>
-      
-      <button 
-        type="submit" 
+
+      <button
+        type="submit"
         [disabled]="!templateForm.valid"
         (click)="onTemplateSubmit(templateForm)"
         class="submit-btn">
@@ -164,43 +164,43 @@
   <section class="example-section">
     <h2>Reactive Form Example</h2>
     <form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">
-      <goab-form-item 
-        label="Employment Status" 
+      <goab-form-item
+        label="Employment Status"
         requirement="required"
         [error]="isFieldInvalid('employmentStatus') ? 'Employment status is required' : ''">
-        <goab-radio-group 
-          name="employmentStatus" 
+        <goab-radio-group
+          name="employmentStatus"
           formControlName="employmentStatus"
           [error]="isFieldInvalid('employmentStatus')">
-          <goab-radio-item 
-            value="employed" 
+          <goab-radio-item
+            value="employed"
             label="Employed"
             description="Currently working full-time or part-time">
           </goab-radio-item>
-          <goab-radio-item 
-            value="unemployed" 
+          <goab-radio-item
+            value="unemployed"
             label="Unemployed"
             description="Not currently working but seeking employment">
           </goab-radio-item>
-          <goab-radio-item 
-            value="student" 
+          <goab-radio-item
+            value="student"
             label="Student"
             description="Currently enrolled in educational institution">
           </goab-radio-item>
-          <goab-radio-item 
-            value="retired" 
+          <goab-radio-item
+            value="retired"
             label="Retired"
             description="No longer working due to retirement">
           </goab-radio-item>
         </goab-radio-group>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Province of Residence" 
+      <goab-form-item
+        label="Province of Residence"
         requirement="required"
         [error]="isFieldInvalid('province') ? 'Province is required' : ''">
-        <goab-radio-group 
-          name="province" 
+        <goab-radio-group
+          name="province"
           formControlName="province"
           [error]="isFieldInvalid('province')">
           <goab-radio-item value="ab" label="Alberta"></goab-radio-item>
@@ -219,20 +219,10 @@
         <p><strong>Province:</strong> {{ getProvinceName() }}</p>
         <p><strong>Form Value:</strong> {{ getFormValue() }}</p>
       </div>
-      
+
       <div class="button-group">
-        <button 
-          type="submit" 
-          [disabled]="!reactiveForm.valid"
-          class="submit-btn">
-          Submit Reactive Form
-        </button>
-        <button 
-          type="button" 
-          (click)="resetReactiveForm()"
-          class="reset-btn">
-          Reset Form
-        </button>
+        <goab-button type="submit" [disabled]="!reactiveForm.valid">Submit button using type submit</goab-button>
+        <goab-button type="primary" (onClick)="resetReactiveForm()">Reset</goab-button>
       </div>
     </form>
   </section>
@@ -241,27 +231,27 @@
   <section class="example-section">
     <h2>Dynamic Radio Options</h2>
     <goab-form-item label="Available Services">
-      <goab-radio-group 
-        name="service" 
+      <goab-radio-group
+        name="service"
         [value]="selectedService"
         (onChange)="onServiceChange($event)">
-        <goab-radio-item 
-          *ngFor="let service of availableServices" 
-          [value]="service.id" 
+        <goab-radio-item
+          *ngFor="let service of availableServices"
+          [value]="service.id"
           [label]="service.name"
           [description]="service.description">
         </goab-radio-item>
       </goab-radio-group>
     </goab-form-item>
     <div class="controls">
-      <button 
-        type="button" 
+      <button
+        type="button"
         (click)="addService()"
         class="add-btn">
         Add Service
       </button>
-      <button 
-        type="button" 
+      <button
+        type="button"
         (click)="removeLastService()"
         [disabled]="availableServices.length === 0"
         class="remove-btn">
@@ -275,58 +265,58 @@
   <section class="example-section">
     <h2>Government Service Application</h2>
     <form [formGroup]="applicationForm" (ngSubmit)="onApplicationSubmit()">
-      <goab-form-item 
-        label="Type of Application" 
+      <goab-form-item
+        label="Type of Application"
         requirement="required"
         helperText="Select the type of government service you're applying for"
         [error]="isApplicationFieldInvalid('applicationType') ? 'Application type is required' : ''">
-        <goab-radio-group 
-          name="applicationType" 
+        <goab-radio-group
+          name="applicationType"
           formControlName="applicationType"
           [error]="isApplicationFieldInvalid('applicationType')">
-          <goab-radio-item 
-            value="passport" 
+          <goab-radio-item
+            value="passport"
             label="Passport Application"
             description="New passport or passport renewal">
           </goab-radio-item>
-          <goab-radio-item 
-            value="license" 
+          <goab-radio-item
+            value="license"
             label="Driver's License"
             description="New license, renewal, or replacement">
           </goab-radio-item>
-          <goab-radio-item 
-            value="health" 
+          <goab-radio-item
+            value="health"
             label="Health Card"
             description="Alberta Health Care Insurance Plan">
           </goab-radio-item>
-          <goab-radio-item 
-            value="business" 
+          <goab-radio-item
+            value="business"
             label="Business License"
             description="Register a new business in Alberta">
           </goab-radio-item>
         </goab-radio-group>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Processing Priority" 
+      <goab-form-item
+        label="Processing Priority"
         requirement="optional"
         helperText="Standard processing is free, expedited processing may have additional fees"
         [error]="isApplicationFieldInvalid('priority') ? 'Priority selection is required' : ''">
-        <goab-radio-group 
-          name="priority" 
+        <goab-radio-group
+          name="priority"
           formControlName="priority"
           orientation="horizontal"
           [error]="isApplicationFieldInvalid('priority')">
-          <goab-radio-item 
-            value="standard" 
+          <goab-radio-item
+            value="standard"
             label="Standard (4-6 weeks)">
           </goab-radio-item>
-          <goab-radio-item 
-            value="expedited" 
+          <goab-radio-item
+            value="expedited"
             label="Expedited (2-3 weeks)">
           </goab-radio-item>
-          <goab-radio-item 
-            value="urgent" 
+          <goab-radio-item
+            value="urgent"
             label="Urgent (5-10 days)">
           </goab-radio-item>
         </goab-radio-group>
@@ -339,9 +329,9 @@
         <p *ngIf="getEstimatedFee() > 0"><strong>Estimated Fee:</strong> ${{ getEstimatedFee() | number:'1.2-2' }} CAD</p>
         <p *ngIf="getEstimatedFee() === 0"><strong>Fee:</strong> No additional fees</p>
       </div>
-      
-      <button 
-        type="submit" 
+
+      <button
+        type="submit"
         [disabled]="!applicationForm.valid"
         class="submit-btn">
         Submit Application
@@ -353,8 +343,8 @@
   <section class="example-section">
     <h2>Event Tracking Example</h2>
     <goab-form-item label="Newsletter Preferences">
-      <goab-radio-group 
-        name="newsletter" 
+      <goab-radio-group
+        name="newsletter"
         [value]="newsletterValue"
         (onChange)="onNewsletterChange($event)">
         <goab-radio-item value="daily" label="Daily Updates"></goab-radio-item>
@@ -363,7 +353,7 @@
         <goab-radio-item value="none" label="No Newsletter"></goab-radio-item>
       </goab-radio-group>
     </goab-form-item>
-    
+
     <div class="event-log">
       <h3>Event Log</h3>
       <div class="events" *ngIf="eventLog.length > 0">
@@ -372,8 +362,8 @@
         </div>
       </div>
       <p *ngIf="eventLog.length === 0">No events yet. Select an option to see events.</p>
-      <button 
-        type="button" 
+      <button
+        type="button"
         (click)="clearEventLog()"
         class="clear-btn">
         Clear Log
