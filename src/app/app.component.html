@@ -34,6 +34,10 @@
     </goab-side-menu>
   </section>
   <div class="container">
+    <goab-input name="tuition" [leadingContent]="leadingContent" [trailingContent]="trailingContent">
+      <ng-template #leadingContent><strong>$</strong></ng-template>
+      <ng-template #trailingContent><strong>Vanessa</strong></ng-template>
+    </goab-input>
     <router-outlet></router-outlet>
   </div>
   <goa-app-footer slot="footer" maxcontentwidth="1400px"></goa-app-footer>
