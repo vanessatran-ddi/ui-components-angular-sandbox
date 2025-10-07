@@ -9,17 +9,17 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
   selector: "app-dropdown-add-item-dynamically",
   template: `
     <h1>Dropdown - Add Items Dynamically</h1>
-    
+
     <goab-container>
       <goab-form-item label="Add New Item">
-        <goab-input 
-          name="newItem" 
-          [formControl]="newItemControl" 
+        <goab-input
+          name="newItem"
+          [formControl]="newItemControl"
           placeholder="Enter new item name">
         </goab-input>
-        <goab-button 
-          size="compact" 
-          type="secondary" 
+        <goab-button
+          size="compact"
+          type="secondary"
           (click)="addNewItem()"
           [disabled]="!newItemControl.value">
           Add Item
@@ -27,14 +27,14 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
       </goab-form-item>
 
       <goab-form-item label="Dynamic Dropdown" mt="2xl">
-        <goab-dropdown 
-          name="dynamicDropdown" 
+        <goab-dropdown
+          name="dynamicDropdown"
           [filterable]="true"
           (onChange)="onDropdownChange($event)"
           placeholder="Select an item">
-          <goab-dropdown-item 
-            *ngFor="let item of items; trackBy: trackByValue" 
-            [value]="item.value" 
+          <goab-dropdown-item
+            *ngFor="let item of items; trackBy: trackByValue"
+            [value]="item.value"
             [label]="item.label">
           </goab-dropdown-item>
         </goab-dropdown>
@@ -47,9 +47,9 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
           <ul>
             <li *ngFor="let item of items; trackBy: trackByValue">
               {{item.label}} ({{item.value}})
-              <goab-button 
-                size="compact" 
-                type="tertiary" 
+              <goab-button
+                size="compact"
+                type="tertiary"
                 (click)="removeItem(item.value)"
                 ml="xs">
                 Remove
@@ -74,7 +74,7 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
 export class DropdownAddItemDynamicallyComponent {
   newItemControl = new FormControl('');
   selectedValue: string | null = null;
-  
+
   items = [
     { value: 'apple', label: 'Apple' },
     { value: 'banana', label: 'Banana' },
@@ -86,7 +86,7 @@ export class DropdownAddItemDynamicallyComponent {
     if (!newItemName) return;
 
     const newValue = newItemName.toLowerCase().replace(/\s+/g, '-');
-    
+
     // Check if item already exists
     if (this.items.some(item => item.value === newValue)) {
       return;
@@ -103,7 +103,7 @@ export class DropdownAddItemDynamicallyComponent {
 
   removeItem(valueToRemove: string): void {
     this.items = this.items.filter(item => item.value !== valueToRemove);
-    
+
     // Clear selection if the selected item was removed
     if (this.selectedValue === valueToRemove) {
       this.selectedValue = null;
@@ -111,7 +111,7 @@ export class DropdownAddItemDynamicallyComponent {
   }
 
   onDropdownChange(event: GoabDropdownOnChangeDetail): void {
-    this.selectedValue = event.value || null;
+    this.selectedValue = event.value as string || null;
   }
 
   trackByValue(index: number, item: { value: string; label: string }): string {

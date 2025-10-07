@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DecimalPipe } from '@angular/common';
-import { 
-  GoabFormItem, 
-  GoabRadioGroup, 
-  GoabRadioItem 
+import {
+  GoabFormItem,
+  GoabRadioGroup,
+  GoabRadioItem
 } from '@abgov/angular-components';
 import { GoabRadioGroupOnChangeDetail } from '@abgov/ui-components-common';
 
@@ -45,7 +45,7 @@ export class RadioExamplesComponent {
     { id: 'service2', name: 'License Renewal', description: 'Renew various licenses' },
     { id: 'service3', name: 'Certificate Request', description: 'Request official certificates' }
   ];
-  
+
   private serviceCounter = 4;
 
   // Forms
@@ -66,22 +66,22 @@ export class RadioExamplesComponent {
 
   // Basic event handlers
   onBasicChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.basicValue = event.value;
+    this.basicValue = event.value as string;
     this.logEvent('Basic radio changed to: ' + event.value);
   }
 
   onDeliveryChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.deliveryValue = event.value;
+    this.deliveryValue = event.value as string;
     this.logEvent('Delivery method changed to: ' + event.value);
   }
 
   onRatingChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.ratingValue = event.value;
+    this.ratingValue = event.value as string;
     this.logEvent('Rating changed to: ' + event.value);
   }
 
   onTermsChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.termsValue = event.value;
+    this.termsValue = event.value as string;
     this.termsError = false;
     this.termsValidationMessage = '';
     this.logEvent('Terms selection changed to: ' + event.value);
@@ -92,17 +92,17 @@ export class RadioExamplesComponent {
   }
 
   onContactMethodChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.contactMethod = event.value;
+    this.contactMethod = event.value as string;
     this.logEvent('Contact method changed to: ' + event.value);
   }
 
   onServiceChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.selectedService = event.value;
+    this.selectedService = event.value as string;
     this.logEvent('Service changed to: ' + event.value);
   }
 
   onNewsletterChange(event: GoabRadioGroupOnChangeDetail): void {
-    this.newsletterValue = event.value;
+    this.newsletterValue = event.value as string;
     this.logEvent('Newsletter preference changed to: ' + event.value);
   }
 
@@ -163,23 +163,23 @@ export class RadioExamplesComponent {
   getEstimatedFee(): number {
     const applicationType = this.applicationForm.get('applicationType')?.value;
     const priority = this.applicationForm.get('priority')?.value;
-    
+
     const baseFees: {[key: string]: number} = {
       passport: 120,
       license: 75,
       health: 0,
       business: 350
     };
-    
+
     const priorityFees: {[key: string]: number} = {
       standard: 0,
       expedited: 50,
       urgent: 150
     };
-    
+
     const baseFee = baseFees[applicationType] || 0;
     const priorityFee = priorityFees[priority] || 0;
-    
+
     return baseFee + priorityFee;
   }
 
@@ -278,7 +278,7 @@ export class RadioExamplesComponent {
   private logEvent(message: string): void {
     const timestamp = new Date().toLocaleTimeString();
     this.eventLog.unshift({ timestamp, message });
-    
+
     // Keep only last 10 events
     if (this.eventLog.length > 10) {
       this.eventLog = this.eventLog.slice(0, 10);

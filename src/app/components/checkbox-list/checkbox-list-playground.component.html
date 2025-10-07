@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <goab-checkbox-list name="basic" formControlName="transportation">
+    <goab-checkbox name="car" text="Car" value="Car" ></goab-checkbox>
+    <goab-checkbox name="bike" text="Bike" value="Bike" ></goab-checkbox>
+    <goab-checkbox name="bus" text="Bus" value="Bus" ></goab-checkbox>
+  </goab-checkbox-list>
+</form>
+
+
+<goab-checkbox-list
+  name="basic"
+  [value]="basicSelection"
+  (onChange)="onRequiredSelectionChange($event)"
+>
+  <goab-checkbox name="car" text="Car" value="Car" ></goab-checkbox>
+  <goab-checkbox name="bike" text="Bike" value="Bike" ></goab-checkbox>
+  <goab-checkbox name="bus" text="Bus" value="Bus" ></goab-checkbox>
+</goab-checkbox-list>

@@ -48,6 +48,8 @@ import {PublicFormDropdownComponent} from "./app/components/public-form/public-f
 import {PublicFormRadioComponent} from "./app/components/public-form/public-form-radio.component";
 import {PublicFormTextAreaComponent} from "./app/components/public-form/public-form-textarea.component";
 import {PublicFormSubformComponent} from "./app/components/public-form/public-form-subform.component";
+import {MenuButtonPlaygroundComponent} from "./app/components/menu-button/menu-button-playground.component";
+import {CheckboxListPlaygroundComponent} from "src/app/components/checkbox-list/checkbox-list-playground.component";
 
 if (environment.production) {
   enableProdMode();
@@ -79,7 +81,9 @@ const routes: Routes = [
   { path: 'temporary-notification', component: TemporaryNotificationExamplesComponent},
   { path: 'tooltip', component: TooltipExamplesComponent},
   { path: 'button', component: ButtonExamplesComponent},
+  { path: 'menu-button', component: MenuButtonPlaygroundComponent},
   { path: 'checkbox', component: CheckboxExamplesComponent},
+  { path: "checkbox-list", component: CheckboxListPlaygroundComponent},
   { path: 'radio', component: RadioExamplesComponent},
   { path: 'text-area', component: TextAreaExamplesComponent},
   { path: 'drawer', component: DrawerExamplesComponent},

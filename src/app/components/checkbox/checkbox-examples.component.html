@@ -525,3 +525,11 @@
     <li><strong>Event Handling:</strong> Listen to <code>(onChange)</code> events for custom logic</li>
   </ul>
 </goab-container>
+
+
+<h3>Indeterminate</h3>
+<form>
+  <goab-form-item [formGroup]="form" label="Basic">
+    <goab-checkbox name="item" text="Item" [indeterminate]="true" formControlName="item"></goab-checkbox>
+  </goab-form-item>
+</form>

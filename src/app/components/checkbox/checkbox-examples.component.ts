@@ -104,6 +104,7 @@ export class CheckboxExamplesComponent {
       textContactMethod: [false],
       emailAddress: [""],
       phoneNumber: [""],
+      item: [""],
     });
 
     this.validationForm = this.fb.group({

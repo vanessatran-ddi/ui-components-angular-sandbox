@@ -3,9 +3,10 @@ import {
   GoabAppFooter,
   GoabAppHeader, GoabAppHeaderMenu,
   GoabColumnLayout,
-  GoabMicrositeHeader, GoabSideMenu
+  GoabMicrositeHeader, GoabSideMenu, GoabMenuButton
 } from "@abgov/angular-components";
 import {RouterOutlet} from "@angular/router";
+import {GoabMenuButtonOnActionDetail} from "@abgov/ui-components-common";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,14 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet,
     GoabSideMenu,
     GoabAppHeaderMenu,
-    GoabColumnLayout
+    GoabColumnLayout,
+    GoabMenuButton
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppComponent {}
+export class AppComponent {
+  onMenuAction(detail: GoabMenuButtonOnActionDetail) {
+    console.log("Menu action triggered:", detail);
+    alert(`Action: ${detail.action}`);
+  }
+}

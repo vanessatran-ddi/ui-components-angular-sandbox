@@ -63,6 +63,23 @@ import {
       </goab-block>
 
       <goab-spacer vSpacing="l"></goab-spacer>
+      <h3>Vanessa: Tooltip next to each other</h3>
+      <goab-tooltip
+        [content]="tooltipText2"
+      >
+        <goab-button type="secondary">Hover for 400px maxWidth tooltip</goab-button>
+      </goab-tooltip>
+
+      <goab-tooltip
+        [content]="tooltipText3"
+      >
+        <goab-button type="secondary">Hover for default tooltip (no maxWidth)</goab-button>
+      </goab-tooltip>
+      <goab-tooltip
+        [content]="tooltipText1"
+      >
+        <goab-button type="secondary">Hover for 200px maxWidth tooltip</goab-button>
+      </goab-tooltip>
 
       <h3>Horizontal Alignment Examples</h3>
       <p>Control how the tooltip aligns horizontally with its trigger element:</p>
@@ -332,24 +349,24 @@ import {
 
       <goab-block direction="row" gap="m" mb="l">
         <goab-tooltip [content]="favoriteTooltip">
-          <goab-icon-button 
-            [icon]="isFavorite ? 'heart' : 'heart-circle'" 
+          <goab-icon-button
+            [icon]="isFavorite ? 'heart' : 'heart-circle'"
             [ariaLabel]="isFavorite ? 'Remove from favorites' : 'Add to favorites'"
             (onClick)="toggleFavorite()">
           </goab-icon-button>
         </goab-tooltip>
 
         <goab-tooltip [content]="notificationTooltip">
-          <goab-icon-button 
-            [icon]="notificationsEnabled ? 'notifications' : 'notifications-off'" 
+          <goab-icon-button
+            [icon]="notificationsEnabled ? 'notifications' : 'notifications-off'"
             [ariaLabel]="notificationsEnabled ? 'Disable notifications' : 'Enable notifications'"
             (onClick)="toggleNotifications()">
           </goab-icon-button>
         </goab-tooltip>
 
         <goab-tooltip [content]="visibilityTooltip">
-          <goab-icon-button 
-            [icon]="isVisible ? 'eye' : 'eye-off'" 
+          <goab-icon-button
+            [icon]="isVisible ? 'eye' : 'eye-off'"
             [ariaLabel]="isVisible ? 'Hide item' : 'Show item'"
             (onClick)="toggleVisibility()">
           </goab-icon-button>
@@ -401,6 +418,11 @@ export class TooltipExamplesComponent {
   notificationsEnabled = true;
   isVisible = true;
   currentPosition: 'top' | 'bottom' | 'left' | 'right' = 'top';
+  tooltipText1 =
+    "This is a tooltip with maxWidth set to 200px. The text should wrap within this constraint.";
+  tooltipText2 =
+    "This tooltip has maxWidth set to 400px, allowing for longer content display.";
+  tooltipText3 = "Default tooltip without maxWidth constraint for comparison.";
 
   // Computed tooltip content
   get favoriteTooltip(): string {
