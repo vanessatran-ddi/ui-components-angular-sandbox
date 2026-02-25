@@ -13,14 +13,14 @@
     "@abgov/angular-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/angular-components",
     "@abgov/ui-components-common": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/common",
     "@abgov/web-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/web-components",
-    "@angular/animations": "^20.1.6",
-    "@angular/common": "^20.1.6",
-    "@angular/compiler": "^20.1.6",
-    "@angular/core": "^20.1.6",
-    "@angular/forms": "^20.1.6",
-    "@angular/platform-browser": "^20.1.6",
-    "@angular/platform-browser-dynamic": "^20.1.6",
-    "@angular/router": "^20.1.6",
+    "@angular/animations": "21.1.4",
+    "@angular/common": "21.1.4",
+    "@angular/compiler": "21.1.4",
+    "@angular/core": "21.1.4",
+    "@angular/forms": "21.1.4",
+    "@angular/platform-browser": "21.1.4",
+    "@angular/platform-browser-dynamic": "21.1.4",
+    "@angular/router": "21.1.4",
     "@faker-js/faker": "^9.9.0",
     "date-fns": "^3.3.1",
     "rxjs": "^7.8.1",
@@ -28,9 +28,9 @@
     "zone.js": "^0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.1.5",
-    "@angular/cli": "^20.1.5",
-    "@angular/compiler-cli": "^20.1.6",
+    "@angular-devkit/build-angular": "^21.1.4",
+    "@angular/cli": "21.1.4",
+    "@angular/compiler-cli": "21.1.4",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
@@ -38,6 +38,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.3"
   }
 }

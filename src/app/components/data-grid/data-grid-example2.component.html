@@ -1,0 +1,52 @@
+<h3>Table vs sort</h3>
+<goab-data-grid keyboardNav="table">
+  <goab-table width="100%" (onSort)="handleSort($event)">
+    <thead>
+    <tr data-grid="row">
+      <th data-grid="cell" style="padding-bottom: 0">
+        <goab-checkbox
+          name="selectAll"
+          [checked]="isSelectedAll"
+          (onChange)="selectAll($event.checked)" />
+      </th>
+      <th data-grid="cell">
+        <goab-table-sort-header name="id">ID</goab-table-sort-header>
+      </th>
+      <th data-grid="cell">
+        <goab-table-sort-header name="applicant">Applicant</goab-table-sort-header>
+      </th>
+      <th data-grid="cell">
+        <goab-table-sort-header name="dateSubmitted">Date Submitted</goab-table-sort-header>
+      </th>
+      <th data-grid="cell">Status</th>
+      <th data-grid="cell">Amount</th>
+      <th data-grid="cell">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (app of applications; track app.id) {
+        <tr data-grid="row">
+          <td data-grid="cell">
+            <goab-checkbox
+              [name]="'app-' + app.id"
+              [checked]="isSelected(app.id)"
+              (onChange)="toggleSelection(app.id)" />
+          </td>
+          <td data-grid="cell">{{ app.id }}</td>
+          <td data-grid="cell">{{ app.applicant }}</td>
+          <td data-grid="cell">{{ app.dateSubmitted }}</td>
+          <td data-grid="cell">
+            <goab-badge [type]="getStatusBadgeType(app.status)" [content]="app.status" />
+          </td>
+          <td data-grid="cell">{{ app.amount }}</td>
+          <td data-grid="cell">
+            <goab-menu-button text="Actions" type="tertiary">
+              <goab-menu-action action="view" text="View details" />
+              <goab-menu-action action="edit" text="Edit" />
+            </goab-menu-button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </goab-table>
+</goab-data-grid>

@@ -1,0 +1,29 @@
+<h3>Basic table vs navigation keyboard</h3>
+<goab-data-grid keyboardNav="table">
+  <goab-table width="100%">
+    <thead>
+    <tr data-grid="row">
+      <th data-grid="cell">Name</th>
+      <th data-grid="cell">Role</th>
+      <th data-grid="cell">Status</th>
+      <th data-grid="cell">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.id) {
+        <tr data-grid="row">
+          <td data-grid="cell">{{ user.name }}</td>
+          <td data-grid="cell">{{ user.role }}</td>
+          <td data-grid="cell">
+            <goab-badge
+              [type]="user.status === 'Active' ? 'success' : 'information'"
+              [content]="user.status" />
+          </td>
+          <td data-grid="cell">
+            <goab-button type="tertiary" size="compact">View</goab-button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </goab-table>
+</goab-data-grid>

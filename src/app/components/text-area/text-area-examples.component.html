@@ -1,13 +1,13 @@
 <div class="examples-container">
   <h1>Text Area Examples</h1>
   <p>Examples of text area components following the Alberta Design System.</p>
-  
+
   <!-- Basic Text Area -->
   <section class="example-section">
     <h2>Basic Text Area</h2>
     <goab-form-item label="Comments">
-      <goab-textarea 
-        name="basic" 
+      <goab-textarea
+        name="basic"
         [value]="basicValue"
         (onChange)="onBasicChange($event)"
         width="60ch">
@@ -20,8 +20,8 @@
   <section class="example-section">
     <h2>Text Area with Placeholder</h2>
     <goab-form-item label="Description">
-      <goab-textarea 
-        name="placeholder" 
+      <goab-textarea
+        name="placeholder"
         [value]="placeholderValue"
         (onChange)="onPlaceholderChange($event)"
         placeholder="Enter your description here..."
@@ -36,8 +36,8 @@
   <section class="example-section">
     <h2>Text Area with Character Count</h2>
     <goab-form-item label="Message" helperText="Maximum 200 characters">
-      <goab-textarea 
-        name="charCount" 
+      <goab-textarea
+        name="charCount"
         [value]="charCountValue"
         (onChange)="onCharCountChange($event)"
         placeholder="Type your message..."
@@ -54,8 +54,8 @@
   <section class="example-section">
     <h2>Text Area with Word Count</h2>
     <goab-form-item label="Essay" helperText="Maximum 50 words">
-      <goab-textarea 
-        name="wordCount" 
+      <goab-textarea
+        name="wordCount"
         [value]="wordCountValue"
         (onChange)="onWordCountChange($event)"
         placeholder="Write your essay..."
@@ -71,12 +71,12 @@
   <!-- Required Text Area with Validation -->
   <section class="example-section">
     <h2>Required Text Area with Validation</h2>
-    <goab-form-item 
-      label="Feedback" 
+    <goab-form-item
+      label="Feedback"
       requirement="required"
       [error]="feedbackError ? 'Feedback is required' : ''">
-      <goab-textarea 
-        name="feedback" 
+      <goab-textarea
+        name="feedback"
         [value]="feedbackValue"
         [error]="feedbackError"
         (onChange)="onFeedbackChange($event)"
@@ -85,8 +85,8 @@
         rows="3">
       </goab-textarea>
     </goab-form-item>
-    <button 
-      type="button" 
+    <button
+      type="button"
       (click)="validateFeedback()"
       class="validate-btn">
       Validate Feedback
@@ -100,8 +100,8 @@
   <section class="example-section">
     <h2>Disabled Text Area</h2>
     <goab-form-item label="System Information (Read-only)">
-      <goab-textarea 
-        name="disabled" 
+      <goab-textarea
+        name="disabled"
         [value]="'This is a system-generated message that cannot be edited.\nSystem ID: 12345\nGenerated: ' + getCurrentDate()"
         [disabled]="true"
         width="60ch"
@@ -114,8 +114,8 @@
   <section class="example-section">
     <h2>Read-only Text Area</h2>
     <goab-form-item label="Terms and Conditions">
-      <goab-textarea 
-        name="readonly" 
+      <goab-textarea
+        name="readonly"
         [value]="termsAndConditions"
         [readOnly]="true"
         width="60ch"
@@ -128,12 +128,12 @@
   <section class="example-section">
     <h2>Template-driven Form Example</h2>
     <form #templateForm="ngForm">
-      <goab-form-item 
-        label="Contact Message" 
+      <goab-form-item
+        label="Contact Message"
         requirement="required"
         helperText="Please describe your inquiry">
-        <goab-textarea 
-          name="contactMessage" 
+        <goab-textarea
+          name="contactMessage"
           [(ngModel)]="contactMessage"
           (onChange)="onContactMessageChange($event)"
           #contactTextArea="ngModel"
@@ -143,12 +143,12 @@
           rows="4">
         </goab-textarea>
       </goab-form-item>
-      
-      <goab-form-item 
-        label="Additional Comments" 
+
+      <goab-form-item
+        label="Additional Comments"
         requirement="optional">
-        <goab-textarea 
-          name="additionalComments" 
+        <goab-textarea
+          name="additionalComments"
           [(ngModel)]="additionalComments"
           (onChange)="onAdditionalCommentsChange($event)"
           placeholder="Any additional comments..."
@@ -156,16 +156,16 @@
           rows="3">
         </goab-textarea>
       </goab-form-item>
-      
+
       <div class="form-status">
         <p><strong>Form Valid:</strong> {{ templateForm.valid }}</p>
         <p><strong>Contact Message Valid:</strong> {{ contactTextArea.valid }}</p>
         <p><strong>Contact Message:</strong> {{ contactMessage || 'None' }}</p>
         <p><strong>Additional Comments:</strong> {{ additionalComments || 'None' }}</p>
       </div>
-      
-      <button 
-        type="submit" 
+
+      <button
+        type="submit"
         [disabled]="!templateForm.valid"
         (click)="onTemplateSubmit(templateForm)"
         class="submit-btn">
@@ -178,13 +178,13 @@
   <section class="example-section">
     <h2>Reactive Form Example</h2>
     <form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">
-      <goab-form-item 
-        label="Project Description" 
+      <goab-form-item
+        label="Project Description"
         requirement="required"
         helperText="Describe your project in detail"
         [error]="isFieldInvalid('projectDescription') ? 'Project description is required (minimum 20 characters)' : ''">
-        <goab-textarea 
-          name="projectDescription" 
+        <goab-textarea
+          name="projectDescription"
           formControlName="projectDescription"
           [error]="isFieldInvalid('projectDescription')"
           placeholder="Provide a detailed description of your project..."
@@ -193,12 +193,12 @@
         </goab-textarea>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Budget Justification" 
+      <goab-form-item
+        label="Budget Justification"
         requirement="required"
         [error]="isFieldInvalid('budgetJustification') ? 'Budget justification is required' : ''">
-        <goab-textarea 
-          name="budgetJustification" 
+        <goab-textarea
+          name="budgetJustification"
           formControlName="budgetJustification"
           [error]="isFieldInvalid('budgetJustification')"
           placeholder="Justify your budget requirements..."
@@ -209,11 +209,11 @@
         </goab-textarea>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Risk Assessment" 
+      <goab-form-item
+        label="Risk Assessment"
         requirement="optional">
-        <goab-textarea 
-          name="riskAssessment" 
+        <goab-textarea
+          name="riskAssessment"
           formControlName="riskAssessment"
           placeholder="Identify potential risks and mitigation strategies..."
           width="60ch"
@@ -228,16 +228,16 @@
         <p><strong>Form Value:</strong></p>
         <pre>{{ getFormValue() }}</pre>
       </div>
-      
+
       <div class="button-group">
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           [disabled]="!reactiveForm.valid"
           class="submit-btn">
           Submit Reactive Form
         </button>
-        <button 
-          type="button" 
+        <button
+          type="button"
           (click)="resetReactiveForm()"
           class="reset-btn">
           Reset Form
@@ -250,8 +250,8 @@
   <section class="example-section">
     <h2>Dynamic Text Area Configuration</h2>
     <goab-form-item label="Dynamic Text Area">
-      <goab-textarea 
-        name="dynamic" 
+      <goab-textarea
+        name="dynamic"
         [value]="dynamicValue"
         (onChange)="onDynamicChange($event)"
         [placeholder]="dynamicPlaceholder"
@@ -261,7 +261,7 @@
         [readOnly]="dynamicReadOnly">
       </goab-textarea>
     </goab-form-item>
-    
+
     <div class="controls">
       <div class="control-group">
         <label>Rows:</label>
@@ -300,13 +300,13 @@
   <section class="example-section">
     <h2>Government Application Example</h2>
     <form [formGroup]="applicationForm" (ngSubmit)="onApplicationSubmit()">
-      <goab-form-item 
-        label="Business Plan Summary" 
+      <goab-form-item
+        label="Business Plan Summary"
         requirement="required"
         helperText="Provide a comprehensive summary of your business plan (minimum 100 words)"
         [error]="isApplicationFieldInvalid('businessPlan') ? 'Business plan summary is required (minimum 100 words)' : ''">
-        <goab-textarea 
-          name="businessPlan" 
+        <goab-textarea
+          name="businessPlan"
           formControlName="businessPlan"
           [error]="isApplicationFieldInvalid('businessPlan')"
           placeholder="Describe your business concept, target market, competitive advantage, and financial projections..."
@@ -317,13 +317,13 @@
         </goab-textarea>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Environmental Impact Statement" 
+      <goab-form-item
+        label="Environmental Impact Statement"
         requirement="required"
         helperText="Describe the environmental impact of your project"
         [error]="isApplicationFieldInvalid('environmentalImpact') ? 'Environmental impact statement is required' : ''">
-        <goab-textarea 
-          name="environmentalImpact" 
+        <goab-textarea
+          name="environmentalImpact"
           formControlName="environmentalImpact"
           [error]="isApplicationFieldInvalid('environmentalImpact')"
           placeholder="Detail the potential environmental impacts and your mitigation measures..."
@@ -332,12 +332,12 @@
         </goab-textarea>
       </goab-form-item>
 
-      <goab-form-item 
-        label="Community Benefits" 
+      <goab-form-item
+        label="Community Benefits"
         requirement="optional"
         helperText="How will this project benefit the local community?">
-        <goab-textarea 
-          name="communityBenefits" 
+        <goab-textarea
+          name="communityBenefits"
           formControlName="communityBenefits"
           placeholder="Describe job creation, local partnerships, community services, etc..."
           width="60ch"
@@ -358,9 +358,9 @@
         </div>
         <p><strong>Total Application Length:</strong> {{ getTotalWordCount() }} words</p>
       </div>
-      
-      <button 
-        type="submit" 
+
+      <button
+        type="submit"
         [disabled]="!applicationForm.valid"
         class="submit-btn">
         Submit Application
@@ -372,8 +372,8 @@
   <section class="example-section">
     <h2>Event Tracking Example</h2>
     <goab-form-item label="Notes">
-      <goab-textarea 
-        name="eventTracking" 
+      <goab-textarea
+        name="eventTracking"
         [value]="eventTrackingValue"
         (onChange)="onEventTrackingChange($event)"
         (onKeyPress)="onKeyPress($event)"
@@ -382,7 +382,7 @@
         rows="3">
       </goab-textarea>
     </goab-form-item>
-    
+
     <div class="event-log">
       <h3>Event Log</h3>
       <div class="events" *ngIf="eventLog.length > 0">
@@ -391,8 +391,8 @@
         </div>
       </div>
       <p *ngIf="eventLog.length === 0">No events yet. Type in the text area to see events.</p>
-      <button 
-        type="button" 
+      <button
+        type="button"
         (click)="clearEventLog()"
         class="clear-btn">
         Clear Log

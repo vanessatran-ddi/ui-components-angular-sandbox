@@ -13,6 +13,7 @@ import {
   GoabFormItem
 } from '@abgov/angular-components';
 import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail, GoabInputOnKeyPressDetail } from '@abgov/ui-components-common';
+import {ResetInputComponent} from "./reset-input-component";
 
 @Component({
   selector: 'app-input-examples',
@@ -28,7 +29,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
     GoabButtonGroup,
     GoabBlock,
     GoabCard,
-    GoabFormItem
+    GoabFormItem,
+    ResetInputComponent
   ],
   template: `
     <goab-container>
@@ -254,8 +256,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
       <h3>User Registration Form</h3>
       <form [formGroup]="registrationForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="First Name" 
+          <goab-form-item
+            label="First Name"
             [error]="getFieldError('firstName')"
             helpText="Enter your first name">
             <goab-input
@@ -267,8 +269,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Last Name" 
+          <goab-form-item
+            label="Last Name"
             [error]="getFieldError('lastName')"
             helpText="Enter your last name">
             <goab-input
@@ -280,8 +282,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Email Address" 
+          <goab-form-item
+            label="Email Address"
             [error]="getFieldError('email')"
             helpText="Enter a valid email address">
             <goab-input
@@ -295,8 +297,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Phone Number" 
+          <goab-form-item
+            label="Phone Number"
             [error]="getFieldError('phone')"
             helpText="Enter your phone number">
             <goab-input
@@ -310,8 +312,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Age" 
+          <goab-form-item
+            label="Age"
             [error]="getFieldError('age')"
             helpText="Enter your age (18-120)">
             <goab-input
@@ -331,8 +333,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onRegistrationSubmit()"
             [disabled]="registrationForm.invalid">
             Register
@@ -431,8 +433,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
       <h3>Template Form with Validation</h3>
       <form #validationTemplateForm="ngForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Username" 
+          <goab-form-item
+            label="Username"
             [error]="usernameField.invalid && usernameField.touched ? 'Username is required (min 3 characters)' : undefined">
             <goab-input
               name="username"
@@ -447,8 +449,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Email Address" 
+          <goab-form-item
+            label="Email Address"
             [error]="emailField.invalid && emailField.touched ? 'Please enter a valid email address' : undefined">
             <goab-input
               name="email"
@@ -469,8 +471,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onTemplateValidationSubmit()"
             [disabled]="!validationTemplateForm.valid">
             Create Account
@@ -501,8 +503,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
       <h3>Financial Information Form</h3>
       <form [formGroup]="financialForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Annual Salary" 
+          <goab-form-item
+            label="Annual Salary"
             [error]="getFieldError('salary')"
             helpText="Enter your annual salary">
             <goab-input
@@ -520,8 +522,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Social Insurance Number" 
+          <goab-form-item
+            label="Social Insurance Number"
             [error]="getFieldError('sin')"
             helpText="Enter your 9-digit SIN (xxx-xxx-xxx)">
             <goab-input
@@ -535,8 +537,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Bank Account Number" 
+          <goab-form-item
+            label="Bank Account Number"
             [error]="getFieldError('accountNumber')"
             helpText="Enter your bank account number">
             <goab-input
@@ -554,8 +556,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onFinancialFormSubmit()"
             [disabled]="financialForm.invalid">
             Save Financial Info
@@ -582,8 +584,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
       <h3>Address Information Form</h3>
       <form [formGroup]="addressForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Street Address" 
+          <goab-form-item
+            label="Street Address"
             [error]="getAddressFieldError('streetAddress')"
             helpText="Enter your street address">
             <goab-input
@@ -596,8 +598,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="City" 
+          <goab-form-item
+            label="City"
             [error]="getAddressFieldError('city')"
             helpText="Enter your city">
             <goab-input
@@ -609,8 +611,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Postal Code" 
+          <goab-form-item
+            label="Postal Code"
             [error]="getAddressFieldError('postalCode')"
             helpText="Enter Canadian postal code (A1A 1A1)">
             <goab-input
@@ -628,8 +630,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onAddressFormSubmit()"
             [disabled]="addressForm.invalid">
             Save Address
@@ -772,8 +774,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
       <h3>Government Service Application</h3>
       <form [formGroup]="serviceForm">
         <goab-block direction="column" gap="l">
-          <goab-form-item 
-            label="Application ID" 
+          <goab-form-item
+            label="Application ID"
             [error]="getServiceFieldError('applicationId')"
             helpText="Enter your application reference number">
             <goab-input
@@ -786,8 +788,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Applicant Name" 
+          <goab-form-item
+            label="Applicant Name"
             [error]="getServiceFieldError('applicantName')"
             helpText="Enter full legal name">
             <goab-input
@@ -799,8 +801,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Service Fee" 
+          <goab-form-item
+            label="Service Fee"
             [error]="getServiceFieldError('serviceFee')"
             helpText="Service processing fee">
             <goab-input
@@ -817,8 +819,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
             </goab-input>
           </goab-form-item>
 
-          <goab-form-item 
-            label="Contact Phone" 
+          <goab-form-item
+            label="Contact Phone"
             [error]="getServiceFieldError('contactPhone')"
             helpText="Primary contact number">
             <goab-input
@@ -837,8 +839,8 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <goab-spacer vSpacing="m"></goab-spacer>
 
         <goab-button-group alignment="start" gap="compact">
-          <goab-button 
-            type="primary" 
+          <goab-button
+            type="primary"
             (onClick)="onServiceFormSubmit()"
             [disabled]="serviceForm.invalid">
             Submit Application
@@ -881,6 +883,7 @@ import { GoabInputOnChangeDetail, GoabInputOnFocusDetail, GoabInputOnBlurDetail,
         <li><strong>Security:</strong> Never store sensitive data in component state or logs</li>
       </ul>
     </goab-container>
+    <app-issue-3072-input/>
   `,
 })
 export class InputExamplesComponent implements OnInit {

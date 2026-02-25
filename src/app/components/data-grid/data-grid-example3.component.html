@@ -1,0 +1,52 @@
+<goab-data-grid keyboardNav="layout">
+  @for (user of users; track user.id) {
+    <goab-container mt="m" data-grid="row">
+      <goab-block direction="row" gap="m" alignment="start">
+        <goab-checkbox data-grid="cell-0" [name]="'user-' + user.id"></goab-checkbox>
+
+        <goab-block direction="column" gap="m" alignment="start" style="flex: 1">
+          <goab-block direction="row" gap="s" alignment="center">
+            <strong data-grid="cell-1">{{ user.name }}</strong>
+            <goab-block data-grid="cell-2">
+              <goab-badge
+                [type]="getStatusBadgeType(user.status)"
+                [content]="user.status">
+              </goab-badge>
+            </goab-block>
+          </goab-block>
+
+          <goab-block direction="row" gap="xl" alignment="start">
+            <goab-block direction="column" gap="xs" data-grid="cell-4">
+              <strong>Updated</strong>
+              <span>{{ user.updated }}</span>
+            </goab-block>
+            <goab-block direction="column" gap="xs" data-grid="cell-5">
+              <strong>Email</strong>
+              <span>{{ user.email }}</span>
+            </goab-block>
+            <goab-block direction="column" gap="xs" data-grid="cell-6">
+              <strong>Program</strong>
+              <span>{{ user.program }}</span>
+            </goab-block>
+          </goab-block>
+
+          <goab-block direction="row" gap="xl" alignment="start">
+            <goab-block direction="column" gap="xs" data-grid="cell-7">
+              <strong>Program ID</strong>
+              <span>{{ user.programId }}</span>
+            </goab-block>
+            <goab-block direction="column" gap="xs" data-grid="cell-8">
+              <strong>Service access</strong>
+              <span>{{ user.serviceAccess }}</span>
+            </goab-block>
+          </goab-block>
+        </goab-block>
+
+        <goab-menu-button data-grid="cell-3" text="Actions" type="tertiary" (onAction)="handleMenuAction(user.id, $event)">
+          <goab-menu-action action="open" text="Open"></goab-menu-action>
+          <goab-menu-action action="delete" text="Delete"></goab-menu-action>
+        </goab-menu-button>
+      </goab-block>
+    </goab-container>
+  }
+</goab-data-grid>

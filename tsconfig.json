@@ -16,8 +16,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
+    "target": "es2022",
+    "module": "es2022",
     "preserveSymlinks": true,
     "paths": {
       "@abgov/ui-components-common": [
@@ -25,7 +25,7 @@
       ]
     },
     "lib": [
-      "es2020",
+      "es2022",
       "dom"
     ]
   },

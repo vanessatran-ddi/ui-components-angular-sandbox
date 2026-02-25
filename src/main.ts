@@ -50,6 +50,7 @@ import {PublicFormTextAreaComponent} from "./app/components/public-form/public-f
 import {PublicFormSubformComponent} from "./app/components/public-form/public-form-subform.component";
 import {MenuButtonPlaygroundComponent} from "./app/components/menu-button/menu-button-playground.component";
 import {CheckboxListPlaygroundComponent} from "src/app/components/checkbox-list/checkbox-list-playground.component";
+import {DataGridSandboxComponent} from "./app/components/data-grid/data-grid-sandbox.component";
 
 if (environment.production) {
   enableProdMode();
@@ -100,7 +101,8 @@ const routes: Routes = [
   { path: "public-form-dropdown", component: PublicFormDropdownComponent},
   { path: "public-form-radio", component: PublicFormRadioComponent},
   { path: "public-form-textarea", component: PublicFormTextAreaComponent},
-  { path: "public-form-sub-form", component: PublicFormSubformComponent}
+  { path: "public-form-sub-form", component: PublicFormSubformComponent},
+  { path: "data-grid", component: DataGridSandboxComponent},
 ];
 
 bootstrapApplication(AppComponent, {

@@ -1,0 +1,121 @@
+<div style="max-width: 800px; margin: 2rem auto; padding: 1rem;">
+  <h1>Issue #3072: Angular Form Reset and Value Binding Test</h1>
+
+  <div style="background: #f5f5f5; padding: 1rem; margin-bottom: 2rem; border-radius: 4px;">
+    <h3>Testing Instructions:</h3>
+    <ol>
+      <li><strong>Fill in the form:</strong> Enter values in all fields below</li>
+      <li><strong>Click "Reset Form (Empty)":</strong> All fields should clear visually</li>
+      <li><strong>Fill the form again:</strong> Enter different values</li>
+      <li><strong>Click "Reset Form (Empty)" again:</strong> All fields should clear again (this is where the bug occurred)</li>
+      <li><strong>Click "Reset Form (With Values)":</strong> All fields should populate with default values</li>
+      <li><strong>Click "Patch Values":</strong> All fields should update to new values</li>
+    </ol>
+    <p><strong>Reset Count:</strong> {{ resetCount }} (helps track multiple reset operations)</p>
+  </div>
+
+  <form [formGroup]="testForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <goab-form-item label="Text Input">
+      <goab-input
+        formControlName="textInput"
+        name="textInput"
+        placeholder="Enter some text"
+        width="100%">
+      </goab-input>
+    </goab-form-item>
+    <goab-form-item label="Number Input">
+      <goab-input
+        formControlName="numberInput"
+        name="numberInput"
+        type="number"
+        placeholder="Enter a number"
+        width="100%">
+      </goab-input>
+    </goab-form-item>
+    <goab-form-item label="Email input">
+      <goab-input
+        formControlName="emailInput"
+        name="emailInput"
+        type="email"
+        placeholder="Enter an email"
+        width="100%">
+      </goab-input>
+    </goab-form-item>
+    <!-- Dropdown -->
+    <goab-form-item label="Dropdown">
+      <goab-dropdown
+        formControlName="dropdown"
+        name="dropdown"
+        placeholder="Select a fruit"
+        width="100%">
+        <goab-dropdown-item *ngFor="let option of fruitOptions" [value]="option.value" [label]="option.label"></goab-dropdown-item>
+      </goab-dropdown>
+    </goab-form-item>
+
+    <!-- Checkbox -->
+    <goab-form-item label="Checkbox">
+      <goab-checkbox
+        formControlName="checkbox"
+        name="checkbox"
+        text="Checkbox Option">
+      </goab-checkbox>
+    </goab-form-item>
+    <goab-form-item label="Radio Group">
+      <goab-radio-group
+        formControlName="radioGroup"
+        name="radioGroup">
+        <goab-radio-item *ngFor="let option of colorOptions" [value]="option.value"></goab-radio-item>
+      </goab-radio-group>
+    </goab-form-item>
+    <goab-form-item label="Textarea">
+      <goab-textarea
+        formControlName="textarea"
+        name="textarea"
+        placeholder="Enter some text"
+        width="100%"
+        [rows]="4">
+      </goab-textarea>
+    </goab-form-item>
+
+    <!-- Control Buttons -->
+    <goab-button-group>
+      <goab-button type="secondary" (click)="onReset()">
+        Reset Form (Empty)
+      </goab-button>
+      <goab-button type="secondary" (click)="onResetWithValues()">
+        Reset Form (With Values)
+      </goab-button>
+      <goab-button type="secondary" (click)="onSetSpecificValues()">
+        Patch Values
+      </goab-button>
+    </goab-button-group>
+    <!-- Form Values Display -->
+    <div style="margin-top: 2rem; padding: 1rem; background: #fff; border: 1px solid #ccc; border-radius: 4px;">
+      <h3>Current Form Values (from FormGroup):</h3>
+      <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow: auto;">{{ getCurrentValues() }}</pre>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+        <strong>Note:</strong> If the bug exists, the displayed values above will update correctly,
+        but the UI components won't visually reflect the reset after the first reset operation.
+      </p>
+    </div>
+
+    <!-- Test Scenarios -->
+    <div style="margin-top: 2rem; padding: 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
+      <h3>Expected Behavior (After Fix):</h3>
+      <ul>
+        <li> Reset to empty: All fields clear visually, form values become null/empty</li>
+        <li> Reset with values: All fields populate with the specified values</li>
+        <li> Patch values: All fields update to the new patched values</li>
+        <li> Multiple resets: Each reset should work consistently, not just the first one</li>
+      </ul>
+
+      <h3 style="margin-top: 1rem;">Bug Behavior (Before Fix):</h3>
+      <ul>
+        <li>L First reset works, but subsequent resets don't update the UI</li>
+        <li>L Form values update internally but UI remains unchanged</li>
+        <li>L User sees stale values in the components</li>
+      </ul>
+    </div>
+
+  </form>
+</div>

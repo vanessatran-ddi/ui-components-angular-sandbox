@@ -1,0 +1,92 @@
+
+<goab-data-grid keyboardNav="table">
+  <goab-table width="100%" (onSort)="handleSort($event)">
+    <thead>
+    <tr data-grid="row">
+      <th style="padding-bottom: 0" data-grid="cell">
+        <goab-checkbox
+          name="selectAll"
+          mt="2xs"
+          [checked]="isSelectedAll"
+          (onChange)="selectAll($event)">
+        </goab-checkbox>
+      </th>
+      <th data-grid="cell">
+        <goab-table-sort-header name="name">Name</goab-table-sort-header>
+      </th>
+      <th data-grid="cell">
+        <goab-table-sort-header name="status">Status</goab-table-sort-header>
+      </th>
+      <th data-grid="cell">Email</th>
+      <th data-grid="cell">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.id) {
+        <tr data-grid="row">
+          <td data-grid="cell">
+            <goab-checkbox
+              [name]="'user' + user.id"
+              [checked]="isSelected(user.id)"
+              (onChange)="toggleSelection(user.id, $event)">
+            </goab-checkbox>
+          </td>
+          <td data-grid="cell">{{ user.name }}</td>
+          <td data-grid="cell">
+            <goab-badge [type]="getStatusBadgeType(user.status)" [content]="user.status"></goab-badge>
+          </td>
+          <td data-grid="cell">{{ user.email }}</td>
+          <td data-grid="cell">
+            <goab-menu-button text="Actions" type="tertiary" (onAction)="handleMenuAction(user.id, $event)">
+              <goab-menu-action action="view" text="View"></goab-menu-action>
+              <goab-menu-action action="delete" text="Delete"></goab-menu-action>
+            </goab-menu-button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </goab-table>
+</goab-data-grid>
+
+<h3>Card Layout View</h3>
+<goab-data-grid keyboardNav="layout" keyboardIconPosition="right" keyboardIconVisibility="visible">
+  @for (user of users; track user.id) {
+    <goab-container mt="m" data-grid="row">
+      <div style="display: flex; align-items: center; gap: 1rem">
+        <goab-checkbox
+          data-grid="cell-0"
+          [name]="'user' + user.id"
+          [checked]="isSelected(user.id)"
+          (onChange)="toggleSelection(user.id, $event)">
+        </goab-checkbox>
+        <div style="flex: 1">
+          <goab-block direction="row" gap="s" alignment="center">
+            <strong data-grid="cell-1">{{ user.name }}</strong>
+            <goab-badge
+              data-grid="cell-2"
+              [type]="getStatusBadgeType(user.status)"
+              [content]="user.status">
+            </goab-badge>
+          </goab-block>
+          <span data-grid="cell-3" style="color: var(--goa-color-text-secondary)">
+            {{ user.email }}
+          </span>
+        </div>
+        <goab-menu-button
+          data-grid="cell-4"
+          text="Actions"
+          type="tertiary"
+          (onAction)="handleMenuAction(user.id, $event)">
+          <goab-menu-action action="view" text="View"></goab-menu-action>
+          <goab-menu-action action="delete" text="Delete"></goab-menu-action>
+        </goab-menu-button>
+      </div>
+    </goab-container>
+  }
+</goab-data-grid>
+
+<app-data-grid-example1/>
+
+<app-data-grid-example2/>
+
+<app-data-grid-example3/>
