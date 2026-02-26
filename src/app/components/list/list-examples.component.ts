@@ -185,6 +185,10 @@ export class ListExamplesComponent {
     }
   ];
 
+  isString(value: unknown): boolean {
+    return typeof value === 'string';
+  }
+
   // Methods for dynamic interaction
   addItem(category: string): void {
     console.log(`Adding item to ${category}`);

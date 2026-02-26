@@ -10,27 +10,27 @@
   },
   "private": true,
   "dependencies": {
-    "@abgov/angular-components": "4.7.0",
-    "@abgov/ui-components-common": "1.7.0",
-    "@abgov/web-components": "1.37.0",
-    "@angular/animations": "^19.0.6",
-    "@angular/common": "^19.0.6",
-    "@angular/compiler": "^19.0.6",
-    "@angular/core": "^19.0.6",
-    "@angular/forms": "^19.0.6",
-    "@angular/platform-browser": "^19.0.6",
-    "@angular/platform-browser-dynamic": "^19.0.6",
-    "@angular/router": "^19.0.6",
+    "@abgov/angular-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/angular-components/abgov-angular-components-0.0.1.tgz",
+    "@abgov/ui-components-common": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/common/abgov-ui-components-common-0.0.0.tgz",
+    "@abgov/web-components": "/Users/thytran142/WebstormProjects/ui-components/dist/libs/web-components/abgov-web-components-0.0.0.tgz",
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
     "@faker-js/faker": "^9.9.0",
     "date-fns": "^3.3.1",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
-    "zone.js": "^0.15.1"
+    "zone.js": "~0.14.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.0.7",
-    "@angular/cli": "^19.0.7",
-    "@angular/compiler-cli": "^19.0.6",
+    "@angular-devkit/build-angular": "^18.0.0",
+    "@angular/cli": "^18.0.0",
+    "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
@@ -38,6 +38,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.6.3"
+    "typescript": "~5.4.0"
   }
 }
