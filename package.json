@@ -10,9 +10,9 @@
   },
   "private": true,
   "dependencies": {
-    "@abgov/angular-components": "4.10.0",
-    "@abgov/web-components": "1.40.0",
-    "@abgov/ui-components-common": "1.10.0",
+    "@abgov/angular-components": "file:../ui-components/dist/libs/angular-components/abgov-angular-components-0.0.1.tgz",
+    "@abgov/web-components": "file:../ui-components/dist/libs/web-components/abgov-web-components-0.0.0.tgz",
+    "@abgov/ui-components-common": "file:../ui-components/dist/libs/common/abgov-ui-components-common-0.0.0.tgz",
     "@angular/animations": "^17.2.3",
     "@angular/common": "^17.2.3",
     "@angular/compiler": "^17.2.3",
