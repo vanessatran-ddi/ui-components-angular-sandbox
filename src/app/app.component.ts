@@ -1,28 +1,28 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from "@angular/core";
+import { Router, RouterOutlet } from "@angular/router";
 import {
-  GoabAppFooter,
-  GoabAppHeader, GoabAppHeaderMenu,
-  GoabColumnLayout,
-  GoabMicrositeHeader, GoabSideMenu
+  GoabWorkSideMenu,
+  GoabWorkSideMenuGroup,
+  GoabWorkSideMenuItem,
 } from "@abgov/angular-components";
-import {RouterOutlet} from "@angular/router";
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
   imports: [
-    GoabMicrositeHeader,
-    GoabAppHeader,
-    GoabAppFooter,
     RouterOutlet,
-    GoabSideMenu,
-    GoabMicrositeHeader,
-    GoabAppHeader,
-    GoabAppHeaderMenu,
-    GoabSideMenu,
-    GoabAppFooter,
+    GoabWorkSideMenu,
+    GoabWorkSideMenuGroup,
+    GoabWorkSideMenuItem,
   ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent {}
+export class AppComponent {
+  private router = inject(Router);
+
+  handleNavigate(url: string): void {
+    if (!url || url === "#") return;
+    this.router.navigateByUrl(url);
+  }
+}

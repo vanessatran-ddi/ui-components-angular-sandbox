@@ -6,9 +6,13 @@
 </p>
 <ul>
   <li>Header sticky at top (with border-bottom when scrolled past top)</li>
-  <li>Actions sticky at bottom (with border-top when content overflows above)</li>
+  <li>
+    Actions sticky at bottom (with border-top when content overflows above)
+  </li>
   <li>Content scrolls in the middle</li>
-  <li>V2 visual: no inset scroll shadows (sticky-element borders provide the cue)</li>
+  <li>
+    V2 visual: no inset scroll shadows (sticky-element borders provide the cue)
+  </li>
 </ul>
 
 <ng-template #drawerActions>
@@ -26,7 +30,8 @@
   maxSize="480px"
   [open]="drawerOpen"
   [actions]="drawerActions"
-  (onClose)="closeDrawer()">
+  (onClose)="closeDrawer()"
+>
   @for (n of paragraphs; track n) {
     <p>
       Paragraph {{ n }} — Drawer V2 now uses goa-scroll-panel internally. Verify

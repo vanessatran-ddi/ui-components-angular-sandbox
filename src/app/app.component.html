@@ -1,84 +1,79 @@
-<goa-two-column-layout maxcontentwidth="1400px" navcolumnwidth="30ch">
-  <section slot="header">
-    <goab-microsite-header type="alpha" level="alpha" version="UAT"></goab-microsite-header>
-    <goab-app-header heading="Design Systems" maxcontentwidth="1500px" [fullmenubreakpoint]="1700">
-      <a href="/get-started">Get started
-      </a>
-      <a href="/patterns">Patterns and templates</a>
-      <a href="/components">Components</a>
-      <a href="/design-tokens">Styles</a>
-      <a href="/content/capitalization">Content</a>
-      <a href="/support">Support</a>
-      <a href="https://github.com/GovAlta/ui-components/issues/new/choose" target="_blank">
-        Report a bug
-      </a>
-      <a href="#">Support</a>
-      <goab-app-header-menu heading="Tickets" leadingIcon="ticket">
-        <a href="#">Cases</a>
-        <a href="#">Payments</a>
-        <a href="#">Outstanding</a>
-      </goab-app-header-menu>
-      <a href="#" className="interactive">Sign in</a>
-    </goab-app-header>
-  </section>
+<ng-template #primaryContent>
+  <goab-work-side-menu-group icon="star" heading="Drawer tests">
+    <goab-work-side-menu-item label="Drawer examples" url="/drawer" />
+    <goab-work-side-menu-item label="Drawer V2 (scroll-panel internal)" url="/drawer-v2-scroll-panel" />
+  </goab-work-side-menu-group>
 
-  <section slot="nav">
-    <goab-side-menu>
-<!--      <goab-side-menu-group heading="Bugs">-->
+  <goab-work-side-menu-group icon="layers" heading="Form components">
+    <goab-work-side-menu-item label="Input" url="/input" />
+    <goab-work-side-menu-item label="Text area" url="/text-area" />
+    <goab-work-side-menu-item label="Dropdown" url="/dropdown" />
+    <goab-work-side-menu-item label="Dropdown — add items dynamically" url="/dropdown-add-item-dynamically" />
+    <goab-work-side-menu-item label="Dropdown — dynamic items" url="/dropdown-dynamic-items" />
+    <goab-work-side-menu-item label="Checkbox" url="/checkbox" />
+    <goab-work-side-menu-item label="Checkbox list" url="/checkbox-list" />
+    <goab-work-side-menu-item label="Radio" url="/radio" />
+    <goab-work-side-menu-item label="Date picker" url="/date-picker" />
+    <goab-work-side-menu-item label="File uploader" url="/file-uploader" />
+  </goab-work-side-menu-group>
 
-<!--      </goab-side-menu-group>-->
-      <!-- <goab-side-menu-group heading="Components">
-        <a routerLink="/date-picker">Date picker</a>
-      </goab-side-menu-group> -->
-      <a href="/date-picker">Go to date picker examples</a>
-      <a href="/modal">Go to modal examples</a>
-      <a href="/dropdown">Go to dropdown</a>
-      <a href="/file-uploader">Go to file uploader examples</a>
-      <a href="/input">Go to input examples</a>
-      <a href="/dropdown-add-item-dynamically">Go to dropdown add items dynamically</a>
-      <a href="/accordion">Go to accordion examples</a>
-      <a href="/callout">Go to callout examples</a>
-      <a href="/container">Go to container examples</a>
-      <a href="/details">Go to details examples</a>
-      <a href="/hero-banner">Go to hero banner examples</a>
-      <a href="/list">Go to list examples</a>
-      <a href="/popover">Go to popover examples</a>
-      <a href="/table">Go to table examples</a>
-      <a href="/text">Go to text examples</a>
-      <a href="/badge">Go to badge examples</a>
-      <a href="/filter-chip">Go to filter chip examples</a>
-      <a href="/notification-banner">Go to notification banner examples</a>
-      <a href="/progress-indicator">Go to progress indicator examples</a>
-      <a href="/skeleton-loader">Go to skeleton loader examples</a>
-      <a href="/temporary-notification">Go to temporary notification examples</a>
-      <a href="/tooltip">Go to tooltip examples</a>
-      <a href="/button">Go to button examples</a>
-      <a href="/menu-button">Go to menu button</a>
-      <a href="/checkbox">Go to checkbox examples</a>
-      <a href="/checkbox-list">Checkbox List</a>
-      <a href="/radio">Go to radio examples</a>
-      <a href="/text-area">Go to text area examples</a>
-      <a href="/drawer">Go to drawer examples</a>
-      <a href="/drawer-v2-scroll-panel">Drawer V2 (scroll-panel internal)</a>
-      <a href="/footer">Go to footer examples</a>
-      <a href="/header">Go to header examples</a>
-      <a href="/microsite-header">Go to microsite header examples</a>
-      <a href="/pagination">Go to pagination examples</a>
-      <a href="/side-menu">Go to side menu examples</a>
-      <a href="/tabs">Go to Tabs</a>
-      <a href="/blocks">Blocks</a>
-      <a href="/full-public-form-page">Full public form page</a>
-      <a href="/public-form-checkbox">Public form with checkbox</a>
-      <a href="/public-form-datepicker">Public form with date picker</a>
-      <a href="/public-form-dropdown">Public form with dropdown</a>
-      <a href="/public-form-radio">Public form with radio</a>
-      <a href="/public-form-textarea">Public form with textarea</a>
-      <a href="/public-form-sub-form">Public form with subform</a>
-      <a href="/data-grid">Data Grid</a>
-    </goab-side-menu>
-  </section>
-  <div class="container">
+  <goab-work-side-menu-group icon="grid" heading="Display">
+    <goab-work-side-menu-item label="Badge" url="/badge" />
+    <goab-work-side-menu-item label="Callout" url="/callout" />
+    <goab-work-side-menu-item label="Container" url="/container" />
+    <goab-work-side-menu-item label="Details" url="/details" />
+    <goab-work-side-menu-item label="Filter chip" url="/filter-chip" />
+    <goab-work-side-menu-item label="Hero banner" url="/hero-banner" />
+    <goab-work-side-menu-item label="List" url="/list" />
+    <goab-work-side-menu-item label="Notification banner" url="/notification-banner" />
+    <goab-work-side-menu-item label="Progress indicator" url="/progress-indicator" />
+    <goab-work-side-menu-item label="Skeleton loader" url="/skeleton-loader" />
+    <goab-work-side-menu-item label="Temporary notification" url="/temporary-notification" />
+    <goab-work-side-menu-item label="Text" url="/text" />
+    <goab-work-side-menu-item label="Accordion" url="/accordion" />
+  </goab-work-side-menu-group>
+
+  <goab-work-side-menu-group icon="navigation" heading="Navigation & overlays">
+    <goab-work-side-menu-item label="Modal" url="/modal" />
+    <goab-work-side-menu-item label="Popover" url="/popover" />
+    <goab-work-side-menu-item label="Tooltip" url="/tooltip" />
+    <goab-work-side-menu-item label="Menu button" url="/menu-button" />
+    <goab-work-side-menu-item label="App header" url="/header" />
+    <goab-work-side-menu-item label="App footer" url="/footer" />
+    <goab-work-side-menu-item label="Microsite header" url="/microsite-header" />
+    <goab-work-side-menu-item label="Side menu" url="/side-menu" />
+    <goab-work-side-menu-item label="Tabs" url="/tabs" />
+    <goab-work-side-menu-item label="Pagination" url="/pagination" />
+    <goab-work-side-menu-item label="Button" url="/button" />
+  </goab-work-side-menu-group>
+
+  <goab-work-side-menu-group icon="document" heading="Layout & data">
+    <goab-work-side-menu-item label="Blocks" url="/blocks" />
+    <goab-work-side-menu-item label="Table" url="/table" />
+    <goab-work-side-menu-item label="Data grid" url="/data-grid" />
+  </goab-work-side-menu-group>
+
+  <goab-work-side-menu-group icon="form" heading="Public forms">
+    <goab-work-side-menu-item label="Full public form page" url="/full-public-form-page" />
+    <goab-work-side-menu-item label="Public form — checkbox" url="/public-form-checkbox" />
+    <goab-work-side-menu-item label="Public form — date picker" url="/public-form-datepicker" />
+    <goab-work-side-menu-item label="Public form — dropdown" url="/public-form-dropdown" />
+    <goab-work-side-menu-item label="Public form — radio" url="/public-form-radio" />
+    <goab-work-side-menu-item label="Public form — text area" url="/public-form-textarea" />
+    <goab-work-side-menu-item label="Public form — sub-form" url="/public-form-sub-form" />
+  </goab-work-side-menu-group>
+</ng-template>
+
+<div class="app-shell">
+  <goab-work-side-menu
+    heading="Testing Playground"
+    url="/"
+    [open]="true"
+    [primaryContent]="primaryContent"
+    (onNavigate)="handleNavigate($event)">
+  </goab-work-side-menu>
+
+  <main class="app-content">
     <router-outlet></router-outlet>
-  </div>
-  <goab-app-footer slot="footer" maxContentWidth="1400px"></goab-app-footer>
-</goa-two-column-layout>
+  </main>
+</div>
