@@ -1,22 +1,44 @@
-<goab-button type="secondary" (onClick)="toggleModal()"
->Save for later</goab-button
->
-<goab-modal [open]="open" [heading]="heading" [actions]="actions">
-  <p>
-    You’ve selected to adjourn a matter that is required to appear today. This
-    Calgary court location does not accept adjournment requests past 1PM MST.
-    Please submit your adjournment request as soon as possible.
-  </p>
-  <ng-template #actions>
-    <goab-button-group alignment="end">
-      <div>Does this have a margin</div>
-      <goab-button type="secondary" (onClick)="toggleModal()"
-      >Secondary</goab-button
-      >
-      <goab-button type="primary" (onClick)="toggleModal()"
-      >Primary</goab-button
-      >
-    </goab-button-group>
-  </ng-template>
-  <ng-template #heading>Do you agree?</ng-template>
+<!--
+  Modal V2 test — production package version (@abgov/angular-components 5.1.0).
+  Same scenario as ui-components/.../feat3347 Test 7 so visual differences
+  between production and the local scroll-panel refactor can be spotted.
+-->
+<h2>Modal V2 (production package)</h2>
+<p>
+  Open the modal and scroll its content. Compare side-by-side with the local
+  refactored modal (running at <code>features/3347</code> Test 7 in the
+  ui-components prs playground). Check:
+</p>
+<ul>
+  <li>Header pinned at top, border / shadow appearing when scrolled</li>
+  <li>Actions pinned at bottom, border / shadow when content overflows above</li>
+  <li>Modal pane centered, ~64px gap from viewport edges</li>
+  <li>Scroll happens inside modal only, page does not scroll</li>
+  <li>Close button alignment, heading size, button group spacing</li>
+</ul>
+
+<ng-template #modalActions>
+  <goab-button-group alignment="end">
+    <goab-button type="secondary" (onClick)="closeModal()">Cancel</goab-button>
+    <goab-button type="primary" (onClick)="closeModal()">Save</goab-button>
+  </goab-button-group>
+</ng-template>
+
+<goab-button type="primary" (onClick)="openModal()">Open modal</goab-button>
+
+<goab-modal
+  heading="Modal V2 test"
+  [open]="modalOpen"
+  [closable]="true"
+  maxWidth="60ch"
+  [actions]="modalActions"
+  (onClose)="closeModal()">
+  @for (n of paragraphs; track n) {
+    <p>
+      Paragraph {{ n }} — Modal V2 now uses goa-scroll-panel internally. Verify
+      header sticky + actions sticky + content scrolls + borders appear when
+      scrolled (top/middle/bottom states). The pane should remain centered with
+      a 64px gap from viewport edges.
+    </p>
+  }
 </goab-modal>
