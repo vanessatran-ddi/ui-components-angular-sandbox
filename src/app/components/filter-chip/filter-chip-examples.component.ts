@@ -152,7 +152,7 @@ interface TableData {
             aria-labelledby="filterChipInput" 
             [value]="tableInputValue" 
             maxlength="100" 
-            size="large" 
+            size="default"
             leadingIcon="search" 
             placeholder="Search and press Enter or click Filter"
             (onChange)="handleTableInputChange($event)" 

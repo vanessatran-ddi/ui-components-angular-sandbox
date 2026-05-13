@@ -36,7 +36,7 @@ interface TableData {
           aria-labelledby="filterChipInput"
           [value]="inputValue"
           maxlength="100"
-          size="large"
+          size="default"
           leadingIcon="search"
           (onChange)="handleInputChange($event)"
           (onKeyPress)="handleInputKeyPress($event)">

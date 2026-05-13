@@ -39,9 +39,9 @@ interface TableRow {
         <goab-badge type="important" content="Important"></goab-badge>
         <goab-badge type="information" content="Information"></goab-badge>
         <goab-badge type="emergency" content="Emergency"></goab-badge>
-        <goab-badge type="dark" content="Dark"></goab-badge>
-        <goab-badge type="midtone" content="Midtone"></goab-badge>
-        <goab-badge type="light" content="Light"></goab-badge>
+        <goab-badge type="archived" content="Archived"></goab-badge>
+        <goab-badge type="default" content="Default"></goab-badge>
+        <goab-badge type="information" content="Subtle" emphasis="subtle"></goab-badge>
       </goab-block>
 
       <h2>Badges with Icons</h2>
@@ -52,9 +52,9 @@ interface TableRow {
         <goab-badge type="important" content="Important" icon="true"></goab-badge>
         <goab-badge type="information" content="Information" icon="true"></goab-badge>
         <goab-badge type="emergency" content="Emergency" icon="true"></goab-badge>
-        <goab-badge type="dark" content="Dark" icon="true"></goab-badge>
-        <goab-badge type="midtone" content="Midtone" icon="true"></goab-badge>
-        <goab-badge type="light" content="Light" icon="true"></goab-badge>
+        <goab-badge type="archived" content="Archived" icon="true"></goab-badge>
+        <goab-badge type="default" content="Default" icon="true"></goab-badge>
+        <goab-badge type="information" content="Subtle" emphasis="subtle" icon="true"></goab-badge>
       </goab-block>
 
       <h2>Badge Spacing Examples</h2>

@@ -1,0 +1,37 @@
+<h1>Drawer V2 — scroll-panel internal test</h1>
+<p>
+  Compares Drawer V2 against the production version. After the refactor (local
+  build), Drawer V2 uses <code>&lt;goa-scroll-panel&gt;</code> internally for
+  scroll mechanics + sticky header/footer borders.
+</p>
+<ul>
+  <li>Header sticky at top (with border-bottom when scrolled past top)</li>
+  <li>Actions sticky at bottom (with border-top when content overflows above)</li>
+  <li>Content scrolls in the middle</li>
+  <li>V2 visual: no inset scroll shadows (sticky-element borders provide the cue)</li>
+</ul>
+
+<ng-template #drawerActions>
+  <goab-button-group alignment="end">
+    <goab-button type="secondary" (onClick)="closeDrawer()">Cancel</goab-button>
+    <goab-button type="primary" (onClick)="closeDrawer()">Save</goab-button>
+  </goab-button-group>
+</ng-template>
+
+<goab-button type="primary" (onClick)="openDrawer()">Open drawer</goab-button>
+
+<goab-drawer
+  heading="Drawer V2 test"
+  position="right"
+  maxSize="480px"
+  [open]="drawerOpen"
+  [actions]="drawerActions"
+  (onClose)="closeDrawer()">
+  @for (n of paragraphs; track n) {
+    <p>
+      Paragraph {{ n }} — Drawer V2 now uses goa-scroll-panel internally. Verify
+      header sticky + actions sticky + content scrolls + borders appear when
+      scrolled (top/middle/bottom states).
+    </p>
+  }
+</goab-drawer>

@@ -34,6 +34,7 @@ import {CheckboxExamplesComponent} from "./app/components/checkbox/checkbox-exam
 import {RadioExamplesComponent} from "./app/components/radio/radio-examples.component";
 import {TextAreaExamplesComponent} from "./app/components/text-area/text-area-examples.component";
 import {DrawerExamplesComponent} from "./app/components/drawer/drawer-examples.component";
+import {DrawerV2ScrollPanelComponent} from "./app/components/drawer/drawer-v2-scroll-panel.component";
 import {FooterExamplesComponent} from "./app/components/footer/footer-examples.component";
 import {HeaderExamplesComponent} from "./app/components/header/header-examples.component";
 import {MicrositeHeaderExamplesComponent} from "./app/components/microsite-header/microsite-header-examples.component";
@@ -88,6 +89,7 @@ const routes: Routes = [
   { path: 'radio', component: RadioExamplesComponent},
   { path: 'text-area', component: TextAreaExamplesComponent},
   { path: 'drawer', component: DrawerExamplesComponent},
+  { path: 'drawer-v2-scroll-panel', component: DrawerV2ScrollPanelComponent},
   { path: 'footer', component: FooterExamplesComponent},
   { path: 'header', component: HeaderExamplesComponent},
   { path: 'microsite-header', component: MicrositeHeaderExamplesComponent},
