@@ -309,6 +309,54 @@ import { GoabModalCalloutVariant } from '@abgov/ui-components-common';
 
       <goab-spacer vSpacing="xl"></goab-spacer>
 
+      <!--
+        Scroll Panel Comparison Test
+        Mirrors ui-components/apps/prs/angular/.../feat3347 Test 7 so the modal
+        running against the production @abgov/angular-components package can be
+        compared visually against the local refactored Modal V2 (scroll-panel
+        internal) in the ui-components repo.
+      -->
+      <h2>Scroll Panel Comparison Test</h2>
+      <p>
+        Same scenario as the local ui-components Modal V2 test (Test 7 at
+        <code>/features/3347</code>). Compare side-by-side to spot visual
+        differences between production package and the local scroll-panel
+        refactor. Check: header pinned at top, actions pinned at bottom, sticky
+        border / shadow feedback when scrolled, pane centered ~64px from
+        viewport edges, scroll happens inside modal only (page does not scroll).
+      </p>
+
+      <goab-button (onClick)="openScrollPanelComparisonModal()">
+        Open scroll comparison modal
+      </goab-button>
+
+      <goab-modal
+        heading="Modal V2 test"
+        role="dialog"
+        [open]="scrollPanelComparisonModalOpen"
+        [closable]="true"
+        maxWidth="60ch"
+        (onClose)="closeScrollPanelComparisonModal()">
+        @for (n of paragraphs; track n) {
+          <p>
+            Paragraph {{ n }} — Modal V2 now uses goa-scroll-panel internally.
+            Verify header sticky + actions sticky + content scrolls + borders
+            appear when scrolled (top/middle/bottom states). The pane should
+            remain centered with a 64px gap from viewport edges.
+          </p>
+        }
+        <goab-button-group alignment="end" mt="xl">
+          <goab-button type="secondary" (onClick)="closeScrollPanelComparisonModal()">
+            Cancel
+          </goab-button>
+          <goab-button type="primary" (onClick)="closeScrollPanelComparisonModal()">
+            Save
+          </goab-button>
+        </goab-button-group>
+      </goab-modal>
+
+      <goab-spacer vSpacing="xl"></goab-spacer>
+
       <h2>Usage Notes</h2>
       <ul>
         <li><strong>Role:</strong> Use "dialog" for interactive modals, "alertdialog" for critical messages</li>
@@ -337,6 +385,10 @@ export class ModalExamplesComponent {
   formModalOpen = false;
   deleteModalOpen = false;
   saveChangesModalOpen = false;
+
+  // Scroll panel comparison test
+  scrollPanelComparisonModalOpen = false;
+  paragraphs = Array.from({ length: 25 }, (_, i) => i + 1);
 
   // Form data
   formData = {
@@ -463,5 +515,14 @@ export class ModalExamplesComponent {
     console.log('Changes discarded');
     this.saveChangesModalOpen = false;
     // Here you would typically discard changes and navigate
+  }
+
+  // Scroll panel comparison test methods
+  openScrollPanelComparisonModal() {
+    this.scrollPanelComparisonModalOpen = true;
+  }
+
+  closeScrollPanelComparisonModal() {
+    this.scrollPanelComparisonModalOpen = false;
   }
 }
