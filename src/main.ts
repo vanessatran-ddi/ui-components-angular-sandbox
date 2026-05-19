@@ -37,6 +37,7 @@ import {DrawerExamplesComponent} from "./app/components/drawer/drawer-examples.c
 import {DrawerV2ScrollPanelComponent} from "./app/components/drawer/drawer-v2-scroll-panel.component";
 import {FooterExamplesComponent} from "./app/components/footer/footer-examples.component";
 import {HeaderExamplesComponent} from "./app/components/header/header-examples.component";
+import {AppHeaderExamplesComponent} from "./app/components/app-header/app-header-examples.component";
 import {MicrositeHeaderExamplesComponent} from "./app/components/microsite-header/microsite-header-examples.component";
 import {PaginationExamplesComponent} from "./app/components/pagination/pagination-examples.component";
 import {SideMenuExamplesComponent} from "./app/components/side-menu/side-menu-examples.component";
@@ -92,6 +93,7 @@ const routes: Routes = [
   { path: 'drawer-v2-scroll-panel', component: DrawerV2ScrollPanelComponent},
   { path: 'footer', component: FooterExamplesComponent},
   { path: 'header', component: HeaderExamplesComponent},
+  { path: 'app-header', component: AppHeaderExamplesComponent},
   { path: 'microsite-header', component: MicrositeHeaderExamplesComponent},
   { path: 'pagination', component: PaginationExamplesComponent},
   { path: "side-menu", component: SideMenuExamplesComponent},

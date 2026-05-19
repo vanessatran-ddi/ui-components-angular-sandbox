@@ -1,0 +1,60 @@
+<div class="examples-container">
+  <h1>App Header Examples</h1>
+  <p>App header with navigation links, a nested header menu, and a utilities menu button following the Alberta Design System.</p>
+
+  <!-- App header with navigation and utilities -->
+  <section class="example-section">
+    <h2>Header with navigation menu and utilities</h2>
+    <p>
+      A service portal header showing top-level navigation links, a nested
+      <code>goab-app-header-menu</code> for grouped links, and a
+      <code>goab-menu-button</code> in the utilities slot for user actions.
+    </p>
+
+    <div class="header-example">
+      <goab-app-header heading="Service Portal" url="/">
+        <a slot="navigation" href="#">Dashboard</a>
+        <goab-app-header-menu slot="navigation" heading="Applications">
+          <a href="#">New application</a>
+          <a href="#">Active</a>
+          <a href="#">Archived</a>
+        </goab-app-header-menu>
+        <a slot="navigation" href="#">Reports</a>
+        <a slot="navigation" href="#">Settings</a>
+        <goab-menu-button slot="utilities" text="John Smith" type="tertiary" size="compact" (onAction)="onMenuAction($event)">
+          <goab-menu-action text="User settings" action="user-settings"></goab-menu-action>
+          <goab-menu-action text="Sign out" action="sign-out"></goab-menu-action>
+        </goab-menu-button>
+      </goab-app-header>
+    </div>
+
+    <div class="code-example">
+      <h4>Code:</h4>
+      <pre><code>&lt;goab-app-header heading="Service Portal" url="/"&gt;
+  &lt;a slot="navigation" href="#"&gt;Dashboard&lt;/a&gt;
+  &lt;goab-app-header-menu slot="navigation" heading="Applications"&gt;
+    &lt;a href="#"&gt;New application&lt;/a&gt;
+    &lt;a href="#"&gt;Active&lt;/a&gt;
+    &lt;a href="#"&gt;Archived&lt;/a&gt;
+  &lt;/goab-app-header-menu&gt;
+  &lt;a slot="navigation" href="#"&gt;Reports&lt;/a&gt;
+  &lt;a slot="navigation" href="#"&gt;Settings&lt;/a&gt;
+  &lt;goab-menu-button slot="utilities" text="John Smith" type="tertiary" size="compact"&gt;
+    &lt;goab-menu-action text="User settings" action="user-settings"&gt;&lt;/goab-menu-action&gt;
+    &lt;goab-menu-action text="Sign out" action="sign-out"&gt;&lt;/goab-menu-action&gt;
+  &lt;/goab-menu-button&gt;
+&lt;/goab-app-header&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Event Log -->
+  <div class="event-log">
+    <h3>Event Log</h3>
+    <div class="events">
+      <div *ngIf="eventLog.length === 0" class="event-item">No events yet. Open the "John Smith" menu and pick an action.</div>
+      <div *ngFor="let event of eventLog" class="event-item">
+        <strong>{{ event.timestamp }}</strong> — {{ event.message }}
+      </div>
+    </div>
+  </div>
+</div>
