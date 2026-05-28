@@ -53,6 +53,7 @@ import {PublicFormSubformComponent} from "./app/components/public-form/public-fo
 import {MenuButtonPlaygroundComponent} from "./app/components/menu-button/menu-button-playground.component";
 import {CheckboxListPlaygroundComponent} from "src/app/components/checkbox-list/checkbox-list-playground.component";
 import {DataGridSandboxComponent} from "./app/components/data-grid/data-grid-sandbox.component";
+import {FindYourCareComponent} from "./app/components/find-your-care/find-your-care.component";
 
 if (environment.production) {
   enableProdMode();
@@ -107,6 +108,7 @@ const routes: Routes = [
   { path: "public-form-textarea", component: PublicFormTextAreaComponent},
   { path: "public-form-sub-form", component: PublicFormSubformComponent},
   { path: "data-grid", component: DataGridSandboxComponent},
+  { path: "find-your-care", component: FindYourCareComponent},
 ];
 
 bootstrapApplication(AppComponent, {

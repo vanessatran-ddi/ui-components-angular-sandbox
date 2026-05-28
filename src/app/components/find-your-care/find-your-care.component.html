@@ -1,0 +1,57 @@
+<!--
+  Reproduction of the reported "Assisted Living Navigation Portal" header.
+  The menu uses the raw Svelte web components (goa-menu-button / goa-menu-action)
+  inside the Angular goab-app-header wrapper, exactly as in the user's report.
+-->
+<header class="header" data-testid="header">
+  <goab-microsite-header
+    type="live"
+    #micrositeHeader
+    data-testid="microsite-header"
+  ></goab-microsite-header>
+
+  <goab-app-header
+    hideHeaderMenuOnPrint
+    data-testid="app-header"
+    headerMenuAccessibility
+    url="/"
+    heading="Assisted Living Navigation Portal"
+    maxContentWidth="100%"
+    [fullMenuBreakpoint]="9999"
+  >
+    <goa-menu-button
+      data-testid="app-header-menu"
+      slot="utilities"
+      text="Menu"
+      type="tertiary"
+      version="2"
+      (_action)="onHeaderMenuAction($event)"
+    >
+      <goa-menu-action text="Home" action="home"></goa-menu-action>
+      @for (key of siteMobileMapKeys; track key) {
+      <goa-menu-action
+        [attr.text]="SITE_MAP[key].heading"
+        [attr.action]="key"
+      ></goa-menu-action>
+      }
+    </goa-menu-button>
+  </goab-app-header>
+</header>
+
+<main class="page-body">
+  <h1>Assisted Living Navigation Portal</h1>
+  <p>Find and compare assisted living options in Alberta.</p>
+
+  <!-- Event Log -->
+  <div class="event-log">
+    <h3>Event Log</h3>
+    <div class="events">
+      <div *ngIf="eventLog.length === 0" class="event-item">
+        No events yet. Open the "Menu" button and pick an action.
+      </div>
+      <div *ngFor="let event of eventLog" class="event-item">
+        <strong>{{ event.timestamp }}</strong> — {{ event.message }}
+      </div>
+    </div>
+  </div>
+</main>
