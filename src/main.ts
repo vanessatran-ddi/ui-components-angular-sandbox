@@ -54,6 +54,8 @@ import {MenuButtonPlaygroundComponent} from "./app/components/menu-button/menu-b
 import {CheckboxListPlaygroundComponent} from "src/app/components/checkbox-list/checkbox-list-playground.component";
 import {DataGridSandboxComponent} from "./app/components/data-grid/data-grid-sandbox.component";
 import {FindYourCareComponent} from "./app/components/find-your-care/find-your-care.component";
+import {Bug3662Component} from "./app/components/bug3662/bug3662.component";
+import {TooltipBadgeExamplesComponent} from "./app/components/tooltip-badge/tooltip-badge-examples.component";
 
 if (environment.production) {
   enableProdMode();
@@ -109,6 +111,8 @@ const routes: Routes = [
   { path: "public-form-sub-form", component: PublicFormSubformComponent},
   { path: "data-grid", component: DataGridSandboxComponent},
   { path: "find-your-care", component: FindYourCareComponent},
+  { path: "bug-3662", component: Bug3662Component},
+  { path: "tooltip-badge", component: TooltipBadgeExamplesComponent},
 ];
 
 bootstrapApplication(AppComponent, {
